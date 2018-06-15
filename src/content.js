@@ -640,7 +640,7 @@ var TwitterShareButton = CreateClass ({
             timeout: 10000,
             data: {datachar: Base64.encodeURI(JSON.stringify(data))},
             success: function(data, datatype) {
-                var shareurl = 'https://medon-lab.com/keisanki?id=' + data
+                var shareurl = 'https://medon-lab.com/keisanki/?id=' + data
                 var tweeturl = 'https://twitter.com/intent/tweet?';
                 tweeturl += 'text=' + intl.translate("motocal", this.props.locale)
                 tweeturl += '&url=' + shareurl
