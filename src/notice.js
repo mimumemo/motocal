@@ -142,12 +142,11 @@ var Notice = CreateClass({
                         防御デバフを考慮する場合、防御固有値を半分にしてください。
                     </li>
                 </ul>
-
-                <Image className="banner" src="./otherImages/banner.jpg" />
-                製作者様: ほしみ <a href="http://twitter.com/hsimyu" target="_blank"> @hsimyu </a><br />
-                運用者: ミムメモ速報 <a href="https://twitter.com/guran_mimumemo" target="_blank"> @guran_mimumemo </a><br />
-                不具合報告・ご要望がありましたら運用者Twitterにてご連絡をお願い致します。
-
+            <h3>制作・運用者情報</h3>
+製作者: ほしみ <a href="http://twitter.com/hsimyu" target="_blank"> @hsimyu </a><br />
+運用者: ミムメモ速報 <a href="https://twitter.com/guran_mimumemo" target="_blank"> @guran_mimumemo </a><br />
+製作者ほしみさんの開発、運用の停止に伴い、元カレ計算機は有志での開発、運用体制になりました。不具合報告・ご要望がありましたら運用者Twitterにてご連絡をお願い致します。<br />
+※開発に向けての要望、ご意見については有志共同の窓口を設置する事などを相談中です。
             <h3>LICENSE</h3>
                 <ul className="list-group">
                     <li className="list-group-item"> テンプレート用の画像: &copy; Cygames </li>
