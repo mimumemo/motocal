@@ -640,7 +640,7 @@ var TwitterShareButton = CreateClass ({
             timeout: 10000,
             data: {datachar: Base64.encodeURI(JSON.stringify(data))},
             success: function(data, datatype) {
-                var shareurl = 'http://hsimyu.net/motocal?id=' + data
+                var shareurl = 'https://medon-lab.com/keisanki?id=' + data
                 var tweeturl = 'https://twitter.com/intent/tweet?';
                 tweeturl += 'text=' + intl.translate("motocal", this.props.locale)
                 tweeturl += '&url=' + shareurl
@@ -651,7 +651,7 @@ var TwitterShareButton = CreateClass ({
                 localStorage.setItem("sharehist", JSON.stringify(sharehist));
             }.bind(this),
             error: function(xhr, status, err) {
-                alert("Error!: 何かがおかしいです。@hsimyuまで連絡して下さい。status: ", status, ", error message: ", err.toString());
+                alert("Error!: 何かがおかしいです。@guran_mimumemoまで連絡して下さい。status: ", status, ", error message: ", err.toString());
             }.bind(this)
         });
     },

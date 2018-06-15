@@ -10,8 +10,8 @@ var Notice = CreateClass({
 
         return (
             <div className="notice">
-                <div className="divright"><a href="http://hsimyu.net/motocal/">入力リセット</a></div>
-                <h2>入力例: <a href="http://hsimyu.net/motocal/thumbnail.php" target="_blank"> 元カレ計算機データビューア </a> </h2>
+                <div className="divright"><a href="https://medon-lab.com/keisanki/">入力リセット</a></div>
+                <h2>入力例: <a href="https://medon-lab.com/keisanki/thumbnail.php" target="_blank"> 元カレ計算機データビューア </a> </h2>
                 <Panel bsStyle="default" collapsible="true" header={<span><Glyphicon glyph="chevron-right" />&nbsp;Update Logs</span>}>
                     <ul className="list-group">
                         <li className="list-group-item list-group-item-info">{intl.translate("notice-20180311-1", locale)}</li>
@@ -144,14 +144,15 @@ var Notice = CreateClass({
                 </ul>
 
                 <Image className="banner" src="./otherImages/banner.jpg" />
-                製作者: ほしみ <a href="http://twitter.com/hsimyu" target="_blank"> @hsimyu </a><br />
-                不具合報告・ご要望がありましたらTwitterにてご連絡をお願い致します。
+                製作者様: ほしみ <a href="http://twitter.com/hsimyu" target="_blank"> @hsimyu </a><br />
+                運用者: ミムメモ速報 <a href="https://twitter.com/guran_mimumemo" target="_blank"> @guran_mimumemo </a><br />
+                不具合報告・ご要望がありましたら運用者Twitterにてご連絡をお願い致します。
 
             <h3>LICENSE</h3>
                 <ul className="list-group">
                     <li className="list-group-item"> テンプレート用の画像: &copy; Cygames </li>
                     <li className="list-group-item"> <a href="http://facebook.github.io/react">React</a>: Copyright &copy; 2013-2016 Facebook Inc. v15.3.0 </li>
-                    <li className="list-group-item"> <a href="http://github.com/dankogai/js-base64">dankogai/js-base64</a>: Copyright &copy; 2014, Dan Kogai <a href="./js-base64/LICENSE.md"> LICENSE </a></li>
+                    <li className="list-group-item"> <a href="http://github.com/dankogai/js-base64">dankogai/js-base64</a>: Copyright &copy; 2014, Dan Kogai <a href="https://github.com/dankogai/js-base64/blob/master/LICENSE.md"> LICENSE </a></li>
 
                 </ul>
 

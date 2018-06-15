@@ -67,9 +67,15 @@ var HowTo = CreateClass({
 
                 <hr/>
                 <h2>開発情報</h2>
-                <p>元カレ計算機は <a href="https://twitter.com/hsimyu/">@hsimyu</a> with ゼタの元カレ団 が開発しています。
-                ソースコードは<a href="https://github.com/hoshimi/motocal">github</a>にて公開しています。
+                <p>元カレ計算機は <a href="https://twitter.com/hsimyu/">@hsimyu</a> with ゼタの元カレ団 が開発しています。</p>
+                <p>※2018/6/15 @hsimyuさんの開発終了に伴い、有志による複数人での開発と運用を行っていくことになりました。
+                ソースコードは<a href="https://github.com/MotocalDevelopers/motocal">github</a>にて公開しています。
                 ご要望のある方はPull requestを送って下さい。</p>
+                <h2>運営者情報</h2>
+                <p>サイトURL:https://medon-lab.com/keisanki/</p>
+                <p>運営者：ミムメモ速報管理人</p>
+                <p>連絡先：<a href="https://twitter.com/guran_mimumemo">@guran_mimumemo</a></p>
+                <p>※開発に向けての要望、ご意見については有志共同の窓口を設置する事などを相談中です。</p>
             </div>
         );
     },
