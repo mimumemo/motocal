@@ -10,8 +10,8 @@ var Notice = CreateClass({
 
         return (
             <div className="notice">
-                <div className="divright"><a href="https://medon-lab.com/keisanki/">入力リセット</a></div>
-                <h2>入力例: <a href="https://medon-lab.com/keisanki/thumbnail.php" target="_blank"> 元カレ計算機データビューア </a> </h2>
+                <div className="divright"><a href={`${location.origin}${location.pathname}`}>入力リセット</a></div>
+                <h2>入力例: <a href={`${location.origin}${location.pathname}thumbnail.php`} target="_blank"> 元カレ計算機データビューア </a> </h2>
                 <Panel bsStyle="default" collapsible="true" header={<span><Glyphicon glyph="chevron-right" />&nbsp;Update Logs</span>}>
                     <ul className="list-group">
                         <li className="list-group-item list-group-item-info">{intl.translate("notice-20180311-1", locale)}</li>
@@ -142,16 +142,14 @@ var Notice = CreateClass({
                         防御デバフを考慮する場合、防御固有値を半分にしてください。
                     </li>
                 </ul>
-            <h3>制作・運用者情報</h3>
-製作者: ほしみ <a href="http://twitter.com/hsimyu" target="_blank"> @hsimyu </a><br />
-運用者: ミムメモ速報 <a href="https://twitter.com/guran_mimumemo" target="_blank"> @guran_mimumemo </a><br />
-製作者ほしみさんの開発、運用の停止に伴い、元カレ計算機は有志での開発、運用体制になりました。不具合報告・ご要望がありましたら運用者Twitterにてご連絡をお願い致します。<br />
-※開発に向けての要望、ご意見については有志共同の窓口を設置する事などを相談中です。
+
+                不具合報告・ご要望がありましたら<a href="https://goo.gl/forms/z1Z8ThAOJxZLAUxc2" target="_blank">Google フォーム</a>にてご連絡をお願い致します。
+
             <h3>LICENSE</h3>
                 <ul className="list-group">
                     <li className="list-group-item"> テンプレート用の画像: &copy; Cygames </li>
                     <li className="list-group-item"> <a href="http://facebook.github.io/react">React</a>: Copyright &copy; 2013-2016 Facebook Inc. v15.3.0 </li>
-                    <li className="list-group-item"> <a href="http://github.com/dankogai/js-base64">dankogai/js-base64</a>: Copyright &copy; 2014, Dan Kogai <a href="https://github.com/dankogai/js-base64/blob/master/LICENSE.md"> LICENSE </a></li>
+                    <li className="list-group-item"> <a href="http://github.com/dankogai/js-base64">dankogai/js-base64</a>: Copyright &copy; 2014, Dan Kogai <a href="./js-base64/LICENSE.md"> LICENSE </a></li>
 
                 </ul>
 
