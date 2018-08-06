@@ -14,7 +14,6 @@ var Notice = CreateClass({
                 <h2>入力例: <a href={`${location.origin}${location.pathname}thumbnail.php`} target="_blank"> 元カレ計算機データビューア </a> </h2>
                 <Panel bsStyle="default" collapsible="true" header={<span><Glyphicon glyph="chevron-right" />&nbsp;Update Logs</span>}>
                     <ul className="list-group">
-                        <li className="list-group-item list-group-item-info">{intl.translate("notice-20180704-1", locale)}</li>
                         <li className="list-group-item list-group-item-info">{intl.translate("notice-20180311-1", locale)}</li>
                         <li className="list-group-item list-group-item-info">{intl.translate("notice-20180205-1", locale)}</li>
                         <li className="list-group-item list-group-item-info">{intl.translate("notice-20180102-1", locale)}</li>
