@@ -1,8 +1,10 @@
-# -*- coding:utf-8 -*-
-import json
-import re
 import csv
+import inspect
+import json
+import os
+import re
 from collections import OrderedDict
+
 skillnamelist = OrderedDict()
 
 # normal L and LL
@@ -251,15 +253,6 @@ skillnamelist["normalMusouLL"] = {
     u"憎悪の無双II": "dark"
 }
 
-skillnamelist["normalHiouM"] = {
-    u"業火の秘奥": "fire",
-    u"渦潮の秘奥": "water",
-    u"大地の秘奥": "earth",
-    u"竜巻の秘奥": "wind",
-    u"雷電の秘奥": "light",
-    u"憎悪の秘奥": "dark"
-}
-
 skillnamelist["normalJinkaiS"] = {
     u"火の刃界": "fire",
     u"水の刃界": "water",
@@ -360,6 +353,24 @@ skillnamelist["normalHiouS"] = {
     u"闇の秘奥": "dark"
 }
 
+skillnamelist["normalHiouM"] = {
+    u"業火の秘奥": "fire",
+    u"渦潮の秘奥": "water",
+    u"大地の秘奥": "earth",
+    u"竜巻の秘奥": "wind",
+    u"雷電の秘奥": "light",
+    u"憎悪の秘奥": "dark"
+}
+
+skillnamelist["normalHiouL"] = {
+    u"紅蓮の秘奥": "fire",
+    u"霧氷の秘奥": "water",
+    u"地裂の秘奥": "earth",
+    u"乱気の秘奥": "wind",
+    u"天光の秘奥": "light",
+    u"奈落の秘奥": "dark"
+}
+
 skillnamelist["normalHissatsuM"] = {
     u"業火の必殺": "fire",
     u"渦潮の必殺": "water",
@@ -367,6 +378,15 @@ skillnamelist["normalHissatsuM"] = {
     u"竜巻の必殺": "wind",
     u"雷電の必殺": "light",
     u"憎悪の必殺": "dark"
+}
+
+skillnamelist["normalHissatsuL"] = {
+    u"紅蓮の必殺": "fire",
+    u"霧氷の必殺": "water",
+    u"地裂の必殺": "earth",
+    u"乱気の必殺": "wind",
+    u"天光の必殺": "light",
+    u"奈落の必殺": "dark"
 }
 
 # magna II
@@ -669,6 +689,7 @@ skillnamelist["strengthL"] = {
     u"紅ニ染マル刃": "dark",
     u"フローズン・ブレード": "water",
     u"ジャスティス・ロッド": "light",
+    u"トラフィックエナジー": "light",
 }
 
 skillnamelist["exATKandHPM"] = {
@@ -743,6 +764,12 @@ skillnamelist["omega-raw"] = {
     u"マカエラ・ルーベル": "fire",
 }
 
+skillnamelist["akasha-sword"] = {u"虚脱の隻翼": "dark"}
+skillnamelist["akasha-spear"] = {u"虚栄の矛戟": "fire"}
+skillnamelist["akasha-axe"] = {u"虚勢の巌": "earth"}
+skillnamelist["akasha-wand"] = {u"虚飾の隻腕": "earth"}
+skillnamelist["akasha-bow"] = {u"虚像の鋒鏑": "light"}
+
 # コスモス
 skillnamelist["cosmosAT"] = {u"アタック・スタンス": "light"}
 skillnamelist["cosmosBL"] = {u"バランス・スタンス": "light"}
@@ -785,15 +812,16 @@ skillnamelist["normalDamageLimit10"] = {
 skillnamelist["ougiDamageLimitExceedM"] = {
     u"イクシード・ウォータ": "water",
     u"イクシード・アース": "earth",
+    u"イクシード・ウィンド": "wind",
     u"イクシード・ダーク": "dark",
 }
 
 # キャラ固有武器
 skillnamelist["tsuranukiKiba"] = {u"貫きの牙": "fire"}
 skillnamelist["washiouKekkai"] = {u"鷲王の結界": "fire"}
-skillnamelist["maihimeEnbu"] =   {u"舞姫の演武": "water"}
-skillnamelist["hengenKengi"] =   {u"変幻自在の剣技": "dark"}
-skillnamelist["kochoKenbu"] =   {u"胡蝶の剣舞": "earth"}
+skillnamelist["maihimeEnbu"] = {u"舞姫の演武": "water"}
+skillnamelist["hengenKengi"] = {u"変幻自在の剣技": "dark"}
+skillnamelist["kochoKenbu"] = {u"胡蝶の剣舞": "earth"}
 skillnamelist["normalHPL"][u"氷晶宮の加護"] = "water"
 skillnamelist["normalL"][u"聖女の行進"] = "light"
 skillnamelist["normalL"][u"天を統べる強風"] = "wind"
@@ -818,8 +846,13 @@ armtypelist[u"弓"] = "bow"
 armtypelist[u"楽器"] = "music"
 armtypelist[u"刀"] = "katana"
 
+########################################################################################################################
+filename = inspect.getframeinfo(inspect.currentframe()).filename
+path = os.path.dirname(os.path.abspath(filename))
+
 # json translation
-translation = json.load(open("./txt_source/weapon-translation.json", "r", encoding="utf-8"))
+translation = json.load(open(os.path.join(path, "../txt_source/arm-translation.json"), "r", encoding="utf-8"))
+
 
 def skill_replace(skill):
     for inner_skillname, onelist in skillnamelist.items():
@@ -828,13 +861,15 @@ def skill_replace(skill):
                 return inner_skillname, element
     return "non", "none"
 
+
 def type_replace(armtype):
     for armtypename, inner_armtype in armtypelist.items():
         if re.match(armtypename, armtype):
             return inner_armtype
     return "none"
 
-def processCSVdata(csv_file_name, json_data, image_url_list, PROCESS_TYPE_SSR = True):
+
+def processCSVdata(csv_file_name, json_data, image_wiki_url_list, image_game_url_list, PROCESS_TYPE_SSR=True):
     key_pattern = re.compile("\d+")
     key_pattern = re.compile("(\d+.*\.png)")
     skill_pattern = re.compile("\[\[([\W\w]+)\>")
@@ -944,24 +979,35 @@ def processCSVdata(csv_file_name, json_data, image_url_list, PROCESS_TYPE_SSR = 
                 newdict["en"] = name
 
             json_data[name] = newdict
-            image_url_list.append("http://gbf-wiki.com/index.php?plugin=attach&refer=img&openfile=" + key + "\n")
-            image_url_list = list(OrderedDict.fromkeys(image_url_list))
+            # Wiki
+            image_wiki_url_list.append("http://gbf-wiki.com/index.php?plugin=attach&refer=img&openfile=" + key + "\n")
+            # Game - Might get you banned...
+            image_game_url_list.append("http://gbf.game-a.mbga.jp/assets/img/sp/assets/weapon/b/" + key + "\n")
+            image_wiki_url_list = list(OrderedDict.fromkeys(image_wiki_url_list))
+            image_game_url_list = list(OrderedDict.fromkeys(image_game_url_list))
 
-    return json_data, image_url_list
+    return json_data, image_wiki_url_list, image_game_url_list
 
 
 if __name__ == '__main__':
     json_data = OrderedDict()
-    image_url_list = []
+    image_wiki_url_list = []
+    image_game_url_list = []
 
-    json_data, image_url_list = processCSVdata("./txt_source/armData-ssr.txt", json_data, image_url_list, True)
-    json_data, image_url_list = processCSVdata("./txt_source/armData-sr.txt", json_data, image_url_list, False)
+    json_data, image_wiki_url_list, image_game_url_list = processCSVdata(
+        os.path.join(path, "../txt_source/armData-ssr.txt"), json_data, image_wiki_url_list, image_game_url_list, True)
+    json_data, image_wiki_url_list, image_game_url_list = processCSVdata(
+        os.path.join(path, "../txt_source/armData-sr.txt"), json_data, image_wiki_url_list, image_game_url_list, False)
 
-    f = open("./armData.json", "w", encoding="utf-8")
+    f = open(os.path.join(path, "../armData.json"), "w", encoding="utf-8")
     json.dump(json_data, f, ensure_ascii=False, indent=4)
     f.close()
 
-    f = open("./imgs/imageURLlist.txt", "w", encoding="utf-8")
-    for x in image_url_list:
+    f = open(os.path.join(path, "../txt_source/armImageWikiURLList.txt"), "w", encoding="utf-8")
+    for x in image_wiki_url_list:
+        f.write(x)
+    f.close()
+    f = open(os.path.join(path, "../txt_source/armImageGameURLList.txt"), "w", encoding="utf-8")
+    for x in image_game_url_list:
         f.write(x)
     f.close()
