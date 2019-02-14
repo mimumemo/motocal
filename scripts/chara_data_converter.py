@@ -58,6 +58,8 @@ supportAbilist["ougi_damage_up_50"] = {u"天星剣王"}
 supportAbilist["emnity_all_SL10"] = {u"太陽信仰"}
 supportAbilist["emnity_own_SL20"] = {u"ダーク・ラピュセル", u"黒の鎧", u"砂神グラフォスの慈愛"}
 supportAbilist["envoy_meditation"] = {u"調停の使徒"}
+supportAbilist["dance_of_nataraja"] = {u"破滅の舞踏"}
+supportAbilist["recklessness_incarnate"] = {u"猪突・上宝沁金ノ撃槍"}
 supportAbilist["critical_up_own_10_30"] = {u"イ・タ・ズ・ラしちゃうぞ☆", u"セルフィッシュ・ロイヤル", u"ラ・ピュセル30"}
 supportAbilist["critical_up_own_20_20"] = {u"ラ・ピュセル20"}
 supportAbilist["critical_up_all_5_30"] = {u"調教してやる"}
@@ -84,8 +86,8 @@ supportAbilist["damageUP_OugiCapUP_20"] = {
 # Patching
 patching = OrderedDict()
 
-# 連撃率 from すんどめ侍さん
-## 十天衆
+# Consecutive atk rate from すんどめ侍さん
+## Eternals
 patching["[最終]ソーン"] = {"DA": 4.0, "TA": 1.0}
 patching["[最終]サラーサ"] = {"DA": 5.0, "TA": 1.0}
 patching["[最終]カトル"] = {"DA": 10.0, "TA": 5.0}

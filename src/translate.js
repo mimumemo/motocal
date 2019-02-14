@@ -351,6 +351,11 @@ var multiLangData = {
         "ja": "奥義ダメージUP",
         "zh": "奥义伤害上升",
     },
+    "チェインダメージアップ": {
+        "en": "Chain Damage UP",
+        "ja": "チェインダメージUP",
+        "zh": "チェイン义伤害上升",
+    },
     "ダメージ上限アップ": {
         "en": "Damage Limit Buff",
         "ja": "ダメージ上限アップ",
@@ -365,6 +370,11 @@ var multiLangData = {
         "en": "Ougi Damage Limit Buff",
         "ja": "奥義ダメージ上限UP",
         "zh": "奥义伤害上限上升",
+    },
+    "チェインダメージ上限アップ": {
+        "en": "Chain Damage Limit Buff",
+        "ja": "チェインダメージ上限UP",
+        "zh": "链义伤害上限上升",
     },
     "奥義ダメージ上限アップ説明": {
         "en": "It is used to calc the Ougi damage.",
@@ -1444,7 +1454,7 @@ var multiLangData = {
         "ja": "サーバに保存\n(短縮URLを取得)",
         "zh": "保存到服务器",
     },
-    //定数変換用
+    // For constant conversion
     "人間": {
         "en": "Human",
         "ja": "人間",
@@ -1542,6 +1552,11 @@ var multiLangData = {
         "ja": "予想ターン毎ダメージのパーティ平均値",
         "zh": "预测DPT(全队平均值)",
     },
+//    "予想ダメージ経時的な": {
+//        "en": "Party-Averaged Exp. Over Time",
+//        "ja": "予想ダメージ経時的な",
+//        "zh": "预测DPS(全队平均值)",
+//    },
     "予想ダメージ(ジータさんのみ)": {
         "en": "Exp. Damage (Player only)",
         "ja": "予想ダメージ(ジータさんのみ)",
@@ -1587,6 +1602,21 @@ var multiLangData = {
         "ja": "★6",
         "zh": "★6",
     },
+    "★7": {
+        "en": "★7",
+        "ja": "★7",
+        "zh": "★7",
+    },
+    "★8": {
+        "en": "★8",
+        "ja": "★8",
+        "zh": "★8",
+    },
+    "★9": {
+        "en": "★9",
+        "ja": "★9",
+        "zh": "★9",
+    },
     "表示項目切替": {
         "en": "Select Display Elements",
         "ja": "表示する項目を選択してください",
@@ -1612,7 +1642,7 @@ var multiLangData = {
         "ja": "キャラ情報・スキル合計値",
         "zh": "角色情报・技能合计值",
     },
-    // スキル名
+    // Skill name
     "通常攻刃(小)": {
         "en": "Normal Might (S)",
         "ja": "通常攻刃(小)",
@@ -1887,6 +1917,11 @@ var multiLangData = {
         "en": "Magna Wand (L)",
         "ja": "マグナ杖術(大)",
         "zh": "方阵杖術(大)",
+    },
+    "マグナ本質": {
+        "en": "Magna Essence (M)",
+        "ja": "マグナ本質(中)",
+        "zh": "方阵本質(中)",
     },
 
     "アンノウンATK・I": {
@@ -2369,7 +2404,12 @@ var multiLangData = {
         "ja": "奥義上限UP(イクシード)",
         "zh": "奥义上限UP(Exceed)",
     },
-    // 拡張スキル
+    "チェインフォース": {
+        "en": "Chain Force",
+        "ja": "チェインフォース",
+        "zh": "チェインフォース",
+    },
+    // Extended skills
     "通常渾身(大)(神石加護無効)": {
         "en": "Normal Stamina (L) (No Summon Aura)",
         "ja": "通常渾身(大)(神石加護無効)",
@@ -2405,7 +2445,7 @@ var multiLangData = {
         "ja": "[ジータのみ] 通常枠DATA 30%",
         "zh": "[只限主角] 通常DATA 30%",
     },
-    // テンプレート用
+    // For templates
     "王道: 竜巻の技巧": {
         "en": "Normal Verity (M)",
         "ja": "王道: 竜巻の技巧",
@@ -2609,7 +2649,7 @@ var multiLangData = {
         "ja": "下の行にバフ設定をコピーします.",
         "zh": "把Buff设定复制到下面一行。",
     },
-    // バフテンプレート
+    // Buff template
     "レイジIII": {
         "en": "Rage III",
         "ja": "レイジIII",
@@ -3008,7 +3048,7 @@ var multiLangData = {
     },
 };
 
-// 言語設定
+// Language settings
 module.exports.getLocale = function () {
     var lang = (
         (window.navigator.languages && window.navigator.languages[0]) ||

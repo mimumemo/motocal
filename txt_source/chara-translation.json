@@ -1,4 +1,7 @@
 {
+    "セン(SSR)": "Sen (SSR)",
+    "ダーント＆フライハイト": "Dante and Freiheit",
+    "ターニャ(SSR)": "Tanya (SSR)",
     "アテナ": "Athena",
     "ユーステス(闇属性ver)": "Eustace (Dark)",
     "クビラ": "Kumbhira",
@@ -313,7 +316,7 @@
     "ファスティバ(クリスマスver)": "Ladiva (Christmas)",
     "アニラ(SR)": "Anila (Event)",
     "ヤイア": "Yaia",
-    "スカル": "Skull",
+    "スカル": "Skull (Event)",
     "スーテラ(火属性ver)": "Sutera (Fire)",
     "リナ＝インバース": "Lina Inverse",
     "白蛇のナーガ": "Naga the Serpent",
@@ -366,9 +369,9 @@
     "エリン": "Erin",
     "リリィ(SR)": "Lily (Event)",
     "ミムルメモル＆切り株": "Mimlemel and Stumpeye",
-    "ターニャ": "Tanya",
+    "ターニャ(SR)": "Tanya (SR)",
     "パーシヴァル(SR)": "Percival (Event)",
-    "セン(クリスマスver)": "Sen (Christmas)",
+    "セン(クリスマスver)": "Sen (Holiday)",
     "アンチラ(SR)": "Andira (Event)",
     "ルシウス(火属性)": "Lucius (Fire)",
     "ミュオン": "Meteon",
@@ -451,5 +454,7 @@
     "サビルバラ(イベントver)": "Sevilbarra (Event)",
     "ヤイア(クリスマスver)": "Yaia (Holiday)",
     "ベアトリクス(土属性ver)": "Beatrix (Earth)",
-    "カシウス": "Cassius"
+    "カシウス": "Cassius",
+    "スカル(闇属性ver)": "Skull",
+    "キャサリン(SR)": "Catherine (SR)"
 }
