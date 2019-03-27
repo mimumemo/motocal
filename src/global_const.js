@@ -89,7 +89,10 @@ var zenith = {
     "★6": 0.10,
     "★7": 0.11,
     "★8": 0.13,
-    "★9": 0.15
+    "★9": 0.15,
+    "★10": 0.16,
+    "★11": 0.18,
+    "★12": 0.20
 };
 var zenithAttackBonus = [3000, 1500, 500, 0];
 var zenithHPBonus = [1000, 600, 300, 0];
@@ -393,6 +396,8 @@ var skilltypes = {
     "normalHiouL": {name: "通常秘奥(大)", type: "normalHiou", amount: "L"},
     "normalHissatsuM": {name: "通常必殺(中)", type: "normalHissatsu", amount: "M"},
     "normalHissatsuL": {name: "通常必殺(大)", type: "normalHissatsu", amount: "L"},
+    "normalEiketsuL": {name: "通常英傑(大)", type: "normalEiketsu", amount: "L"},
+    "normalOntyouM": {name: "通常恩寵(中)", type: "normalOntyou", amount: "M"},
     "magnaM": {name: "マグナ攻刃", type: "magna", amount: "M"},
     "magnaL": {name: "マグナ攻刃II", type: "magna", amount: "L"},
     "magnaSoka": {name: "マグナ楚歌", type: "magnaSoka", amount: "M"},
@@ -811,6 +816,18 @@ module.exports.Jobs = {
         "DaBonus": 20.0,
         "TaBonus": 15.0
     },
+    "chrysaor": {
+        "name": "クリュサオル",
+        "favArm1": "sword",
+        "favArm2": "katana",
+        "type": "attack",
+        "atBonus": 2000.0,
+        "kouzinBonus": 0.0,
+        "hpBonus": 600.0,
+        "shugoBonus": 0.0,
+        "DaBonus": 30.0,
+        "TaBonus": 0.0
+    },
     "rune": {
         "name": "魔法戦士",
         "favArm1": "katana",
@@ -1111,6 +1128,18 @@ module.exports.Jobs = {
         "DaBonus": 12.0,
         "TaBonus": 8.0
     },
+    "gladiator": {
+        "name": "グラディエーター",
+        "favArm1": "sword",
+        "favArm2": "katana",
+        "type": "attack",
+        "atBonus": 2000.0,
+        "kouzinBonus": 0.0,
+        "hpBonus": 0.0,
+        "shugoBonus": 0.0,
+        "DaBonus": 15.0,
+        "TaBonus": 0.0
+    },
     "none": {
         "name": "なし",
         "favArm1": "none",
@@ -1244,8 +1273,8 @@ var skillAmounts = {
     },
     "magnaNite": {
         "S": [0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2],
-        "M": [0.7, 1.0, 1.3, 1.6, 1.9, 2.2, 2.5, 2.8, 3.1, 3.4, 3.7, 4.0, 4.3, 4.6, 4.9],
-        "L": [1.0, 1.4, 1.8, 2.2, 2.6, 3.0, 3.4, 3.8, 4.2, 4.6, 5.0, 5.4, 5.8, 6.2, 6.6],
+        "M": [0.8, 1.1, 1.4, 1.7, 2.0, 2.3, 2.6, 2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.7, 5.0],
+        "L": [1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6, 4.0, 4.4, 5.0, 5.4, 5.8, 5.2, 6.6, 7.0],
     },
     "exNite": {
         "S": [0.4, 0.6, 0.8, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.2],
@@ -1274,10 +1303,10 @@ var skillAmounts = {
         "S": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.2, 1.4, 1.6, 1.8, 2.0]
     },
     "magnaRanbu": {
-        "M": [2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+        "M": [0.18, 0.31, 0.44, 0.57, 0.7, 0.83, 0.96, 1.09, 1.22, 1.35, 1.48, 1.61, 1.74, 1.87, 2.0]
     },
     "magnaHakai": {
-        "S": [2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5, 2.5],
+        "S": [0.4, 0.55, 0.7, 0.85, 1.0, 1.15, 1.3, 1.45, 1.6, 1.75, 1.9, 2.05, 2.20, 2.35, 2.5],
     },
     // Since it is only one Soka effect, it is usually defined separately from Magna attacking blade
     "normalSoka": {
@@ -1305,6 +1334,14 @@ var skillAmounts = {
         "M": [0.8, 1.1, 1.4, 1.7, 2.0, 2.3, 2.6, 2.9, 3.2, 3.5, 3.8, 4.1, 4.4, 4.7, 5.0],
         "L": [1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6, 4.0, 4.4, 4.8, 5.2, 5.6, 6.0, 6.4, 6.8]
     },
+    // normal Glory chain up
+    "normalEiketsu": {
+        "L": [3.0, 4.0, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0, 11.0, 12.0, 12.5, 13.0, 13.5, 14.0, 14.5]
+    },
+    // normal Glory limit up
+    "normalEiketsuDamageLimit": {
+        "L": [1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6, 4.0, 4.4, 4.8, 5.2, 5.6, 6.0, 6.4, 6.8]
+    },
     // normal Sentence
     "magnaHiou": {
         "M": [2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 8.5, 9.0, 9.5]
@@ -1330,12 +1367,16 @@ var skillAmounts = {
     },
     // Chain Force cap up
     "chainDamageLimit": {
-        "M": [0.02, 0.04, 0.06, 0.08, 0.10, 0.12, 0.14, 0.16, 0.18, 0.20, 0.22, 0.24, 0.26, 0.28, 0.30]
+        "M": [2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0, 22.0, 24.0, 26.0, 28.0, 30.0]
     },
     // Chain Force damage up
     "chainDamage": {
-        "M": [0.04, 0.08, 0.12, 0.16, 0.20, 0.24, 0.28, 0.32, 0.36, 0.40, 0.42, 0.44, 0.46, 0.48, 0.50]
+        "M": [4.0, 8.0, 12.0, 16.0, 20.0, 24.0, 28.0, 32.0, 36.0, 40.0, 42.0, 44.0, 46.0, 48.0, 50.0]
     },
+    // Debuff Resistance Grace (Unconfirmed Placeholder)
+    "normalOntyou": {
+        "M": [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0]
+    }
 };
 
 // chara support
@@ -1522,6 +1563,24 @@ var supportAbilities = {
         "type": "charaDamageUP_OugiCap",
         "range": "own",
         "value": 0.20
+    },
+    "ougiCapUP_20": {
+        "name": "奥義ダメージ上限20%UP",
+        "type": "ougiDamageLimitBuff",
+        "range": "own",
+        "value": 0.20
+    },
+    "ougiCapUP_25": {
+        "name": "奥義ダメージ上限25%UP(ルリア/ロボミ(SSR))",
+        "type": "ougiDamageLimitBuff",
+        "range": "own",
+        "value": 0.25
+    },
+    "wildcard": {
+        "name": "Break weapon skill limits (カイム)",
+        "type": "wildcard",
+        "range": "own",
+        "value": 0.0
     },
 };
 

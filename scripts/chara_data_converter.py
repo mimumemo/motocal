@@ -82,6 +82,18 @@ supportAbilist["damageUP_OugiCapUP_20"] = {
     u"惑乱の旋律",
     u"ピースメーカー",
 }
+supportAbilist["ougiCapUP_20"] = {
+    u"孤高の狙撃手",
+    u"天性の才能",
+    u"反撃の狼煙"
+}
+supportAbilist["ougiCapUP_25"] = {
+    u"優しい心",
+    u"リレーション・コンバーター"
+}
+supportAbilist["wildcard"] = {
+    u"ワイルドカード"
+}
 
 # Patching
 patching = OrderedDict()
@@ -237,7 +249,8 @@ def get_value(value_str):
 def processCSVdata(csv_file_name, json_data, image_wiki_url_list, image_game_url_list):
     key_pattern = re.compile("(\d+_\d+\.png)")
     br_pattern = re.compile("(\w+)&br;(\w+)")
-    support_pattern = re.compile("([\W\w]+)&br;([\W\w]+)")
+    support_pattern2 = re.compile("([\W\w]+)&br;([\W\w]+)")
+    support_pattern3 = re.compile("([\W\w]+)&br;([\W\w]+)&br;([\W\w]+)")
     name_pattern = re.compile("\[\[([\W\w]+?) \(")
 
     mycsv = csv.reader(open(csv_file_name, 'r', encoding="utf-8"), delimiter="|")
@@ -288,13 +301,20 @@ def processCSVdata(csv_file_name, json_data, image_wiki_url_list, image_game_url
                 newdict["fav1"] = arm_replace(row[7])
                 newdict["fav2"] = "none"
 
-            m = support_pattern.search(row[10])
-            if m:
-                newdict["support"] = support_replace(m.group(1))
-                newdict["support2"] = support_replace(m.group(2))
+            m3 = support_pattern3.search(row[10])
+            m2 = support_pattern2.search(row[10])
+            if m3:
+                newdict["support"] = support_replace(m3.group(1))
+                newdict["support2"] = support_replace(m3.group(2))
+                newdict["support3"] = support_replace(m3.group(3))
+            elif m2:
+                newdict["support"] = support_replace(m2.group(1))
+                newdict["support2"] = support_replace(m2.group(2))
+                newdict["support3"] = "none"
             else:
                 newdict["support"] = support_replace(row[10])
                 newdict["support2"] = "none"
+                newdict["support3"] = "none"
 
             newdict["minhp"] = get_value(row[11])
             newdict["hp"] = get_value(row[13])
