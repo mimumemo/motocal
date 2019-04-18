@@ -21,7 +21,8 @@ var enemyDefenseType = GlobalConst.enemyDefenseType;
 
 module.exports.isCosmos = function (arm) {
     return (skilltypes[arm.skill1] != undefined && skilltypes[arm.skill1].type == "cosmosArm") ||
-        (skilltypes[arm.skill2] != undefined && skilltypes[arm.skill2].type == "cosmosArm");
+        (skilltypes[arm.skill2] != undefined && skilltypes[arm.skill2].type == "cosmosArm") ||
+        (skilltypes[arm.skill3] != undefined && skilltypes[arm.skill3].type == "cosmosArm");
 };
 
 function isHaisuiType(stype) {
@@ -146,9 +147,16 @@ module.exports.makeSummonHeaderString = function (summon, locale) {
     return summonHeader;
 };
 
-module.exports.calcDamage = function (summedAttack, totalSkillCoeff, criticalRatio, enemyDefense, additionalDamage, damageUP, damageLimit) {
+module.exports.calcDefenseDebuff = function (defense, debuff) {
+    defense = defense != undefined ? defense : 10.0;
+    debuff = debuff != undefined ? debuff : 0;
+
+    return Math.max(1, defense * (1 - debuff * 0.01));
+};
+
+module.exports.calcDamage = function (summedAttack, totalSkillCoeff, criticalRatio, enemyDefense, defenseDebuff, additionalDamage, damageUP, damageLimit) {
     // Damage calculation
-    var def = enemyDefense != undefined ? enemyDefense : 10.0;
+    var def = module.exports.calcDefenseDebuff(enemyDefense, defenseDebuff);
     var damage = Math.ceil(Math.ceil(summedAttack / def) * totalSkillCoeff) * criticalRatio;
     var overedDamage = 0;
 
@@ -180,9 +188,9 @@ module.exports.calcDamage = function (summedAttack, totalSkillCoeff, criticalRat
     return res
 };
 
-module.exports.calcOugiDamage = function (summedAttack, totalSkillCoeff, criticalRatio, enemyDefense, ougiRatio, ougiDamageUP, damageUP, ougiDamageLimit) {
+module.exports.calcOugiDamage = function (summedAttack, totalSkillCoeff, criticalRatio, enemyDefense, defenseDebuff, ougiRatio, ougiDamageUP, damageUP, ougiDamageLimit) {
     // Damage calculation
-    var def = enemyDefense != undefined ? enemyDefense : 10.0;
+    var def = module.exports.calcDefenseDebuff(enemyDefense, defenseDebuff);
     var ratio = ougiRatio != undefined ? ougiRatio : 4.5;
     var damage = (1.0 + ougiDamageUP) * ratio * Math.ceil(Math.ceil(summedAttack / def) * totalSkillCoeff) * criticalRatio;
     var overedDamage = 0.0;
@@ -224,7 +232,7 @@ module.exports.calcChainBurst = function (ougiDamage, chainNumber, typeBonus, ch
         chainCoeff = 0.50;
     }
 
-    var chainDamageLimitUP = chainDamageLimitUP != undefined ? chainDamageLimitUP : 0.0;
+    var chainDamageLimit = chainDamageLimitUP != undefined ? chainDamageLimitUP : 0.0;
     var damage = (1.0 + chainDamageUP) * typeBonus * chainCoeff * ougiDamage;
     var overedDamage = 0.0;
 
@@ -238,7 +246,7 @@ module.exports.calcChainBurst = function (ougiDamage, chainNumber, typeBonus, ch
 
     for (var index = 0; index < 4; index++) {
         // Damage cap calculation
-        var limitValue = limitValues[index][0] * (1.0 + chainDamageLimitUP);
+        var limitValue = limitValues[index][0] * (1.0 + chainDamageLimit);
         var limitRatio = limitValues[index][1];
 
         // Subtract only by the extent exceeding the attenuation line
@@ -565,10 +573,10 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         chainDamageLimit = chainDamageLimit <= 0.50 ? chainDamageLimit : 0.50;
 
         // "damage" is a single attack damage without additional damage (with attenuation and skill correction)
-        var damage = module.exports.calcDamage(summedAttack, totalSkillCoeff, criticalRatio, prof.enemyDefense, additionalDamage, damageUP, damageLimit);
+        var damage = module.exports.calcDamage(summedAttack, totalSkillCoeff, criticalRatio, prof.enemyDefense, prof.defenseDebuff, additionalDamage, damageUP, damageLimit);
 
         // Use damage in case of no critical to correct skill expectation
-        var damageWithoutCritical = module.exports.calcDamage(summedAttack, totalSkillCoeff, 1.0, prof.enemyDefense, additionalDamage, damageUP, damageLimit);
+        var damageWithoutCritical = module.exports.calcDamage(summedAttack, totalSkillCoeff, 1.0, prof.enemyDefense, prof.defenseDebuff, additionalDamage, damageUP, damageLimit);
 
         // Expected critical skill ratio
         var effectiveCriticalRatio = damage / damageWithoutCritical;
@@ -590,7 +598,7 @@ module.exports.calcBasedOneSummon = function (summonind, prof, buff, totals) {
         var chainDamageUP = 0.01 * (totals[key]["chainDamage"] + (totals[key]["normalChainDamage"] * totalSummon["zeus"]));
         chainDamageUP = chainDamageUP <= 1.20 ? chainDamageUP : 1.20;
 
-        var ougiDamage = module.exports.calcOugiDamage(summedAttack, totalSkillCoeff, criticalRatio, prof.enemyDefense, totals[key]["ougiRatio"], ougiDamageUP, damageUP, ougiDamageLimit);
+        var ougiDamage = module.exports.calcOugiDamage(summedAttack, totalSkillCoeff, criticalRatio, prof.enemyDefense, prof.defenseDebuff ,totals[key]["ougiRatio"], ougiDamageUP, damageUP, ougiDamageLimit);
 
         // Chain burst damage is calculated based on the assumption that "there is only one who has the same damage as that character has chain number people"
         var chainBurst = module.exports.calcChainBurst(buff["chainNumber"] * ougiDamage, buff["chainNumber"], module.exports.getTypeBonus(totals[key].element, prof.enemyElement), chainDamageUP, chainDamageLimit);
@@ -808,7 +816,7 @@ module.exports.calcHaisuiValue = function (haisuiType, haisuiAmount, haisuiSLv, 
             } else if (haisuiSLv <= 15) {
                 baseRate = 24 + 6.0 * ((haisuiSLv - 10) / 5.0)
             } else {
-                baseRate = 30 + 6.0 * ((haisuiSLv - 15) / 5.0)
+                baseRate = 30 + 2.5 * ((haisuiSLv - 15) / 5.0)
             }
         } else {
             // 大
@@ -817,7 +825,7 @@ module.exports.calcHaisuiValue = function (haisuiType, haisuiAmount, haisuiSLv, 
             } else if (haisuiSLv <= 15) {
                 baseRate = 30 + 7.5 * ((haisuiSLv - 10) / 5.0)
             } else {
-                baseRate = 37.5 + 7.5 * ((haisuiSLv - 15) / 5.0)
+                baseRate = 37.5 + 3.0 * ((haisuiSLv - 15) / 5.0)
             }
         }
         return (baseRate / 3.0) * (2.0 * remainHP * remainHP - 5.0 * remainHP + 3.0)
@@ -828,11 +836,19 @@ module.exports.calcHaisuiValue = function (haisuiType, haisuiAmount, haisuiSLv, 
 
             } else if (haisuiAmount === "M") {
                 // Normal Stamina (M)
-                return Math.pow(100.0 * remainHP / (65.0 - haisuiSLv), 2.9) + 2.1;
+                if (haisuiSLv < 15) {
+                    return Math.pow(100.0 * remainHP / (65.0 - haisuiSLv), 2.9) + 2.1;
+                } else {
+                    return Math.pow(100.0 * remainHP / (65.0 - (15 + (0.4 * (haisuiSLv - 15)))), 2.9) + 2.1;
+                }
             } else {
                 // Normal Stamina (L)
                 // ref: http://binarysblog.blog.fc2.com/blog-entry-1.html
-                return Math.pow(100.0 * remainHP / (56.4 - haisuiSLv), 2.9) + 2.1;
+                if (haisuiSLv < 15) {
+                    return Math.pow(100.0 * remainHP / (56.4 - haisuiSLv), 2.9) + 2.1;
+                } else {
+                    return Math.pow(100.0 * remainHP / (56.4 - (15 + (0.4 * (haisuiSLv - 15)))), 2.9) + 2.1;
+                }
             }
         }
     } else if (haisuiType === "magnaKonshin") {
@@ -841,7 +857,19 @@ module.exports.calcHaisuiValue = function (haisuiType, haisuiAmount, haisuiSLv, 
 
             } else if (haisuiAmount === "M") {
                 // Magna Stamina (M)
-                return Math.pow(100.0 * remainHP / (60.4 - haisuiSLv), 2.9) + 2.1;
+                if (haisuiSLv < 15) {
+                    return Math.pow(100.0 * remainHP / (60.4 - haisuiSLv), 2.9) + 2.1;
+                } else {
+                    return Math.pow(100.0 * remainHP / (60.4 - (15 + (0.4 * (haisuiSLv - 15)))), 2.9) + 2.1;
+                }
+            } else {
+                // Magna Stamina (L)
+                // ref: https://twitter.com/Hecate_mk2/status/1117394776414777344
+                if (haisuiSLv < 15) {
+                    return Math.pow(100.0 * remainHP / (56.4 - haisuiSLv), 2.9) + 2.1;
+                } else {
+                    return Math.pow(100.0 * remainHP / (56.4 - (15 + (0.4 * (haisuiSLv - 15)))), 2.9) + 2.1;
+                }
             }
         }
     } else if (haisuiType === "omegaKonshin") {
@@ -935,14 +963,7 @@ module.exports.getTotalBuff = function (prof) {
 
 function maskInvalidSkillLevel(slv, stype, amount) {
     if (slv < 1) return 1;
-    if (slv > 15) {
-        if (stype === 'magna') return slv;
-        if (stype === 'magnaHaisui' && amount === 'S') return slv;
-        if (stype === 'normal' && amount === 'S') return slv;
-        if (stype === 'magnaKamui' && amount === 'S') return slv;
-        // If not applicable, set the upper limit to SLv 15
-        return 15;
-    }
+    if (slv > 20) return 20;
     return slv;
 }
 
@@ -953,7 +974,13 @@ module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
         if (comb[i] > 0) {
             var arm = arml[i];
             if (module.exports.isCosmos(arm)) {
-                cosmosType = skilltypes[arm.skill1].type == "cosmosArm" ? skilltypes[arm.skill1].cosmosArm : skilltypes[arm.skill2].cosmosArm;
+                if (skilltypes[arm.skill1].type == "cosmosArm") {
+                    cosmosType = skilltypes[arm.skill1].cosmosArm;
+                } else if (skilltypes[arm.skill2].type == "cosmosArm") {
+                    cosmosType = skilltypes[arm.skill2].cosmosArm;
+                } else {
+                    cosmosType = skilltypes[arm.skill3].cosmosArm;
+                }
             }
         }
     }
@@ -985,6 +1012,7 @@ module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
             "yuuki": false,
             "alpha": false,
             "gamma": false,
+            "delta": false,
         };
 
         for (var i = 0; i < arml.length; i++) {
@@ -1018,16 +1046,19 @@ module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
                 }
                 totals[key]["armAttack"] += armSup * parseInt(arm.attack) * comb[i];
                 totals[key]["armHP"] += hpSup * parseInt(arm.hp) * comb[i];
-                for (var j = 1; j <= 2; j++) {
+                for (var j = 1; j <= 3; j++) {
                     var skillname = '';
                     var element = '';
                     arm.element != undefined ? arm.element : "fire";
                     if (j == 1) {
                         skillname = arm.skill1;
                         element = arm.element != undefined ? arm.element : "fire"
-                    } else {
+                    } else if (j == 2) {
                         skillname = arm.skill2;
                         element = arm.element2 != undefined ? arm.element2 : "fire"
+                    } else {
+                        skillname = arm.skill3;
+                        element = arm.element3 != undefined ? arm.element3 : "fire"
                     }
 
                     if (skillname != 'non') {
@@ -1183,9 +1214,23 @@ module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
                                 } else if (gauphKeyType === "gamma") {
                                     totals[key]["ougiDamageLimit"] += 0.15
                                 } else if (gauphKeyType === "delta") {
-                                    totals[key]["chainDamageLimit"] += 0.50
+                                    totals[key]["chainDamageLimit"] += 50
                                 }
                                 isOmegaIncluded[gauphKeyType] = true;
+                            }
+                        } else if (stype === "opusKey") {
+                            // Opus key is good on weapons, irrespective of attributes
+                            var opusKeyType = skillname.split("-")[1];
+
+                            if (!isOmegaIncluded[opusKeyType]) {
+                                if (opusKeyType === "alpha") {
+                                    totals[key]["normalDamageLimit"] += 0.1
+                                } else if (opusKeyType === "gamma") {
+                                    totals[key]["ougiDamageLimit"] += 0.15
+                                } else if (opusKeyType === "delta") {
+                                    totals[key]["chainDamageLimit"] += 50
+                                }
+                                isOmegaIncluded[opusKeyType] = true;
                             }
                         } else if (stype == 'akasha') {
                             // Akasha Weapon
@@ -1250,15 +1295,9 @@ module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
                                 // Emnity/Stamina calculation part is another method
                                 totals[key][stype] += comb[i] * module.exports.calcHaisuiValue(stype, amount, slv, totals[key]["remainHP"])
                             } else if (stype == 'normalKamui') {
-                                if (amount == 'S') {
-                                    // Kamui small is equal in attack power and HP rise
-                                    totals[key]["normal"] += comb[i] * skillAmounts["normal"][amount][slv - 1];
-                                    totals[key]["normalHP"] += comb[i] * skillAmounts["normal"][amount][slv - 1];
-                                } else {
-                                    // Kamui is an atk up (middle) & hp up (middle)
-                                    totals[key]["normal"] += comb[i] * skillAmounts["normal"][amount][slv - 1];
-                                    totals[key]["normalHP"] += comb[i] * skillAmounts["normalHP"][amount][slv - 1];
-                                }
+                                // Kamui is equal in attack power and HP rise
+                                totals[key]["normal"] += comb[i] * skillAmounts["normal"][amount][slv - 1];
+                                totals[key]["normalHP"] += comb[i] * skillAmounts["normal"][amount][slv - 1];
                             } else if (stype == 'magnaKamui') {
                                 // Kamui is equal in attack power and HP rise
                                 totals[key]["magna"] += comb[i] * skillAmounts["magna"][amount][slv - 1];
@@ -1338,7 +1377,7 @@ module.exports.addSkilldataToTotals = function (totals, comb, arml, buff) {
                                 totals[key]["magnaLesserSante"] += comb[i] * skillAmounts["magnaRanbu"][amount][slv - 1];
                             } else if (stype == 'magnaGunshin') {
                                 totals[key]["magnaHP"] += comb[i] * skillAmounts["magnaHP"][amount][slv - 1];
-                                totals[key]["magnaNite"] += comb[i] * skillAmounts["magnaNite"][amount][slv - 1];
+                                totals[key]["magnaNite"] += comb[i] * skillAmounts["magnaGunshin"][amount][slv - 1];
                             } else if (stype == 'normalHiou') {
                                 totals[key]["ougiDamage"] += comb[i] * skillAmounts["normalHiou"][amount][slv - 1];
                             } else if (stype == 'normalHissatsu') {
@@ -2231,16 +2270,19 @@ module.exports.generateHaisuiData = function (res, arml, summon, prof, chara, st
 
                     if (storedCombinations[j][i] === 0) continue;
 
-                    for (var jj = 1; jj <= 2; jj++) {
+                    for (var jj = 1; jj <= 3; jj++) {
                         var skillname = '';
                         var element = '';
                         arm.element != undefined ? arm.element : "fire";
                         if (jj == 1) {
                             skillname = arm.skill1;
                             element = arm.element != undefined ? arm.element : "fire"
-                        } else {
+                        } else if (jj == 2) {
                             skillname = arm.skill2;
                             element = arm.element2 != undefined ? arm.element2 : "fire"
+                        } else {
+                            skillname = arm.skill3;
+                            element = arm.element3 != undefined ? arm.element3 : "fire"
                         }
 
                         if (skillname != 'non') {
@@ -2301,8 +2343,8 @@ module.exports.generateHaisuiData = function (res, arml, summon, prof, chara, st
                     var newTotalAttack = summedAttack * newTotalSkillCoeff;
                     var newTotalExpected = newTotalAttack * onedata[key].criticalRatio * onedata[key].expectedAttack;
 
-                    var newDamage = module.exports.calcDamage(summedAttack, newTotalSkillCoeff, onedata[key].criticalRatio, prof.enemyDefense, onedata[key].skilldata.additionalDamage, onedata[key].skilldata.damageUP, onedata[key].skilldata.damageLimit);
-                    var newOugiDamage = module.exports.calcOugiDamage(summedAttack, newTotalSkillCoeff, onedata[key].criticalRatio, prof.enemyDefense, onedata[key].ougiRatio, onedata[key].skilldata.ougiDamageUP, onedata[key].skilldata.damageUP, onedata[key].skilldata.ougiDamageLimit);
+                    var newDamage = module.exports.calcDamage(summedAttack, newTotalSkillCoeff, onedata[key].criticalRatio, prof.enemyDefense, prof.defenseDebuff, onedata[key].skilldata.additionalDamage, onedata[key].skilldata.damageUP, onedata[key].skilldata.damageLimit)
+                    var newOugiDamage = module.exports.calcOugiDamage(summedAttack, newTotalSkillCoeff, onedata[key].criticalRatio, prof.enemyDefense, prof.defenseDebuff, onedata[key].ougiRatio, onedata[key].skilldata.ougiDamageUP, onedata[key].skilldata.damageUP, onedata[key].skilldata.ougiDamageLimit)
 
                     var chainNumber = !isNaN(prof.chainNumber) ? parseInt(prof.chainNumber) : 1;
                     var newChainBurst = module.exports.calcChainBurst(chainNumber * newOugiDamage, chainNumber, module.exports.getTypeBonus(onedata[key].element, prof.enemyElement), onedata[key].skilldata.chainDamageUP, onedata[key].skilldata.chainDamageLimit) / chainNumber;
@@ -2539,7 +2581,7 @@ module.exports.generateSimulationData = function (res, turnBuff, arml, summon, p
                 for (var key in onedata) {
                     if (turnBuff.buffs["全体バフ"][t - 1].turnType == "ougi" || turnBuff.buffs[key][t - 1].turnType == "ougi") {
                         // Basically, setting of mystery takes precedence
-                        var newOugiDamage = module.exports.calcOugiDamage(onedata[key].displayAttack, onedata[key].totalSkillCoeff, onedata[key].criticalRatio, prof.enemyDefense, prof.ougiRatio, onedata[key].skilldata.ougiDamageUP, onedata[key].skilldata.damageUP, onedata[key].skilldata.ougiDamageLimit);
+                        var newOugiDamage = module.exports.calcOugiDamage(onedata[key].displayAttack, onedata[key].totalSkillCoeff, onedata[key].criticalRatio, prof.enemyDefense, prof.defenseDebuff, prof.ougiRatio, onedata[key].skilldata.ougiDamageUP, onedata[key].skilldata.damageUP, onedata[key].skilldata.ougiDamageLimit);
 
                         if (key == "Djeeta") {
                             ExpectedDamage[t].push(parseInt(newOugiDamage));
@@ -2555,7 +2597,7 @@ module.exports.generateSimulationData = function (res, turnBuff, arml, summon, p
                         }
                     } else {
                         // Regular attack
-                        var newDamage = module.exports.calcDamage(onedata[key].displayAttack, onedata[key].totalSkillCoeff, onedata[key].criticalRatio, prof.enemyDefense, onedata[key].skilldata.additionalDamage, onedata[key].skilldata.damageUP, onedata[key].skilldata.damageLimit);
+                        var newDamage = module.exports.calcDamage(onedata[key].displayAttack, onedata[key].totalSkillCoeff, onedata[key].criticalRatio, prof.enemyDefense, prof.defenseDebuff, onedata[key].skilldata.additionalDamage, onedata[key].skilldata.damageUP, onedata[key].skilldata.damageLimit);
                         if (key == "Djeeta") {
                             ExpectedDamage[t].push(parseInt(newDamage * onedata[key].expectedAttack));
                             AverageExpectedDamage[t][j + 1] += parseInt(onedata[key].expectedAttack * newDamage / cnt)
