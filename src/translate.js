@@ -72,7 +72,7 @@ var multiLangData = {
         "zh": "读取",
     },
     "ブラウザに保存": {
-        "en": "Save to Browser",
+        "en": "Save",
         "ja": "保存",
         "zh": "保存",
     },
@@ -217,13 +217,13 @@ var multiLangData = {
         "zh": "Buff",
     },
     "通常バフ": {
-        "en": "Normal Buff",
-        "ja": "通常バフ",
+        "en": "ATK Buff",
+        "ja": "攻撃バフ",
         "zh": "通常Buff",
     },
     "通常バフ説明": {
-        "en": "Normal Buff",
-        "ja": "通常枠のバフ",
+        "en": "ATK Buff. ",
+        "ja": "攻撃(攻刃)バフ。レイジなど。",
         "zh": "通常攻刃Buff",
     },
     "属性バフ": {
@@ -233,22 +233,22 @@ var multiLangData = {
     },
     "属性バフ説明": {
         "en": "Element Buff",
-        "ja": "属性枠のバフ",
+        "ja": "属性枠のバフ。",
         "zh": "属性Buff",
     },
     "その他バフ": {
         "en": "Other Buff",
-        "ja": "その他バフ",
+        "ja": "別枠バフ",
         "zh": "其他Buff",
     },
     "その他バフ説明": {
         "en": "Other Buff",
-        "ja": "別枠乗算のバフ",
+        "ja": "別枠乗算のバフ。騎空艇効果(10%)、騎空団炉サポ効果(10%)、副団アビ(5%)、攻撃アビ(20%)など。",
         "zh": "独立乘算Buff",
     },
     "その他バフ2": {
         "en": "Other Buff II",
-        "ja": "その他バフ2",
+        "ja": "別枠バフ2",
         "zh": "其他Buff2",
     },
     "その他バフ2説明": {
@@ -263,7 +263,7 @@ var multiLangData = {
     },
     "HPバフ説明": {
         "en": "HP Buff(GW Buff etc.)",
-        "ja": "HP上昇のバフ(古戦場スタックとかの計算用)",
+        "ja": "HP上昇のバフ。副団長アビ(10%)、防衛アビ(20%)など。",
         "zh": "HP上升Buff(古战场等计算用)",
     },
     "DAバフ": {
@@ -273,7 +273,7 @@ var multiLangData = {
     },
     "DAバフ説明": {
         "en": "Double Attack Buff for Party. The value will be added to Character's base double attack ratio.",
-        "ja": "DA率が上がります。各キャラの基礎DA率に加算されます。",
+        "ja": "DA率が上がります。各キャラの基礎DA率に加算されます。四天刃(30%)など。",
         "zh": "DA率上升。加在每个角色的基础DA率上。",
     },
     "TAバフ": {
@@ -283,7 +283,7 @@ var multiLangData = {
     },
     "TAバフ説明": {
         "en": "Triple Attack Buff for Party. The value will be added to Character's base triple attack ratio.",
-        "ja": "TA率が上がります。各キャラの基礎TA率に加算されます。",
+        "ja": "TA率が上がります。各キャラの基礎TA率に加算されます。四天刃(30%)など。",
         "zh": "TA率上升。加在每个角色的基础DA率上。",
     },
     "追加ダメージ": {
@@ -298,7 +298,7 @@ var multiLangData = {
     },
     "追加ダメージバフ説明": {
         "en": "Additional damage will be added to \"Expected Turn Damage\".",
-        "ja": "追加ダメージが発生するとしてダメージを上乗せします。予想ターン毎ダメージの算出に使用されます。",
+        "ja": "追加ダメージが発生するとしてダメージを上乗せします。予想ターン毎ダメージの算出に使用されます。ウォーロックのチェイサー(20%)など。",
         "zh": "视作追加伤害，额外加在伤害上。用在预想DPT的计算中。",
     },
     "与ダメージ上昇": {
@@ -337,7 +337,7 @@ var multiLangData = {
         "zh": "奥义槽上升量",
     },
     "奥義ゲージ上昇率アップ": {
-        "en": "Ougi Gage Buff",
+        "en": "Charge Bar Speed UP",
         "ja": "奥義ゲージ上昇量アップ",
         "zh": "奥义槽上升量上升",
     },
@@ -351,24 +351,44 @@ var multiLangData = {
         "ja": "奥義ダメージUP",
         "zh": "奥义伤害上升",
     },
+    "与ダメージ加護": {
+        "en": "Boost Damage",
+        "ja": "与ダメ加護",
+        "zh": "Boost Damage",
+    },
+    "与ダメージ加護説明": {
+        "en": "Boosts final damage. Arcarum summons(SR3~5%, SSR7~10%) etc.",
+        "ja": "最終的な与ダメージが上昇します。アーカルム石(SR3~5%, SSR7~10%)など",
+        "zh": "Boosts final damage. Arcarum summons(SR3~5%, SSR7~10%) etc.",
+    },
+    "ダメージ上限加護": {
+        "en": "Damage cap",
+        "ja": "ダメージ上限加護",
+        "zh": "Damage cap",
+    },
+    "ダメージ上限加護説明": {
+        "en": "Increases the damage cap. Primarch summons(5~10%) etc.",
+        "ja": "ダメージ上限に加算されます。天司石(5~10%)など",
+        "zh": "Increases the damage cap. Primarch summons(5~10%) etc.",
+    },
     "チェインダメージアップ": {
         "en": "Chain Damage UP",
         "ja": "チェインダメージUP",
         "zh": "チェイン义伤害上升",
     },
     "ダメージ上限アップ": {
-        "en": "Damage Limit Buff",
-        "ja": "ダメージ上限アップ",
+        "en": "DMG Cap",
+        "ja": "ダメージ上限",
         "zh": "伤害上限上升",
     },
     "ダメージ上限アップ説明": {
-        "en": "It is used to calc the normal attack damage.",
-        "ja": "通常攻撃ダメージの算出に使用されます。",
+        "en": "It is used to calc the normal attack damage. Unlike the game specification, C.A. Damage Cap does not go up.",
+        "ja": "通常攻撃ダメージの算出に使用されます。グラブルの仕様とは異なり奥義ダメージ上限は上がりません。",
         "zh": "通常攻击伤害的计算中有用到。",
     },
     "奥義ダメージ上限アップ": {
-        "en": "Ougi Damage Limit Buff",
-        "ja": "奥義ダメージ上限UP",
+        "en": "C.A. DMG Cap",
+        "ja": "奥義ダメージ上限",
         "zh": "奥义伤害上限上升",
     },
     "チェインダメージ上限アップ": {
@@ -381,16 +401,6 @@ var multiLangData = {
         "ja": "奥義ダメージの算出に使用されます。",
         "zh": "奥义伤害的计算中有用到。",
 	},
-    "リミットボーナス": {
-        "en": "Limit Bonus",
-        "ja": "リミットボーナス",
-        "zh": "Zenith Perks",
-    },
-    "味方全体のHP": {
-        "en": "HP Bonus for All member",
-        "ja": "味方全体HP",
-        "zh": "己方全体HP LB",
-    },
     "Advanced": {
         "en": "Advanced Settings",
         "ja": "より細かい設定",
@@ -427,9 +437,9 @@ var multiLangData = {
         "zh": "Total defense debuff",
     },
     "防御デバフ合計説明": {
-        "en": "Set sums of defense debuff values.",
-        "ja": "防御デバフの合計をパーセントで設定します。",
-        "zh": "Set sums of defense debuff values.",
+        "en": "Set sums of defense debuff values.The normal lower limit is 50%. Forfeit category is 60%.",
+        "ja": "防御デバフの合計をパーセントで設定。通常の下限が50%。喪失枠を付与すると60%になります。",
+        "zh": "Set sums of defense debuff values.The normal lower limit is 50%. Forfeit category is 60%.",
     },
     "ジータさん基礎DA率説明": {
         "en": "Input base double attack ratio of player.\nIt will be automatically changed when \"Job\" is changed.",
@@ -493,6 +503,17 @@ var multiLangData = {
         "ja": "ジョブごとのボーナス等は自動で反映されます。得意武器補正などを反映したくない場合\"なし\"を選択して下さい。",
         "zh": "不同职业的Bonus会自动反映。不想让得意武器补正之类反映出的话请选择\"无\"。",
 	},
+	
+    "ジータさんリミットボーナス": {
+        "en": "Player's Extended Mastery",
+        "ja": "ジータさんリミットボーナス",
+        "zh": "Player's Extended Mastery",
+    },
+    "味方全体のHP": {
+        "en": "Total Party HP",
+        "ja": "味方全体HP",
+        "zh": "己方全体HP LB",
+    },
     "LB 攻撃力": {
         "en": "ATK ",
         "ja": "攻撃力",
@@ -503,10 +524,31 @@ var multiLangData = {
         "ja": "HP",
         "zh": "HP",
 	},
+    "得意武器攻撃1": {
+        "en": "Specialty WPN I",
+        "ja": "得意武器攻撃I",
+        "zh": "武器LB 1",
+	},
+    "得意武器攻撃2": {
+        "en": "Specialty WPN II",
+        "ja": "得意武器攻撃II",
+        "zh": "武器LB 2",
+	},
+    "得意武器攻撃の説明": {
+        "en": "Specialty WPN II (Over ★4) is calculated as 6%, 8%, 10% on the assumption that I is all mastered.",
+        "ja": "得意武器IIのLB（★4以上）は、Iをすべてマスター済みという前提で各6%, 8%, 10%として計算します。",
+        "zh": "得意武器II的LB(★4以上)在I全部取得的前提下按6%, 8%, 10%计算。",
+    },
+	
+    "ジータさんマスターボーナス": {
+        "en": "Player's Master Bonuses",
+        "ja": "ジータさんマスターボーナス",
+        "zh": "主角的职业满级Bonu",
+    },
     "マスボATK": {
-        "en": "Master Bonus ATK ",
-        "ja": "マスターボーナスATK",
-        "zh": "职业满级Bonus 攻击力",
+        "en": "ATK",
+        "ja": "攻撃力",
+        "zh": "攻击力",
     },
     "マスボATK説明": {
         "en": "The value of Job Master bonus \"ATK+○○%\"",
@@ -514,15 +556,46 @@ var multiLangData = {
         "zh": "职业满级Bonus中\"攻击力+○○％\"中的值\n(和各职业的Bonus是独立的)",
     },
     "マスボHP": {
-        "en": "Master Bonus HP",
-        "ja": "マスターボーナスHP",
-        "zh": "职业满级Bonus HP",
+        "en": "HP",
+        "ja": "HP",
+        "zh": "HP",
     },
     "マスボHP説明": {
         "en": "The value of Job Master bonus \"HP+○○%\"",
         "ja": "ジョブマスターボーナスの\"HP+○○％\"の値です\n(各ジョブごとのボーナスとは別です)",
         "zh": "职业满级Bonus中\"HP+○○％\"中的值\n(和各职业的Bonus是独立的)",
     },
+    "マスボDA": {
+        "en": "DA",
+        "ja": "DA",
+        "zh": "DA",
+    },
+    "マスボDA説明": {
+        "en": "The value of Job Master bonus \"DA+○○%\"",
+        "ja": "ジョブマスターボーナスの\"DA+○○％\"の値です\n(各ジョブごとのボーナスとは別です)",
+        "zh": "职业满级Bonus中\"DA+○○％\"中的值\n(和各职业的Bonus是独立的)",
+    },
+    "マスボTA": {
+        "en": "TA",
+        "ja": "TA",
+        "zh": "TA",
+    },
+    "マスボTA説明": {
+        "en": "The value of Job Master bonus \"TA+○○%\"",
+        "ja": "ジョブマスターボーナスの\"TA+○○％\"の値です\n(各ジョブごとのボーナスとは別です)",
+        "zh": "职业满级Bonus中\"TA+○○％\"中的值\n(和各职业的Bonus是独立的)",
+    },
+    "マスボダメ上限": {
+        "en": "DMG Cap",
+        "ja": "ダメージ上限",
+        "zh": "DMG Cap",
+    },
+    "マスボダメ上限説明": {
+        "en": "The value of Job Master bonus \"DMG Cap+○○%\"",
+        "ja": "ジョブマスターボーナスの\"ダメージ上限+○○％\"の値です\n(各ジョブごとのボーナスとは別です)",
+        "zh": "职业满级Bonus中\"DMG Cap+○○％\"中的值\n(和各职业的Bonus是独立的)",
+    },
+	
     "ジータさん属性": {
         "en": "Player's Element",
         "ja": "ジータさん属性",
@@ -538,21 +611,6 @@ var multiLangData = {
         "ja": "有利/非有利/不利は、敵の属性に従って自動で判定されます。",
         "zh": "有利/非有利/不利会随着敌人的属性自动判定出。",
 	},
-    "得意武器攻撃1": {
-        "en": "Weapon I ",
-        "ja": "得意武器攻撃I",
-        "zh": "武器LB 1",
-	},
-    "得意武器攻撃2": {
-        "en": "Weapon II ",
-        "ja": "得意武器攻撃II",
-        "zh": "武器LB 2",
-	},
-    "得意武器攻撃の説明": {
-        "en": "",
-        "ja": "得意武器IIのLB（★4以上）は、Iをすべてマスター済みという前提で各6%, 8%, 10%として計算します。",
-        "zh": "得意武器II的LB(★4以上)在I全部取得的前提下按6%, 8%, 10%计算。",
-    },
     "攻撃ボーナス": {
         "en": "Attack Bonus",
         "ja": "攻撃ボーナス",
@@ -599,13 +657,13 @@ var multiLangData = {
         "zh": "设定保存到编成的名字",
     },
     "チェイン数": {
-        "en": "Chain Number",
+        "en": "Chain Burst Number",
         "ja": "チェイン数",
         "zh": "Chain数",
     },
     "チェイン数説明": {
         "en": "Input the number of Ougi Chain. (1~4)",
-        "ja": "チェイン数を指定してください（チェインバーストボーナスの係数が変化します）\n チェイン数1 => 係数0.0, 2 => 0.25, 3 => 0.33.., 4 => 0.5",
+        "ja": "チェイン数を指定してください（チェインバーストボーナスの係数が変化します）\n チェイン数1 → 0倍\n 2 → 1.25倍\n 3 → 1.33…倍\n 4 → 1.5倍",
         "zh": "设定Chain数(Chain Burst的系数会变化)",
     },
     "ジータさんのみ": {
@@ -988,9 +1046,9 @@ var multiLangData = {
         "ja": "ターン毎の\n奥義ゲージ上昇量",
         "zh": "每回合奥义槽上升量",
     },
-    "奥義ダメージ": {
+    "奥義ダメージUP": {
         "en": "Ougi Damage",
-        "ja": "奥義ダメージ",
+        "ja": "奥義ダメージUP",
         "zh": "奥义伤害",
     },
     "チェインバースト": {
@@ -1430,7 +1488,7 @@ var multiLangData = {
         "zh": "被动技能",
     },
     "属性攻撃力": {
-        "en": "Element LB",
+        "en": "Element ATK",
         "ja": "属性攻撃力",
         "zh": "属性攻击力",
     },
@@ -1878,6 +1936,11 @@ var multiLangData = {
         "ja": "通常恩寵(中)",
         "zh": "通常恩寵(中)",
     },
+    "通常本質(中)": {
+        "en": "Normal Essence (M)",
+        "ja": "通常本質(中)",
+        "zh": "通常本質(中)",
+    },
     "先制": {
         "en": "Preemptive",
         "ja": "先制(永続)",
@@ -1998,22 +2061,21 @@ var multiLangData = {
         "ja": "マグナ必殺(中)",
         "zh": "方阵必杀(中)",
     },
-    "マグナ拳武": {
+    "マグナ拳武(大)": {
         "en": "Magna Fist (L)",
         "ja": "マグナ拳武(大)",
         "zh": "方阵拳武(大)",
     },
-    "マグナ杖術": {
+    "マグナ杖術(大)": {
         "en": "Magna Wand (L)",
         "ja": "マグナ杖術(大)",
         "zh": "方阵杖術(大)",
     },
-    "マグナ本質": {
+    "マグナ本質(中)": {
         "en": "Magna Essence (M)",
         "ja": "マグナ星晶(中)",
         "zh": "方阵本質(中)",
     },
-
     "アンノウンATK・I": {
         "en": "Unknown ATK I",
         "ja": "アンノウンATK・I",
@@ -2484,6 +2546,11 @@ var multiLangData = {
         "ja": "天司の祝福II",
         "zh": "天司的祝福II",
     },
+    "天司の祝福III": {
+        "en": "Angel's Blessing III",
+        "ja": "天司の祝福III",
+        "zh": "天司的祝福III",
+    },
     "通常上限UP(2.5%)": {
         "en": "Damage Limit UP(2.5%)",
         "ja": "通常上限UP(2.5%)",
@@ -2575,41 +2642,46 @@ var multiLangData = {
         "en": "Damage Limit UP(7.0%)",
         "ja": "邪道: 通常上限UP(7.0%)",
         "zh": "邪道: 通常上限UP(7.0%)",
-    },
-    "敵防御10": {
-        "en": "10 (General)",
-        "ja": "10 (一般的な敵)",
-        "zh": "10 (一般的敌人)",
 	},
-    "敵防御11": {
-        "en": "11 (GW Nightmare/Ul Baha HL/Proto Baha N)",
-        "ja": "11 (通常古戦場HELL/アルバハHL/プロバハN)",
-        "zh": "11 (GW Nightmare/Ul Baha HL/Proto Baha N)",
+    "敵防御10.0": {
+        "en": "10.0 (General)",
+        "ja": "10.0 (一般的な敵)",
+        "zh": "10.0 (一般的敌人)",
     },
-    "敵防御12": {
-        "en": "12 (Omega II(Light&Dark)/Omega HL/Huanglong&Qilin HL)",
-        "ja": "12 (マグナⅡ光闇/マグナHL/黄龍・黒麒麟HL)",
-        "zh": "12 (Omega II(Light&Dark)/Omega HL/Huanglong&Qilin HL)",
+    "敵防御10.5": {
+        "en": "10.5 (Ul Baha N)",
+        "ja": "10.5 (アルバハN)",
+        "zh": "10.5 (Ul Baha N)",
     },
-    "敵防御13": {
-        "en": "13 (Omega II(4 Elements))",
-        "ja": "13 (マグナⅡ4属性)",
-        "zh": "13 (Omega II(4 Elements))",
+    "敵防御11.0": {
+        "en": "11.0 (GW Nightmare/Ul Baha HL/Proto Baha N)",
+        "ja": "11.0 (通常古戦場HELL/アルバハHL/プロバハN)",
+        "zh": "11.0 (GW Nightmare/Ul Baha HL/Proto Baha N)",
+    },
+    "敵防御12.0": {
+        "en": "12.0 (Omega II(Light&Dark)/Omega HL/Huanglong&Qilin HL)",
+        "ja": "12.0 (マグナⅡ光闇/マグナHL/黄龍・黒麒麟HL)",
+        "zh": "12.0 (Omega II(Light&Dark)/Omega HL/Huanglong&Qilin HL)",
+    },
+    "敵防御13.0": {
+        "en": "13.0 (Omega II(4 Elements))",
+        "ja": "13.0 (マグナⅡ4属性)",
+        "zh": "13.0 (Omega II(4 Elements))",
 	},
-    "敵防御14": {
-        "en": "14 (Freyr)",
-        "ja": "14 (フレイ)",
-        "zh": "14 (Freyr)",
+    "敵防御14.0": {
+        "en": "14.0 (Freyr)",
+        "ja": "14.0 (フレイ)",
+        "zh": "14.0 (Freyr)",
     },
-    "敵防御15": {
-        "en": "15 (Malice/Akasha)",
-        "ja": "15 (マリス/アーカーシャ)",
-        "zh": "15 (Malice/Akasha)",
+    "敵防御15.0": {
+        "en": "15.0 (Malice/Akasha/Lucilius N)",
+        "ja": "15.0 (マリス/アーカーシャ/ルシファーN)",
+        "zh": "15.0 (Malice/Akasha/Lucilius N)",
     },
-    "敵防御20": {
-        "en": "20 (Proto Baha HL/Lucilius (HARD))",
-        "ja": "20 (プロトバハムートHL/ルシファー HARD)",
-        "zh": "20 (Proto Baha HL/Lucilius (HARD))",
+    "敵防御20.0": {
+        "en": "20.0 (Proto Baha HL/Lucilius H)",
+        "ja": "20.0 (プロトバハムートHL/ルシファーH)",
+        "zh": "20.0 (Proto Baha HL/Lucilius H)",
 	},
     // chart sort key
     "ジータさん残りHP": {
@@ -2820,6 +2892,26 @@ var multiLangData = {
         "en": "Ad.",
         "ja": "広告",
         "zh": "广告",
+    },
+    "入力例:": {
+        "en": "Input Example:",
+        "ja": "入力例:",
+        "zh": "入力例:",
+    },
+    "不具合報告・ご要望:": {
+        "en": "Bug Report/Request:",
+        "ja": "不具合報告・ご要望:",
+        "zh": "不具合報告・要望:",
+    },
+    "開発者募集:": {
+        "en": "Recruiting Developers:\n",
+        "ja": "開発者募集:",
+        "zh": "開発者募集:",
+    },
+    "更新履歴": {
+        "en": "Changelog",
+        "ja": "更新履歴",
+        "zh": "更新履歴",
     },
     "notice-20170114-1": {
         "en": "2017/01/14: English Support (partly).",
@@ -3140,6 +3232,46 @@ var multiLangData = {
         "en": "11/03/2018: Implemented Magna Stamina (M), Ultima Strength, and added new magna II Weapons.",
         "ja": "2018/03/11: 方陣渾身(中)、オメガ強壮の計算を実装 / マグナII武器テンプレート追加(スキルは未対応).",
         "zh": "2018/03/11: 方阵浑身(中)、Omega强壮的计算实装 / 方阵2武器的列表追加(无技能)",
+    },
+    "notice-20190310-1": {
+        "en": "10/03/2019: Add 3rd support ability slot and Gladiator Class and character and weapons.",
+        "ja": "2019/03/10: 3番目のサポアビ欄実装。クリュサオル追加。最終十天等一部キャラに奥義上限を引き上げるサポアビ追加。他キャラ・武器追加。",
+        "zh": "2019/03/10: Add 3rd support ability slot and Gladiator Class and character and weapons.",
+    },
+    "notice-20190414-1": {
+        "en": "14/04/2019: Add Opus weapons and 3rd skill slot.",
+        "ja": "2019/04/14: 終末武器追加。3番目のスキル欄追加(過去の編成データが読み込めなくなっています)",
+        "zh": "2019/04/14: Add Opus weapons and 3rd skill slot.",
+    },
+    "notice-20190414-2": {
+        "en": "14/04/2019: Fix the skill effect amount.",
+        "ja": "2019/04/14: 二手三手技巧軍神スキル効果量修正。",
+        "zh": "2019/04/14: Fix the skill effect amount.",
+    },
+    "notice-20190424-1": {
+        "en": "24/04/2019: Separate enemy defense value and debuff fields.",
+        "ja": "2019/04/24: デバフ量項目実装。",
+        "zh": "2019/04/24: Separate enemy defense value and debuff fields",
+    },
+    "notice-20190424-2": {
+        "en": "24/04/2019: Add character and weapons.",
+        "ja": "2019/04/24: 天司武器4凸追加。他キャラ・武器追加。",
+        "zh": "2019/04/24: Add character and weapons.",
+    },
+    "notice-20190426-1": {
+        "en": "26/04/2019: Add the total of Magna/Normal/Exceed ougi damage limits is 60%.",
+        "ja": "2019/04/26: 方陣+通常+イクシードの合算枠上限を60%に設定。他奥義上限枠見直し。",
+        "zh": "2019/04/26: Add the total of Magna/Normal/Exceed ougi damage limits is 60%.",
+    },
+    "notice-20190427-1": {
+        "en": "27/04/2019: Implement Boost damage aura. Add [4凸]Ichigo Hitofuri. Fix Character base DATA. Others, fine-tuned.",
+        "ja": "2019/04/27: 与ダメージ加護実装。[4凸]一期一振追加。キャラ基礎連撃修正。その他微調整。",
+        "zh": "2019/04/27: Implement Boost damage aura. Add [4凸]Ichigo Hitofuri. Fix Character base DATA. Others, fine-tuned.",
+    },
+    "notice-20190428-1": {
+        "en": "28/04/2019: Implement a damage limit aura. Add Master Bonuses.",
+        "ja": "2019/04/28: ダメージ上限加護実装。マスボ追加。",
+        "zh": "2019/04/28: Implement a damage limit aura. Add Master Bonuses.",
     },
 };
 
