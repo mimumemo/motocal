@@ -35,7 +35,9 @@ skillnamelist["normalHPLL"] = {
     u"奈落の守護II": "dark"
 }
 
+skillnamelist["rankiShikku"] = {u"乱気の疾駆・壱": "wind"}
 skillnamelist["gurenJuin"] = {u"紅蓮の呪印・弐": "fire"}
+skillnamelist["chiretsuSenwaku"] = {u"地裂の煽惑・参": "earth"}
 skillnamelist["muhyoTuiga"] = {u"霧氷の追牙・肆": "water"}
 
 # Inferno's Insignia is usually treated as a large atk up
@@ -149,6 +151,14 @@ skillnamelist["normalKatsumokuS"] = {
     u"乱気の括目": "wind",
     u"天光の括目": "light",
     u"奈落の括目": "dark"
+}
+
+skillnamelist["cherubimKonshin"] = {
+    u"鷲と人間の思慮": "dark"
+}
+
+skillnamelist["sunbladeKonshin"] = {
+    u"道天の眩耀": "light"
 }
 
 # normalM
@@ -316,6 +326,15 @@ skillnamelist["normalHaisuiS"] = {
     u"闇の背水": "dark"
 }
 
+skillnamelist["normalKonshinS"] = {
+    u"火の渾身": "fire",
+    u"水の渾身": "water",
+    u"土の渾身": "earth",
+    u"風の渾身": "wind",
+    u"光の渾身": "light",
+    u"闇の渾身": "dark"
+}
+
 skillnamelist["normalKamui"] = {
     u"火の神威": "fire",
     u"水の神威": "water",
@@ -433,6 +452,15 @@ skillnamelist["normalSeisyouM"] = {
     u"竜巻の星晶": "wind",
     u"雷電の星晶": "light",
     u"憎悪の星晶": "dark"
+}
+
+skillnamelist["normalHigoS"] = {
+    u"火の庇護": "fire",
+    u"水の庇護": "water",
+    u"土の庇護": "earth",
+    u"風の庇護": "wind",
+    u"光の庇護": "light",
+    u"闇の庇護": "dark"
 }
 
 # magna II
@@ -768,6 +796,10 @@ skillnamelist["strengthL"] = {
     u"ゲイルオブアームズ": "wind",
     u"獅子と牛の咆哮": "dark",
     u"サイコ攻刃": "earth",
+    u"菩提の探究": "wind",
+    u"退路無き攻刃": "water",
+    u"パワーボム": "earth",
+    u"フラッドオブアームズ": "water",
 }
 
 skillnamelist["exATKandHPM"] = {
@@ -846,8 +878,14 @@ skillnamelist["omega-raw"] = {
 skillnamelist["akasha-sword"] = {u"虚脱の隻翼": "dark"}
 skillnamelist["akasha-spear"] = {u"虚栄の矛戟": "fire"}
 skillnamelist["akasha-axe"] = {u"虚勢の巌": "earth"}
-skillnamelist["akasha-wand"] = {u"虚飾の隻腕": "earth"}
+skillnamelist["akasha-wand"] = {u"虚飾の隻腕": "water"}
 skillnamelist["akasha-bow"] = {u"虚像の鋒鏑": "light"}
+#Covenant
+skillnamelist["impervious-covenant"] = {u"不壊の誓約": "fire"}
+skillnamelist["victorious-covenant"] = {u"凱歌の誓約": "water"}
+skillnamelist["contentious-covenant"] = {u"修羅の誓約": "earth"}
+skillnamelist["deleterious-covenant"] = {u"致命の誓約": "light"}
+skillnamelist["calamitous-covenant"] = {u"災禍の誓約": "dark"}
 
 # Cosmos
 skillnamelist["cosmosAT"] = {u"アタック・スタンス": "light"}
@@ -900,11 +938,15 @@ skillnamelist["normalDamageLimit7"] = {
 skillnamelist["normalDamageLimit10"] = {
     u"靂天の極致": "dark",
 }
+skillnamelist["huanglongHissatsu"] = {
+    u"震天の境界へと至りし者": "light",
+}
 
 skillnamelist["ougiDamageLimitExceedM"] = {
     u"イクシード・ウォータ": "water",
     u"イクシード・アース": "earth",
     u"イクシード・ウィンド": "wind",
+    u"イクシード・ライト": "light",
     u"イクシード・ダーク": "dark",
 }
 
@@ -978,11 +1020,17 @@ def processCSVdata(csv_file_name, json_data, image_wiki_url_list, image_game_url
     for row in mycsv:
         newdict = OrderedDict()
 
-        row_lenth = len(row)
-        if row_lenth <= 1:
+        row_length = len(row)
+        if row_length <= 1:
             continue
         else:
-            has_3rd_skill: bool = row_lenth >= 22
+            # Row Lengths Overview
+            # 17: 3*
+            # 19: 4*
+            # 20: 4* + 3rd Skill
+            # 21: 5*
+            # 22: 5* + 3rd Skill
+            has_3rd_skill: bool = row_length == 20 or row_length == 22
             for index, value in enumerate(row):
                 if index == 1:
                     m = key_pattern.search(value)

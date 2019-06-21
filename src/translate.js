@@ -12,12 +12,12 @@ var multiLangData = {
         "zh": "支持制作者",
     },
     "メイン装備yes": {
-        "en": "main",
+        "en": "Main",
         "ja": "メイン武器である",
         "zh": "是主手武器",
     },
     "メイン装備no": {
-        "en": "not main",
+        "en": "Sub",
         "ja": "メイン武器ではない",
         "zh": "不是主手武器",
     },
@@ -47,6 +47,11 @@ var multiLangData = {
         "zh": "角色",
     },
     "武器": {
+        "en": "WPN",
+        "ja": "武器",
+        "zh": "武器",
+    },
+    "武器(タブ)": {
         "en": "Weapon",
         "ja": "武器",
         "zh": "武器",
@@ -223,7 +228,7 @@ var multiLangData = {
     },
     "通常バフ説明": {
         "en": "ATK Buff. ",
-        "ja": "攻撃(攻刃)バフ。レイジなど。",
+        "ja": "攻撃(攻刃)バフ。レイジIII(30%)、レイジIV(40%)など。",
         "zh": "通常攻刃Buff",
     },
     "属性バフ": {
@@ -232,8 +237,8 @@ var multiLangData = {
         "zh": "属性Buff",
     },
     "属性バフ説明": {
-        "en": "Element Buff",
-        "ja": "属性枠のバフ。",
+        "en": "Element Buff. Ultima Weapon(30%) etc.",
+        "ja": "属性枠のバフ。オメガ武器(30%)など",
         "zh": "属性Buff",
     },
     "その他バフ": {
@@ -242,7 +247,7 @@ var multiLangData = {
         "zh": "其他Buff",
     },
     "その他バフ説明": {
-        "en": "Other Buff",
+        "en": "Other Buff(GW Buff etc.)",
         "ja": "別枠乗算のバフ。騎空艇効果(10%)、騎空団炉サポ効果(10%)、副団アビ(5%)、攻撃アビ(20%)など。",
         "zh": "独立乘算Buff",
     },
@@ -267,39 +272,49 @@ var multiLangData = {
         "zh": "HP上升Buff(古战场等计算用)",
     },
     "DAバフ": {
-        "en": "Double Attack Buff",
+        "en": "DA Buff",
         "ja": "DAバフ",
         "zh": "DA Buff",
     },
     "DAバフ説明": {
-        "en": "Double Attack Buff for Party. The value will be added to Character's base double attack ratio.",
-        "ja": "DA率が上がります。各キャラの基礎DA率に加算されます。四天刃(30%)など。",
+        "en": "Double Attack Buff for Party. The value will be added to Character's base double attack ratio. Four-Sky Blade(30%), Love Eternal(35%), Ultima Weapon(20%) etc.",
+        "ja": "DA率が上がります。各キャラの基礎DA率に加算されます。四天刃(30%)、エタラブ(35%)、オメガ武器(20%)など。",
         "zh": "DA率上升。加在每个角色的基础DA率上。",
     },
     "TAバフ": {
-        "en": "Triple Attack Buff",
+        "en": "TA Buff",
         "ja": "TAバフ",
         "zh": "TA Buff",
     },
     "TAバフ説明": {
-        "en": "Triple Attack Buff for Party. The value will be added to Character's base triple attack ratio.",
-        "ja": "TA率が上がります。各キャラの基礎TA率に加算されます。四天刃(30%)など。",
+        "en": "Triple Attack Buff for Party. The value will be added to Character's base triple attack ratio. Four-Sky Blade(30%), Love Eternal(35%) etc.",
+        "ja": "TA率が上がります。各キャラの基礎TA率に加算されます。四天刃(30%)、エタラブ(35%)など。",
         "zh": "TA率上升。加在每个角色的基础DA率上。",
     },
     "追加ダメージ": {
-        "en": "Additional Damage ",
+        "en": "Bonus DMG", //a.k.a: additionalDamage
         "ja": "追加ダメージ",
         "zh": "追加伤害",
     },
     "追加ダメージバフ": {
-        "en": "Additional Damage Buff",
-        "ja": "追加ダメージバフ",
+        "en": "Bonus DMG Buff", //a.k.a: additionalDamageBuff
+        "ja": "追撃バフ",
         "zh": "追加伤害Buff",
     },
     "追加ダメージバフ説明": {
-        "en": "Additional damage will be added to \"Expected Turn Damage\".",
-        "ja": "追加ダメージが発生するとしてダメージを上乗せします。予想ターン毎ダメージの算出に使用されます。ウォーロックのチェイサー(20%)など。",
+        "en": "Bonus Damage will be added to \"Expected Turn Damage\". Chaser of Warlock(20%), Parazonium(15%) etc.",
+        "ja": "通常攻撃に割合分の追加ダメージを上乗せします。予想ターン毎ダメージの算出に使用されます。ウォーロックのチェイサー(20%)、パラゾ(15%)など。",
         "zh": "视作追加伤害，额外加在伤害上。用在预想DPT的计算中。",
+    },
+    "supplementalDamageBuff": {
+        "en": "Supplemental Damage Buff",
+        "ja": "与ダメージ上昇効果バフ",
+        "zh": "Supplemental Damage Buff",
+    },
+    "supplementalDamageBuff-tooltip": {
+        "en": "DMG Boosted status effect. Rosetta (Grand)'s Iron Maiden (5000), Hollowsky Axe's C.A. (10000), etc.",
+        "ja": "与ダメージ上昇効果。ロゼッタ（リミテッド）のアイアン・メイデン(5000)、虚空の晶塊の奥義(10000)など。",
+        "zh": "DMG Boosted status effect. Rosetta (Grand)'s Iron Maiden (5000), Hollowsky Axe's C.A. (10000), etc.",
     },
     "与ダメージ上昇": {
         "en": "Damage UP ",
@@ -307,7 +322,7 @@ var multiLangData = {
         "zh": "造成伤害上升",
     },
     "個別バフ": {
-        "en": "Personal Buff",
+        "en": "Indiv Buff", //a.k.a: Personal buff
         "ja": "個別バフ",
         "zh": "个别Buff",
     },
@@ -332,52 +347,27 @@ var multiLangData = {
         "zh": "全队的剩余HP比例。(角色个别的值也有输入的话适用更低的)",
     },
     "奥義ゲージ上昇量": {
-        "en": "Ougi Gage Buff",
-        "ja": "奥義ゲージ上昇量",
+        "en": "Charge Bar Buff", //a.k.a: ougiGageBuff
+        "ja": "奥義ゲージ\n上昇量",
         "zh": "奥义槽上升量",
     },
     "奥義ゲージ上昇率アップ": {
-        "en": "Charge Bar Speed UP",
-        "ja": "奥義ゲージ上昇量アップ",
+        "en": "Charge Bar\nSpeed UP",
+        "ja": "奥義ゲージ\n上昇量",
         "zh": "奥义槽上升量上升",
     },
     "奥義ゲージ上昇率アップ説明": {
         "en": "Used on the expected turn damage calculation.",
-        "ja": "奥義ゲージ上昇量に影響します。予想ターン毎ダメージの算出に使用されます。",
+        "ja": "攻撃回数に応じた奥義ゲージ上昇量に影響します。予想ターン毎ダメージの算出に使用されます。",
         "zh": "影响奥义槽上升量。在预想DPT计算中有用到。",
     },
-    "奥義ダメージアップ": {
-        "en": "Ougi Damage UP",
-        "ja": "奥義ダメージUP",
-        "zh": "奥义伤害上升",
-    },
-    "与ダメージ加護": {
-        "en": "Boost Damage",
-        "ja": "与ダメ加護",
-        "zh": "Boost Damage",
-    },
-    "与ダメージ加護説明": {
-        "en": "Boosts final damage. Arcarum summons(SR3~5%, SSR7~10%) etc.",
-        "ja": "最終的な与ダメージが上昇します。アーカルム石(SR3~5%, SSR7~10%)など",
-        "zh": "Boosts final damage. Arcarum summons(SR3~5%, SSR7~10%) etc.",
-    },
-    "ダメージ上限加護": {
-        "en": "Damage cap",
-        "ja": "ダメージ上限加護",
-        "zh": "Damage cap",
-    },
-    "ダメージ上限加護説明": {
-        "en": "Increases the damage cap. Primarch summons(5~10%) etc.",
-        "ja": "ダメージ上限に加算されます。天司石(5~10%)など",
-        "zh": "Increases the damage cap. Primarch summons(5~10%) etc.",
-    },
     "チェインダメージアップ": {
-        "en": "Chain Damage UP",
+        "en": "Chain DMG UP", //a.k.a: chainDamageUP
         "ja": "チェインダメージUP",
         "zh": "チェイン义伤害上升",
     },
     "ダメージ上限アップ": {
-        "en": "DMG Cap",
+        "en": "DMG Cap", //a.k.a: damagelimit
         "ja": "ダメージ上限",
         "zh": "伤害上限上升",
     },
@@ -386,21 +376,41 @@ var multiLangData = {
         "ja": "通常攻撃ダメージの算出に使用されます。グラブルの仕様とは異なり奥義ダメージ上限は上がりません。",
         "zh": "通常攻击伤害的计算中有用到。",
     },
-    "奥義ダメージ上限アップ": {
-        "en": "C.A. DMG Cap",
-        "ja": "奥義ダメージ上限",
-        "zh": "奥义伤害上限上升",
-    },
     "チェインダメージ上限アップ": {
-        "en": "Chain Damage Limit Buff",
+        "en": "Chain DMG Cap",  //a.k.a: chainDamageLimit
         "ja": "チェインダメージ上限UP",
         "zh": "链义伤害上限上升",
+    },
+    "奥義ダメージ上限アップ": {
+        "en": "C.A. DMG Cap", //a.k.a: ougiDamageLimit
+        "ja": "奥義ダメージ\n上限",
+        "zh": "奥义伤害上限上升",
     },
     "奥義ダメージ上限アップ説明": {
         "en": "It is used to calc the Ougi damage.",
         "ja": "奥義ダメージの算出に使用されます。",
         "zh": "奥义伤害的计算中有用到。",
 	},
+    "奥義ゲージ上昇奥義": {
+        "en": "Charge Boost C.A.",
+        "ja": "奥義ゲージ上昇奥義",
+        "zh": "Charge Boost C.A.",
+    },
+    "奥義ゲージ上昇奥義説明": {
+        "en": "Decrease the maximum Charge Bar value by the effect size. Unsigned Kaneshige(10%) etc.",
+        "ja": "奥義ゲージ最大値を効果分マイナスします(奥義ゲージ上昇率バフも加味)。無銘金重(10%)など",
+        "zh": "Decrease the maximum Charge Bar value by the effect size. Unsigned Kaneshige(10%) etc.",
+	},
+    "高揚": {
+        "en": "Uplift",
+        "ja": "高揚",
+        "zh": "Uplift",
+    },
+    "高揚説明": {
+        "en": "Increase charge bar each turn. True Purity Sunblade C.A.(10%) and likes-",
+        "ja": "毎ターン奥義ゲージが上昇する状態。真・道天浄土の奥義(10%)など",
+        "zh": "Increase charge bar each turn. True Purity Sunblade C.A.(10%) and likes-",
+    },
     "Advanced": {
         "en": "Advanced Settings",
         "ja": "より細かい設定",
@@ -412,7 +422,7 @@ var multiLangData = {
         "zh": "适合想要进行更加详细的计算的人。",
     },
     "敵防御固有値": {
-        "en": "Enemy's defense",
+        "en": "Enemy Innate DEF",
         "ja": "敵防御固有値",
         "zh": "敌人的防御值",
     },
@@ -422,24 +432,24 @@ var multiLangData = {
         "zh": "设定假想敌的防御值。\n影响攻击伤害、奥义伤害、预想DPT。",
     },
     "防御デバフ合計": {
-        "en": "Total defense debuff",
-        "ja": "防御デバフ合計",
-        "zh": "Total defense debuff",
-    },
-    "防御デバフ合計説明": {
-        "en": "Set sums of defense debuff values.",
-        "ja": "防御デバフの合計をパーセントで設定します。",
-        "zh": "Set sums of defense debuff values.",
-    },
-    "防御デバフ合計": {
-        "en": "Total defense debuff",
-        "ja": "防御デバフ合計",
-        "zh": "Total defense debuff",
+        "en": "DEF Debuff",
+        "ja": "防御デバフ",
+        "zh": "DEF Debuff",
     },
     "防御デバフ合計説明": {
         "en": "Set sums of defense debuff values.The normal lower limit is 50%. Forfeit category is 60%.",
         "ja": "防御デバフの合計をパーセントで設定。通常の下限が50%。喪失枠を付与すると60%になります。",
         "zh": "Set sums of defense debuff values.The normal lower limit is 50%. Forfeit category is 60%.",
+    },
+    "敵非有利耐性": {
+        "en": "Enemy Resistance",
+        "ja": "敵非有利耐性",
+        "zh": "Enemy Resistance",
+    },
+    "敵非有利耐性説明": {
+        "en": "Enemy's damage reduction for elements they are not weak to. Unite and Fight's NIGHTMARE(50%) and likes-",
+        "ja": "敵の非有利属性時に生じる耐性を設定します。古戦場HELL(50%)など。",
+        "zh": "Enemy's damage reduction for elements they are not weak to. Unite and Fight's NIGHTMARE(50%) and likes-",
     },
     "ジータさん基礎DA率説明": {
         "en": "Input base double attack ratio of player.\nIt will be automatically changed when \"Job\" is changed.",
@@ -447,7 +457,7 @@ var multiLangData = {
         "zh": "设定主角的基础DA率。\n随着职业变更会自动切换。",
     },
     "奥義倍率": {
-        "en": "Ougi Ratio",
+        "en": "C.A. Multiplier", //a.k.a: ougiRatio
         "ja": "奥義倍率",
         "zh": "奥义倍率",
     },
@@ -457,12 +467,12 @@ var multiLangData = {
         "zh": "设定主角的基础TA率。\n随着职业变更会自动切换。",
     },
     "ジータさん奥義倍率説明": {
-        "en": "Input ougi ratio of player.\nIt affects calculation of Ougi Damage and Expected Turn Damage.",
+        "en": "Input C.A. ratio of player.\nIt affects calculation of C.A. Damage and Expected Turn Damage.",
         "ja": "ジータさんの奥義倍率を設定します。\n奥義ダメージ、予想ターン毎ダメージの計算に影響します。",
         "zh": "设定主角的奥义倍率。\n影响奥义伤害和预测DPT。",
     },
     "確保HP": {
-        "en": "Minimum Player HP",
+        "en": "Minimum\nPlayer HP",
         "ja": "確保したい\nジータさんHP",
         "zh": "希望确保的主角HP量",
     },
@@ -489,30 +499,60 @@ var multiLangData = {
 
     "ジータさん性別": {
         "en": "Player's Sex",
-        "ja": "ジータさん性別",
+        "ja": "ジータさん\n性別",
         "zh": "主角的性別",
     },
 
     "ジョブ": {
-        "en": "Job",
+        "en": "Classes", //a.k.a: job
         "ja": "ジョブ",
         "zh": "职业",
     },
     "ジョブ説明": {
-        "en": "Job bonuses and Favorite arm bonuses are automatically inclueded in calculation. Select \"none\" if you want no bonuses and favorite arms.",
+        "en": "Classes bonuses and Specialty weapons bonuses are automatically inclueded in calculation. Select \"none\" if you want no bonuses and Specialty weapons.",
         "ja": "ジョブごとのボーナス等は自動で反映されます。得意武器補正などを反映したくない場合\"なし\"を選択して下さい。",
         "zh": "不同职业的Bonus会自动反映。不想让得意武器补正之类反映出的话请选择\"无\"。",
 	},
+    "攻撃ボーナス": {
+        "en": "ATK Bonus",
+        "ja": "攻撃ボーナス",
+        "zh": "攻击Bonus",
+    },
+    "HPボーナス": {
+        "en": "HP Bonus",
+        "ja": "HPボーナス",
+        "zh": "HP Bonus",
+    },
+    "攻刃ボーナス": {
+        "en": "Might Bonus",
+        "ja": "攻刃ボーナス",
+        "zh": "攻刃Bonus",
+    },
+    "守護ボーナス": {
+        "en": "Aegis Bonus",
+        "ja": "守護ボーナス",
+        "zh": "守护Bonus",
+    },
 	
     "ジータさんリミットボーナス": {
         "en": "Player's Extended Mastery",
         "ja": "ジータさんリミットボーナス",
         "zh": "Player's Extended Mastery",
     },
+    "ジータさんリミットボーナス説明": {
+        "en": "Enter the Extended Mastery for each Class.",
+        "ja": "ジョブごとのリミットボーナス(LB)を入力して下さい。",
+        "zh": "Enter the Extended Mastery for each Class.",
+    },
     "味方全体のHP": {
         "en": "Total Party HP",
         "ja": "味方全体HP",
         "zh": "己方全体HP LB",
+    },
+    "LB 久遠の指輪": {
+        "en": "Perpetuity Ring",
+        "ja": "久遠の指輪",
+        "zh": "久遠の指輪",
     },
     "LB 攻撃力": {
         "en": "ATK ",
@@ -520,30 +560,172 @@ var multiLangData = {
         "zh": "攻击力",
 	},
     "LB HP": {
-        "en": "HP ",
+        "en": "HP",
         "ja": "HP",
         "zh": "HP",
 	},
     "得意武器攻撃1": {
-        "en": "Specialty WPN I",
+        "en": "Specialty WPN I\n",
         "ja": "得意武器攻撃I",
         "zh": "武器LB 1",
 	},
     "得意武器攻撃2": {
-        "en": "Specialty WPN II",
+        "en": "Specialty WPN II\n",
         "ja": "得意武器攻撃II",
         "zh": "武器LB 2",
 	},
     "得意武器攻撃の説明": {
-        "en": "Specialty WPN II (Over ★4) is calculated as 6%, 8%, 10% on the assumption that I is all mastered.",
+        "en": "Specialty WPN Ⅱ (Over ★4) is calculated as 6%, 8%, 10% on the assumption that Ⅰ is all mastered.",
         "ja": "得意武器IIのLB（★4以上）は、Iをすべてマスター済みという前提で各6%, 8%, 10%として計算します。",
         "zh": "得意武器II的LB(★4以上)在I全部取得的前提下按6%, 8%, 10%计算。",
     },
+    "LB DA": {
+        "en": "DA",
+        "ja": "DA",
+        "zh": "DA",
+	},
+    "LB DAの説明": {
+        "en": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+        "ja": "II以降はIを★3まで取得していること前提です。",
+        "zh": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+	},
+    "LB TA": {
+        "en": "TA",
+        "ja": "TA",
+        "zh": "TA",
+	},
+    "LB TAの説明": {
+        "en": "TA",
+        "ja": "TA",
+        "zh": "TA",
+	},
+    "LB ダメージ上限UP": {
+        "en": "DMG Cap",
+        "ja": "ダメージ上限UP",
+        "zh": "DMG Cap",
+	},
+    "LB ダメージ上限UPの説明": {
+        "en": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+        "ja": "II以降はIを★3まで取得していること前提です。",
+        "zh": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+	},
+    "LB 奥義": {
+        "en": "C.A. DMG",
+        "ja": "奥義ダメージ",
+        "zh": "C.A. DMG",
+	},
+    "LB 奥義の説明": {
+        "en": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+        "ja": "II以降はIを★3まで取得していること前提です。",
+        "zh": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+	},
+    "LB 属性攻撃": {
+        "en": "Element ATK",
+        "ja": "属性攻撃",
+        "zh": "Element ATK",
+	},
+    "LB 属性攻撃の説明": {
+        "en": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+        "ja": "II以降はIを★3まで取得していること前提です。",
+        "zh": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+	},
+    "LB チェンバ": {
+        "en": "Chain Burst DMG",
+        "ja": "チェンバ",
+        "zh": "Chain Burst DMG",
+	},
+    "LB チェンバの説明": {
+        "en": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+        "ja": "II以降はIを★3まで取得していること前提です。",
+        "zh": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+	},
+    "LB チェンバ上限": {
+        "en": "Chain Burst DMG Cap",
+        "ja": "チェンバ上限",
+        "zh": "Chain Burst DMG Cap",
+	},
+    "LB チェンバ上限の説明": {
+        "en": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+        "ja": "II以降はIを★3まで取得していること前提です。",
+        "zh": "It is assumed that Ⅰ has been acquired to ★3 since Ⅱ.",
+	},
+    "LB クリティカル": {
+        "en": "Critical",
+        "ja": "クリティカル",
+        "zh": "Critical",
+	},
+    "小": {
+        "en": "Small",
+        "ja": "小",
+        "zh": "小",
+	},
+    "中": {
+        "en": "Medium",
+        "ja": "中",
+        "zh": "中",
+	},
+    "大": {
+        "en": "Big",
+        "ja": "大",
+        "zh": "大",
+	},
+    "LB クリティカルの説明": {
+        "en": "",
+        "ja": "発生率と倍率共にの%",
+        "zh": "",
+	},
+    "その他ジータさんLB": {
+        "en": "Other Perk",
+        "ja": "他LB",
+        "zh": "Other Perk",
+	},
+	
+    "指輪": {
+        "en": "Over Mastery",
+        "ja": "EXLB",
+        "zh": "Over Mastery",
+	},
+    "奥義ダメージ上限": {
+        "en": "C.A. DMG Cap",
+        "ja": "奥義ダメージ上限",
+        "zh": "奧義上限",
+	},
+    "クリティカル確率": {
+        "en": "Critical Hit",
+        "ja": "クリティカル確率",
+        "zh": "暴擊率",
+	},
+    "背水": {
+        "en": "Enmity",
+        "ja": "背水",
+        "zh": "背水",
+	},
+    "渾身": {
+        "en": "Stamina",
+        "ja": "渾身",
+        "zh": "渾身",
+	},
+    "DA": {
+        "en": "DA",
+        "ja": "DA",
+        "zh": "DA",
+	},
+    "TA": {
+        "en": "TA",
+        "ja": "TA",
+        "zh": "TA",
+	},
+	
 	
     "ジータさんマスターボーナス": {
         "en": "Player's Master Bonuses",
         "ja": "ジータさんマスターボーナス",
         "zh": "主角的职业满级Bonu",
+    },
+    "ジータさんマスターボーナス説明": {
+        "en": "Enter the total value of Master Bonuses to be acquired when you make Class Lv20.\n(GBF Party screen > Classes > Bonuses tab)",
+        "ja": "ジョブLv20になると取得するマスターボーナスの合計値を入力して下さい\n(グラブル編成画面>ジョブ詳細>ボーナスタブ)",
+        "zh": "Enter the total value of Master Bonuses to be acquired when you make Class Lv20.\n(GBF Party screen > Classes > Bonuses tab)",
     },
     "マスボATK": {
         "en": "ATK",
@@ -598,7 +780,7 @@ var multiLangData = {
 	
     "ジータさん属性": {
         "en": "Player's Element",
-        "ja": "ジータさん属性",
+        "ja": "ジータさん\n属性",
         "zh": "主角的属性",
     },
     "敵の属性": {
@@ -611,33 +793,13 @@ var multiLangData = {
         "ja": "有利/非有利/不利は、敵の属性に従って自動で判定されます。",
         "zh": "有利/非有利/不利会随着敌人的属性自动判定出。",
 	},
-    "攻撃ボーナス": {
-        "en": "Attack Bonus",
-        "ja": "攻撃ボーナス",
-        "zh": "攻击Bonus",
-    },
-    "HPボーナス": {
-        "en": "HP Bonus",
-        "ja": "HPボーナス",
-        "zh": "HP Bonus",
-    },
-    "攻刃ボーナス": {
-        "en": "Normal Buff Bonus",
-        "ja": "攻刃ボーナス",
-        "zh": "通常攻刃Bonus",
-    },
-    "守護ボーナス": {
-        "en": "Health Bonus",
-        "ja": "守護ボーナス",
-        "zh": "守护Bonus",
-    },
     "基礎DA率": {
-        "en": "Base DA Ratio",
+        "en": "Base DA",
         "ja": "基礎DA率",
         "zh": "基础DA率",
     },
     "基礎TA率": {
-        "en": "Base TA Ratio",
+        "en": "Base TA",
         "ja": "基礎TA率",
         "zh": "基础TA率",
     },
@@ -657,12 +819,12 @@ var multiLangData = {
         "zh": "设定保存到编成的名字",
     },
     "チェイン数": {
-        "en": "Chain Burst Number",
+        "en": "Chain Burst\nNumber",
         "ja": "チェイン数",
         "zh": "Chain数",
     },
     "チェイン数説明": {
-        "en": "Input the number of Ougi Chain. (1~4)",
+        "en": "Input the number of C.A. Chain. (1~4)",
         "ja": "チェイン数を指定してください（チェインバーストボーナスの係数が変化します）\n チェイン数1 → 0倍\n 2 → 1.25倍\n 3 → 1.33…倍\n 4 → 1.5倍",
         "zh": "设定Chain数(Chain Burst的系数会变化)",
     },
@@ -707,7 +869,7 @@ var multiLangData = {
         "zh": "短剑",
     },
     "格闘": {
-        "en": "Fist",
+        "en": "Melee", //a.k.a: Fist
         "ja": "格闘",
         "zh": "格斗",
     },
@@ -717,7 +879,7 @@ var multiLangData = {
         "zh": "枪",
     },
     "楽器": {
-        "en": "Harp",
+        "en": "Music",
         "ja": "楽器",
         "zh": "乐器",
     },
@@ -727,7 +889,7 @@ var multiLangData = {
         "zh": "杖",
     },
     "得意": {
-        "en": "Favorite",
+        "en": "Specialty", //a.k.a: Favorite
         "ja": "得意",
         "zh": "得意",
     },
@@ -820,6 +982,11 @@ var multiLangData = {
         "en": "Doctor",
         "ja": "ドクター",
         "zh": "ドクター",
+    },
+    "ソルジャー": {
+        "en": "Soldier",
+        "ja": "ソルジャー",
+        "zh": "ソルジャー",
     },
     "黒猫道士": {
         "en": "Nekomancer",
@@ -996,6 +1163,11 @@ var multiLangData = {
         "ja": "残HP",
         "zh": "剩余HP",
     },
+    "キャラ(result)": {
+        "en": "Chara ",
+        "ja": "キャラ",
+        "zh": "角色",
+    },
     "パーティ平均攻撃力": {
         "en": "Party-Averaged Pure ATK",
         "ja": "パーティ平均攻撃力(二手技巧無し)",
@@ -1042,12 +1214,12 @@ var multiLangData = {
         "zh": "单次攻击伤害(考虑连击技巧)",
     },
     "ターン毎の奥義ゲージ上昇量": {
-        "en": "Ougi Gage Rise per Turn",
+        "en": "Charge Bar Rise per Turn",
         "ja": "ターン毎の\n奥義ゲージ上昇量",
         "zh": "每回合奥义槽上升量",
     },
     "奥義ダメージUP": {
-        "en": "Ougi Damage",
+        "en": "C.A. DMG", //a.k.a: ougiDamage
         "ja": "奥義ダメージUP",
         "zh": "奥义伤害",
     },
@@ -1057,7 +1229,7 @@ var multiLangData = {
         "zh": "Chain Burst",
     },
     "予想ターン毎ダメージ": {
-        "en": "Exp. Damage per Turn",
+        "en": "Exp. Damage per Turn", //a.k.a: expectedCycleDamagePerTurn
         "ja": "予想ターンダメージ",
         "zh": "期望DPT",
     },
@@ -1085,6 +1257,56 @@ var multiLangData = {
         "en": "SD",
         "ja": "標準偏差",
         "zh": "标准差",
+    },
+    "与ダメージ上昇効果のソース": {
+        "en": "Supplemental Damage Source",
+        "ja": "与ダメージ上昇効果のソース",
+        "zh": "Supplemental Damage Source",
+    },
+    "合計": {
+        "en": "Total",
+        "ja": "合計",
+        "zh": "Total",
+    },
+    "ダメージ": {
+        "en": "Damage (incl. Damage UP and Enemy Resistance)",
+        "ja": "ダメージ  (与ダメージ上と敵非有利耐性昇を含むいる)",
+        "zh": "伤害 (incl. Damage UP and Enemy Resistance)",
+    },
+    "サポアビ": {
+        "en": "Support Ability",
+        "ja": "サポアビ",
+        "zh": "Support Ability",
+    },
+    "supplemental_other": { //left empty intentionally
+        "en": "",
+        "ja": "",
+        "zh": "",
+    },
+    "supplemental_hp_based": { //left empty intentionally
+        "en": "",
+        "ja": "",
+        "zh": "",
+    },
+    "supplemental_third_hit": {
+        "en": " (Applies to third hit)",
+        "ja": " (3回目の攻撃に)",
+        "zh": " (Applies to third hit)",
+    },
+    "supplemental_on_critical": {
+        "en": " (Applies to critical hit, {value}%)",
+        "ja": " (クリティカル攻撃に、 {value}%)",
+        "zh": " (Applies to critical hit, {value}%)",
+    },
+    "supplemental_boss_debuff_based": {
+        "en": " (Enemy Debuff: {value})",
+        "ja": " (敵の弱体効果: {value})",
+        "zh": " (Enemy Debuff: {value})",
+    },
+    "supplemental_djeeta_buff_based": {
+        "en": " (Djeeta Buff: {value})",
+        "ja": " (ジータのバフ: {value})",
+        "zh": " (Djeeta Buff: {value})",
     },
     "四人合計値": {
         "en": "x4",
@@ -1197,7 +1419,7 @@ var multiLangData = {
         "zh": "属性(经过回合)",
     },
     "神石系": {
-        "en": "Primal ",
+        "en": "Primal",
         "ja": "神石系",
         "zh": "神石系",
     },
@@ -1237,100 +1459,128 @@ var multiLangData = {
         "zh": "操作",
     },
     "HP増加": {
-        "en": "Health ",
+        "en": "Health",
         "ja": "HP増加",
         "zh": "HP增加",
     },
     "通常攻刃": {
-        "en": "Normal Might ",
+        "en": "Normal Might",
         "ja": "通常攻刃",
         "zh": "通常攻刃",
     },
     "通常背水": {
-        "en": "Normal Enmity ",
+        "en": "Normal Enmity",
         "ja": "通常背水",
         "zh": "通常背水",
     },
     "通常渾身": {
-        "en": "Normal Stamina ",
+        "en": "Normal Stamina",
         "ja": "通常渾身",
         "zh": "通常浑身",
     },
     "マグナ背水": {
-        "en": "Magna Enmity ",
+        "en": "Magna Enmity",
         "ja": "マグナ背水",
         "zh": "方阵背水",
     },
     "マグナ渾身": {
-        "en": "Magna Stamina ",
+        "en": "Magna Stamina",
         "ja": "マグナ渾身",
         "zh": "方针浑身",
     },
+    "通常進境(大)(最大時)": {
+        "en": "Normal Element ATK L",
+        "ja": "通常進境(大)(最大時)",
+        "zh": "通常属性攻击力(大)",
+    },
+    "マグナ進境(大)(最大時)": {
+        "en": "Magna Element ATK L",
+        "ja": "マグナ進境(大)(最大時)",
+        "zh": "方阵属性攻击力(大)",
+    },
     "アンノウン": {
-        "en": "Unknown ",
+        "en": "Unknown",
         "ja": "アンノウン",
         "zh": "UNK",
     },
     "アンノウン背水": {
-        "en": "Unknown Enmity ",
+        "en": "Unknown Enmity",
         "ja": "アンノウン背水",
         "zh": "UNK背水",
     },
     "キャラ背水": {
-        "en": "Chara Enmity ",
+        "en": "Chara Enmity",
         "ja": "キャラ背水",
         "zh": "角色背水",
     },
+    "攻撃力減少(特殊)": {
+        "en": "ATK Debuff (Special)",
+        "ja": "攻撃力減少(特殊)",
+        "zh": "攻击力減少(特殊)",
+    },
     "DA上昇(通常)": {
-        "en": "DA up (normal) ",
+        "en": "DA Up (Normal)",
         "ja": "DA上昇(通常)",
         "zh": "DA上升(通常)",
     },
     "DA上昇(マグナ)": {
-        "en": "DA up (magna) ",
+        "en": "DA Up (Magna)",
         "ja": "DA上昇(マグナ)",
         "zh": "DA上升(方针)",
     },
     "DA上昇(EX)": {
-        "en": "DA up (EX) ",
+        "en": "DA Up (EX)",
         "ja": "DA上昇(EX)",
         "zh": "DA上升(EX)",
     },
     "DA上昇(バハ)": {
-        "en": "DA up (bahamut) ",
+        "en": "DA Up (Bahamut)",
         "ja": "DA上昇(バハ)",
         "zh": "DA上升(巴哈)",
     },
     "DA上昇(コスモス)": {
-        "en": "DA up (cosmos) ",
+        "en": "DA Up (Cosmos)",
         "ja": "DA上昇(コスモス)",
         "zh": "DA上升(Cosmos)",
     },
     "DA上昇(その他)": {
-        "en": "DA up (other) ",
+        "en": "DA Up (Other)",
         "ja": "DA上昇(その他)",
         "zh": "DA上升(其他)",
     },
     "TA上昇(通常)": {
-        "en": "TA up (normal) ",
+        "en": "TA Up (Normal)",
         "ja": "TA上昇(通常)",
         "zh": "TA上升(通常)",
     },
     "TA上昇(マグナ)": {
-        "en": "TA up (magna) ",
+        "en": "TA Up (Magna)",
         "ja": "TA上昇(マグナ)",
         "zh": "TA上升(方阵)",
     },
     "TA上昇(バハ)": {
-        "en": "TA up (bahamut) ",
+        "en": "TA Up (Bahamut)",
         "ja": "TA上昇(バハ)",
         "zh": "TA上升(巴哈)",
     },
     "TA上昇(その他)": {
-        "en": "TA up (other) ",
+        "en": "TA Up (Other)",
         "ja": "TA上昇(その他)",
         "zh": "TA上升(其他)",
     },
+    "LB背水ラベル": {
+        "en": "Enmity Perk",
+        "ja": "LB背水",
+        "zh": "LB背水",
+	},
+    "LB渾身ラベル": {
+        "en": "Stamina Perk",
+        "ja": "LB渾身",
+        "zh": "LB渾身",
+	},
+	
+	
+
     "グラフに加える": {
         "en": "Add to \ngraphs",
         "ja": "グラフに\n加える",
@@ -1363,12 +1613,12 @@ var multiLangData = {
     },
     "自分の石": {
         "en": "Player Summon",
-        "ja": "自分の石",
+        "ja": "自石の加護",
         "zh": "自己的召唤石",
     },
     "フレの石": {
         "en": "Friend Summon",
-        "ja": "フレの石",
+        "ja": "フレ石の加護",
         "zh": "好友的召唤石",
     },
     "合計攻撃力": {
@@ -1391,13 +1641,43 @@ var multiLangData = {
         "ja": "DA加護",
         "zh": "DA加护",
     },
+    "DA加護の説明": {
+        "en": "Halluel and Malluel(5~10%)etc.",
+        "ja": "ハーマー(5~10%)など",
+        "zh": "Halluel and Malluel(5~10%)etc.",
+    },
     "TA加護": {
         "en": "Triple Attack",
         "ja": "TA加護",
         "zh": "TA加护",
     },
+    "奥義ダメージアップ": {
+        "en": "C.A. Damage UP", //a.k.a: OugiDamageUP
+        "ja": "奥義ダメージUP",
+        "zh": "奥义伤害上升",
+    },
+    "与ダメージ加護": {
+        "en": "Boost Damage", //a.k.a: tenshiDamageUP
+        "ja": "与ダメ加護",
+        "zh": "Boost Damage",
+    },
+    "与ダメージ加護説明": {
+        "en": "Boosts final damage. Arcarum summons(SR3~5%, SSR7~10%) etc.",
+        "ja": "最終的な与ダメージが上昇します。アーカルム石(SR3~5%, SSR7~10%)など",
+        "zh": "Boosts final damage. Arcarum summons(SR3~5%, SSR7~10%) etc.",
+    },
+    "ダメージ上限加護": {
+        "en": "Damage Cap", //a.k.a: damageLimit
+        "ja": "ダメージ上限加護",
+        "zh": "Damage Cap",
+    },
+    "ダメージ上限加護説明": {
+        "en": "Increases the damage cap. Primarch summons(5~10%) etc.",
+        "ja": "ダメージ上限に加算されます。天司石(5~10%)など",
+        "zh": "Increases the damage cap. Primarch summons(5~10%) etc.",
+    },
     "奥義ダメージ": {
-        "en": "Ougi Damage",
+        "en": "C.A. Damage", //a.k.a: ougiDamage
         "ja": "奥義ダメージ",
         "zh": "奥義ダメージ",
     },
@@ -1468,7 +1748,7 @@ var multiLangData = {
         "zh": "性別",
     },
     "得意武器": {
-        "en": "Favorite",
+        "en": "Specialty weapons",
         "ja": "得意武器",
         "zh": "得意武器",
     },
@@ -1481,6 +1761,11 @@ var multiLangData = {
         "en": "Raw HP",
         "ja": "素のHP",
         "zh": "基本HP",
+    },
+    "プラスボーナス": {
+        "en": "Plus Bonus",
+        "ja": "+ボーナス",
+        "zh": "Plus Bonus",
     },
     "サポアビ": {
         "en": "Support Abi.",
@@ -1559,14 +1844,14 @@ var multiLangData = {
         "zh": "Erune",
     },
     "ドラフ": {
-        "en": "Doraf",
+        "en": "Draph", //a.k.a: Doraf
         "ja": "ドラフ",
-        "zh": "Doraf",
+        "zh": "Draph",
     },
     "ハーヴィン": {
-        "en": "Havin",
+        "en": "Harvin", //a.k.a: Havin
         "ja": "ハーヴィン",
-        "zh": "Havin",
+        "zh": "Harvin",
     },
     "星晶獣": {
         "en": "Primal",
@@ -1593,6 +1878,217 @@ var multiLangData = {
         "en": "Other",
         "ja": "不詳",
         "zh": "不詳",
+    },
+    //support abilities
+    "なし": {
+        "en": "None",
+        "ja": "なし",
+        "zh": "なし",
+    },
+    "全体DA率10%UP(ランスロット)": {
+        "en": "10% boost to double attack rate for all allies. (Lancelot)",
+        "ja": "全体DA率10%UP(ランスロット)",
+        "zh": "全体DA率10%UP(ランスロット)",
+    },
+    "全体TA率3%UP(ネツァ)": {
+        "en": "3% boost to TA rate for all allies (Nezahualpilli)",
+        "ja": "全体TA率3%UP(ネツァ)",
+        "zh": "全体TA率3%UP(ネツァ)",
+    },
+    "全体風DA率10%UP&TA率5%UP(コッコロ)": {
+        "en": "10% boost to DA rate and 5% boost to TA rate for wind allies. (Kokkoro)",
+        "ja": "全体風DA率10%UP&TA率5%UP(コッコロ)",
+        "zh": "全体風DA率10%UP&TA率5%UP(コッコロ)",
+    },
+    "格闘キャラDA率10%UP(ガンダゴウザ)": {
+        "en": "10% boost to melee-specialty allies' double attack rate. (Ghandagoza)",
+        "ja": "格闘キャラDA率10%UP(ガンダゴウザ)",
+        "zh": "格闘キャラDA率10%UP(ガンダゴウザ)",
+    },
+    "HP15%DOWN(水着イシュ, マルキ, ロザミア)": {
+        "en": "15% reduced max HP. (Izmir (Summer), Marquiares, Rosamia)",
+        "ja": "HP15%DOWN(水着イシュ, マルキ, ロザミア)",
+        "zh": "HP15%DOWN(水着イシュ, マルキ, ロザミア)",
+    },
+    "HP15%UP(ペコリーヌ)": {
+        "en": "15% boost to max HP. (Pecorine)",
+        "ja": "HP15%UP(ペコリーヌ)",
+        "zh": "HP15%UP(ペコリーヌ)",
+    },
+    "HP20%UP(ソリッズ, ファスティバ(SSR))": {
+        "en": "20% boost to max HP. (Soriz, Ladiva(SSR))",
+        "ja": "HP20%UP(ソリッズ, ファスティバ(SSR))",
+        "zh": "HP20%UP(ソリッズ, ファスティバ(SSR))",
+    },
+    "攻撃5%UP(レディグレイ)": {
+        "en": "5% boost to ATK. (Lady Grey)",
+        "ja": "攻撃5%UP",
+        "zh": "攻撃5%UP",
+    },
+    "全体攻撃5%UP(クリスティーナ)": {
+        "en": "5% boost to all allies' ATK. (Christina)",
+        "ja": "全体攻撃5%UP(クリスティーナ)",
+        "zh": "全体攻撃5%UP(クリスティーナ)",
+    },
+    "全体攻撃10%UP(アニラ)": {
+        "en": "10% ATK boost for all allies. (Anila)",
+        "ja": "全体攻撃10%UP(アニラ)",
+        "zh": "全体攻撃10%UP(アニラ)",
+    },
+    "ドラフと種族不明の攻撃UP(ナルメア)": {
+        "en": "10% boost to ATK for all Draph, Primal, and Unknown allies. (Narmaya)",
+        "ja": "ドラフと種族不明の攻撃UP(ナルメア)", //to seishou
+        "zh": "ドラフと種族不明の攻撃UP(ナルメア)",
+    },
+    "バトルメンバーの種族数に応じて攻撃力UP(リリィ)": {
+        "en": "Boost to ATK based on number of main allies' races. (Lily)",
+        "ja": "バトルメンバーの種族数に応じて攻撃力UP(リリィ)",
+        "zh": "バトルメンバーの種族数に応じて攻撃力UP(リリィ)",
+    },
+    "属性バフ付与時に属性攻撃30%UP(パーシヴァル)": {
+        "en": "Gain an additional 30% boost to Elemental buffs when affected by Elemental Buff (Percival)",
+        "ja": "属性バフ付与時に属性攻撃30%UP(パーシヴァル)",
+        "zh": "属性バフ付与時に属性攻撃30%UP(パーシヴァル)",
+    },
+    "属性バフ付与時にステータスUP(スカーサハ)": {
+        "en": "Boost to ATK and multiattack rate when buffed by Elemental Buff (Scathacha)",
+        "ja": "属性バフ付与時にステータスUP(スカーサハ)",
+        "zh": "属性バフ付与時にステータスUP(スカーサハ)",
+    },
+    "奥義ゲージ上昇量10%UP(アルタイル)": {
+        "en": "Charge bar fills up 10% faster. (Altair)",
+        "ja": "奥義ゲージ上昇量10%UP(アルタイル)",
+        "zh": "奥義ゲージ上昇量10%UP(アルタイル)",
+    },
+    "奥義ゲージ上昇量20%UP(アレ爺,シルヴァ,アーミラ)": {
+        "en": "Charge bar fills up 20% faster. (Aletheia, Silva, Amira)",
+        "ja": "奥義ゲージ上昇量20%UP(アレ爺,シルヴァ,アーミラ)",
+        "zh": "奥義ゲージ上昇量20%UP(アレ爺,シルヴァ,アーミラ)",
+    },
+    "奥義ゲージ上昇量100%UP(オクトー)": {
+        "en": "Charge bar fills up 100% faster. (Eahta)",
+        "ja": "奥義ゲージ上昇量100%UP(オクトー)",
+        "zh": "奥義ゲージ上昇量100%UP(オクトー)",
+    },
+    "全体奥義ダメージ50%UP(シエテ)": {
+        "en": "50% boost to C.A. DMG for all allies. (Seofon)",
+        "ja": "全体奥義ダメージ50%UP(シエテ)",
+        "zh": "全体奥義ダメージ50%UP(シエテ)",
+    },
+    "全体奥義ダメージ50%UP&奥義上限10%UP(最終シエテ)": {
+        "en": "50% boost to C.A. DMG and 10% boost to C.A. DMG cap for all allies. (5★ Seofon)",
+        "ja": "全体奥義ダメージ50%UP&奥義上限10%UP(最終シエテ)",
+        "zh": "全体奥義ダメージ50%UP&奥義上限10%UP(最終シエテ)",
+    },
+    "全体背水効果(ザルハメリナ)": {
+        "en": "Increases ATK for all allies based on how low (me)'s HP is. (Zahlhamelina)",
+        "ja": "全体背水効果(ザルハメリナ)",
+        "zh": "全体背水効果(ザルハメリナ)",
+    },
+    "背水効果(闇ジャンヌダルク, 黒騎士)": {
+        "en": "Boost to ATK based on how low HP is. (Jeanne D'Ark (Dark), Black Knight)",
+        "ja": "背水効果(闇ジャンヌダルク, 黒騎士)",
+        "zh": "背水効果(闇ジャンヌダルク, 黒騎士)",
+    },
+    "バトルメンバーの属性の数に応じて自分のステータスUP(水着ゾーイ)": {
+        "en": "Boost to stats based on number of different elements among allies. (Zooey (Promo), Zooey (Grand))",
+        "ja": "バトルメンバーの属性の数に応じて自分のステータスUP(水着ゾーイ)",
+        "zh": "バトルメンバーの属性の数に応じて自分のステータスUP(水着ゾーイ)",
+    },
+    "バトルメンバーの数が多い程自分のステータスUP(パーシヴァル)": {
+        "en": "Boost to ATK, double attack rate, and triple attack rate based on number of allies in battle. (Percival)",
+        "ja": "バトルメンバーの数が多い程自分のステータスUP(パーシヴァル)",
+        "zh": "バトルメンバーの数が多い程自分のステータスUP(パーシヴァル)",
+    },
+    "奥義ゲージ上昇量35%DOWN&与ダメージ上昇15%UP(シヴァ)": {
+        "en": "Charge bar fills up 35% slower and 15% boost to one-foe attack damage. (Shiva)",
+        "ja": "奥義ゲージ上昇量35%DOWN&与ダメージ上昇15%UP(シヴァ)",
+        "zh": "奥義ゲージ上昇量35%DOWN&与ダメージ上昇15%UP(シヴァ)",
+    },
+    "奥義ゲージ上昇量35%DOWN&与ダメージ15%UP&HP20%UP(クビラ)": {
+        "en": "Charge bar fills up 35% slower, 15% boost to one-foe attack damage and 20% boost to max HP. (Kumbhira)",
+        "ja": "奥義ゲージ上昇量35%DOWN&与ダメージ15%UP&HP20%UP(クビラ)",
+        "zh": "奥義ゲージ上昇量35%DOWN&与ダメージ15%UP&HP20%UP(クビラ)",
+    },
+    "クリティカル確率UP(発動率10%, 倍率30%)(ヴァンピィ, ジャンヌダルク)": {
+        "en": "Boost to critical hit rate (10% chance, 30% damage). (Vania, Jeanne D'Ark)",
+        "ja": "クリティカル確率UP(発動率10%, 倍率30%)(ヴァンピィ, ジャンヌダルク)",
+        "zh": "クリティカル確率UP(発動率10%, 倍率30%)(ヴァンピィ, ジャンヌダルク)",
+    },
+    "クリティカル確率UP(発動率20%, 倍率20%)(水着ジャンヌ)": {
+        "en": "Boost to critical hit rate (10% chance, 30% damage). (Jeanne D'Ark (Themed))",
+        "ja": "クリティカル確率UP(発動率20%, 倍率20%)(水着ジャンヌ)",
+        "zh": "クリティカル確率UP(発動率20%, 倍率20%)(水着ジャンヌ)",
+    },
+    "全体クリティカル確率UP(発動率5%, 倍率30%)(フェリ)": {
+        "en": "Boost to critical hit rate for all allies (5% chance, 30% damage). (Ferry)",
+        "ja": "全体クリティカル確率UP(発動率5%, 倍率30%)(フェリ)",
+        "zh": "全体クリティカル確率UP(発動率5%, 倍率30%)(フェリ)",
+    },
+    "クリティカル確率UP(発動率40%, 倍率50%)(キャル)": {
+        "en": "Boost to critical hit rate (40% chance, 50% damage). (Karyl)",
+        "ja": "クリティカル確率UP(発動率40%, 倍率50%)(キャル)",
+        "zh": "クリティカル確率UP(発動率40%, 倍率50%)(キャル)",
+    },
+    "全体クリティカル確率UP(発動率100%, 倍率50%)(最終ソーン奥義)": {
+        "en": "Boost to critical hit rate for all allies (100% chance, 50% damage). (5★ Tweyen C.A.)",
+        "ja": "全体クリティカル確率UP(発動率100%, 倍率50%)(最終ソーン奥義)",
+        "zh": "全体クリティカル確率UP(発動率100%, 倍率50%)(最終ソーン奥義)",
+    },
+    "与ダメージ上昇5%UP(アビー)": {
+        "en": "5% Boost to Damage. (Abby)",
+        "ja": "与ダメージ上昇5%UP(アビー)",
+        "zh": "与ダメージ上昇5%UP(アビー)",
+    },
+    "与ダメージ上昇10%UP": {
+        "en": "10% Boost to Damage.",
+        "ja": "与ダメージ上昇10%UP",
+        "zh": "与ダメージ上昇10%UP",
+    },
+    "与ダメージ上昇20%UP(色々)": {
+        "en": "20% Boost to Damage. (various)",
+        "ja": "与ダメージ上昇20%UP(色々)",
+        "zh": "与ダメージ上昇20%UP(色々)",
+    },
+    "与ダメージ上昇20%UP&奥義ダメージ上限20%UP(最終十天衆)": {
+        "en": "20% Boost to Damage and C.A. DMG Cap. (5★ Eternals)",
+        "ja": "与ダメージ上昇20%UP&奥義ダメージ上限20%UP(最終十天衆)",
+        "zh": "与ダメージ上昇20%UP&奥義ダメージ上限20%UP(最終十天衆)",
+    },
+    "奥義ダメージ上限20%UP(最終十天衆)": {
+        "en": "20% Boost to C.A. DMG Cap. (5★ Eternals)",
+        "ja": "奥義ダメージ上限20%UP(最終十天衆)",
+        "zh": "奥義ダメージ上限20%UP(最終十天衆)",
+    },
+    "奥義ダメージ上限25%UP(ルリア,SSRロボミ)": {
+        "en": "25% Boost to C.A. DMG Cap. (Robomi (SSR), Lyria)",
+        "ja": "奥義ダメージ上限25%UP(ルリア,SSRロボミ)",
+        "zh": "奥義ダメージ上限25%UP(ルリア,SSRロボミ)",
+    },
+    "奥義ダメージ上限100%UP(シャリオス17世)": {
+        "en": "100% Boost to C.A. DMG Cap. (Charioce XVII)",
+        "ja": "奥義ダメージ上限100%UP(シャリオス17世)",
+        "zh": "奥義ダメージ上限100%UP(シャリオス17世)",
+    },
+    "武器スキルの得意武器/タイプ/種族の発動条件を全て満たす(カイム)": {
+        "en": "Subject to all specialty weapon-, style-, and race-related weapon skills. (Caim)",
+        "ja": "武器スキルの得意武器/タイプ/種族の発動条件を全て満たす(カイム)",
+        "zh": "武器スキルの得意武器/タイプ/種族の発動条件を全て満たす(カイム)",
+    },
+    "通常攻撃を行わないが木之本桜の残りHPが多いほど味方全体の攻撃が大きくUP": {
+        "en": "15% boost to all allies ATK based on how high character HP is (various)",
+        "ja": "通常攻撃を行わないが木之本桜の残りHPが多いほど味方全体の攻撃が大きくUP",
+        "zh": "通常攻撃を行わないが木之本桜の残りHPが多いほど味方全体の攻撃が大きくUP",
+    },
+    "最大HPが15%減少 防御力が低いがイシュミールの残りHPが多いほど味方全体の攻撃が大きくUP": {
+        "en": "Has 15% less HP. %15 boost to all allies' ATK based on how high character HP is (various)",
+        "ja": "最大HPが15%減少 防御力が低いがイシュミールの残りHPが多いほど味方全体の攻撃が大きくUP",
+        "zh": "最大HPが15%減少 防御力が低いがイシュミールの残りHPが多いほど味方全体の攻撃が大きくUP",
+    },
+    "トリプルアタック発動時に3回目の攻撃の5万与ダメージ上昇(ハレゼナ)": {
+        "en": "50,000 Supplemental DMG to the third hit of triple attacks. (Hallessena)",
+        "ja": "トリプルアタック発動時に3回目の攻撃の5万与ダメージ上昇(ハレゼナ)",
+        "zh": "トリプルアタック発動時に3回目の攻撃の5万与ダメージ上昇(ハレゼナ)",
     },
     // sort keys
     "攻撃力(二手技巧無し,ジータさんのみ)": {
@@ -1664,6 +2160,11 @@ var multiLangData = {
         "en": "Integration of Party-Averaged Exp. Turn Damage",
         "ja": "予想ダメージ平均の積分値",
         "zh": "预测伤害平均积分值",
+    },
+    "奥義+チェンバダメージ": {
+        "en": "C.A.+Chain Damage",
+        "ja": "奥義+チェンバダメージ",
+        "zh": "C.A.+Chain Damage",
     },
     "★1": {
         "en": "★1",
@@ -1806,6 +2307,11 @@ var multiLangData = {
         "ja": "通常背水(大)",
         "zh": "通常背水(大)",
     },
+    "通常渾身(小)": {
+        "en": "Normal Stamina (S)",
+        "ja": "通常渾身(小)",
+        "zh": "通常渾身(小)",
+    },
     "通常渾身(中)": {
         "en": "Normal Stamina (M)",
         "ja": "通常渾身(中)",
@@ -1940,6 +2446,11 @@ var multiLangData = {
         "en": "Normal Essence (M)",
         "ja": "通常本質(中)",
         "zh": "通常本質(中)",
+    },
+    "通常庇護(小)": {
+        "en": "Normal Refuge (S)",
+        "ja": "通常庇護(小)",
+        "zh": "通常庇護(小)",
     },
     "先制": {
         "en": "Preemptive",
@@ -2176,10 +2687,20 @@ var multiLangData = {
         "ja": "ミフネ流・双星",
         "zh": "ミフネ流・双星",
     },
+    "乱気の疾駆・壱": {
+        "en": "Ventosus's First Dash",
+        "ja": "乱気の疾駆・壱",
+        "zh": "Ventosus's First Dash",
+    },
     "紅蓮の呪印・弐": {
         "en": "Inferno's Second Insignia",
         "ja": "紅蓮の呪印・弐",
         "zh": "红莲的咒印・叁",
+    },
+    "地裂の煽惑・参": {
+        "en": "Terra's Third Spur",
+        "ja": "地裂の煽惑・参",
+        "zh": "Terra's Third Spur",
     },
     "霧氷の追牙・肆": {
         "en": "Hoarfrost's Fourth Pursuit",
@@ -2516,6 +3037,31 @@ var multiLangData = {
         "ja": "アーカーシャ-槍",
         "zh": "アーカーシャ-槍",
     },
+    "不壊の誓約": {
+        "en": "Impervious Covenant",
+        "ja": "不壊の誓約",
+        "zh": "不壊の誓約",
+    },
+    "凱歌の誓約": {
+        "en": "Victorious Covenant",
+        "ja": "凱歌の誓約",
+        "zh": "凱歌の誓約",
+    },
+    "修羅の誓約": {
+        "en": "Contentious Covenant",
+        "ja": "修羅の誓約",
+        "zh": "修羅の誓約",
+    },
+    "致命の誓約": {
+        "en": "Deleterious Covenant",
+        "ja": "致命の誓約",
+        "zh": "致命の誓約",
+    },
+    "災禍の誓約": {
+        "en": "Calamitous Covenant",
+        "ja": "災禍の誓約",
+        "zh": "災禍の誓約",
+    },
     "ペンデュラム[α]": {
         "en": "Pendulum Key α",
         "ja": "ペンデュラム[α](通常上限10%UP)",
@@ -2552,27 +3098,42 @@ var multiLangData = {
         "zh": "天司的祝福III",
     },
     "通常上限UP(2.5%)": {
-        "en": "Damage Limit UP(2.5%)",
+        "en": "Damage Cap UP(2.5%)",
         "ja": "通常上限UP(2.5%)",
         "zh": "通常上限UP(2.5%)",
     },
     "通常上限UP(7.0%)": {
-        "en": "Damage Limit UP(7.0%)",
+        "en": "Damage Cap UP(7.0%)",
         "ja": "通常上限UP(7.0%)",
         "zh": "通常上限UP(7.0%)",
     },
     "通常上限UP(10%)": {
-        "en": "Damage Limit UP(10%)",
+        "en": "Damage Cap UP(10%)", //a.k.a:damageLimit
         "ja": "通常上限UP(10%)",
         "zh": "通常上限UP(10%)",
     },
     "奥義上限UP(10%)": {
-        "en": "Ougi Limit UP(10%)",
+        "en": "C.A. Cap UP(10%)",  //a.k.a:ougiDamageLimit
         "ja": "奥義上限UP(10%)",
         "zh": "奥义上限UP(10%)",
     },
+    "黄龍槍 (メイン装備時)": {
+        "en": "Huanglong spear (main)",
+        "ja": "黄龍槍 (メイン装備時)",
+        "zh": "Huanglong spear (main)",
+    },
+    "ケルヴィム (メイン装備時)": {
+        "en": "Cherubim Lance (main)",
+        "ja": "ケルヴィム (メイン装備時)",
+        "zh": "ケルヴィム (メイン装備時)",
+    },
+    "真・道天浄土 (メイン装備時)": {
+        "en": "True Purity Sunblade (main)",
+        "ja": "真・道天浄土 (メイン装備時)",
+        "zh": "真・道天浄土 (メイン装備時)",
+    },
     "奥義上限UP(イクシード)": {
-        "en": "Ougi Limit UP (Exceed)",
+        "en": "C.A. Cap UP (Exceed)",  //a.k.a:ougiDamageLimitByExceed
         "ja": "奥義上限UP(イクシード)",
         "zh": "奥义上限UP(Exceed)",
     },
@@ -2639,7 +3200,7 @@ var multiLangData = {
         "zh": "王道: 水的二手",
     },
     "邪道: 通常上限UP(7.0%)": {
-        "en": "Damage Limit UP(7.0%)",
+        "en": "Damage Cap UP(7.0%)",
         "ja": "邪道: 通常上限UP(7.0%)",
         "zh": "邪道: 通常上限UP(7.0%)",
 	},
@@ -2777,12 +3338,12 @@ var multiLangData = {
         "zh": "通常攻击",
     },
     "奥義": {
-        "en": "Ougi",
+        "en": "C.A.",
         "ja": "奥義",
         "zh": "奥义",
     },
     "奥義(ダメージ無し)": {
-        "en": "Ougi w/o damage",
+        "en": "C.A. w/o damage",
         "ja": "奥義(ダメージ無し)",
         "zh": "奥义(无伤害)",
     },
@@ -2873,7 +3434,7 @@ var multiLangData = {
         "zh": "天眼阵(3T)",
     },
     "他心陣と奥義": {
-        "en": "Splitting Spirit and Ougi",
+        "en": "Splitting Spirit and C.A.",
         "ja": "他心陣と奥義",
         "zh": "他心阵和奥义",
     },
@@ -2887,6 +3448,16 @@ var multiLangData = {
         "en": "If you added Angel's weapon in your grid, set the sort key to that based on \'Damage\'.",
         "ja": "天司武器入りで計算する場合、優先項目をダメージベースのものに設定してください.",
         "zh": "把天司武器加入计算的时候，请选择基于伤害的优先项目。",
+    },
+    "敵の弱体効果": {
+        "en": "Number of Debuffs (on target)",
+        "ja": "敵の弱体効果の数",
+        "za": "敵の弱体効果の数",
+    },
+    "ジータバフの数": {
+        "en": "Number of Buffs (on Djeeta)",
+        "ja": "バフの数（ジータ）",
+        "za": "バフの数（ジータ）",
     },
     "広告": {
         "en": "Ad.",
@@ -2912,6 +3483,16 @@ var multiLangData = {
         "en": "Changelog",
         "ja": "更新履歴",
         "zh": "更新履歴",
+    },
+    "次の{step}件を表示": {
+        "en": "Show next {step} logs",
+        "ja": "次の{step}件を表示",
+        "zh": "Show next {step} logs",
+    },
+    "percent": {
+        "en": " {}%",
+        "ja": "{}%",
+        "zh": " {}%",
     },
     "notice-20170114-1": {
         "en": "2017/01/14: English Support (partly).",
@@ -3240,7 +3821,7 @@ var multiLangData = {
     },
     "notice-20190414-1": {
         "en": "14/04/2019: Add Opus weapons and 3rd skill slot.",
-        "ja": "2019/04/14: 終末武器追加。3番目のスキル欄追加(過去の編成データが読み込めなくなっています)",
+        "ja": "2019/04/14: 終末武器追加。3番目のスキル欄追加(過去の編成データが読み込めなくなっています(現在修正済))",
         "zh": "2019/04/14: Add Opus weapons and 3rd skill slot.",
     },
     "notice-20190414-2": {
@@ -3270,8 +3851,48 @@ var multiLangData = {
     },
     "notice-20190428-1": {
         "en": "28/04/2019: Implement a damage limit aura. Add Master Bonuses.",
-        "ja": "2019/04/28: ダメージ上限加護実装。マスボ追加。",
+        "ja": "2019/04/28: ダメージ上限加護実装。マスボ追加。最終ソーンの奥義をサポアビとして実装(今の所手動で選択する必要があります)。",
         "zh": "2019/04/28: Implement a damage limit aura. Add Master Bonuses.",
+    },
+    "notice-20190430-1": {
+        "en": "30/04/2019: Add Player's Extended Mastery. Improved Save data compatibility.",
+        "ja": "2019/04/30: ジータLB追加。編成データの互換性強化。",
+        "zh": "2019/04/30: Add Player's Extended Mastery. Improved Save data compatibility.",
+    },
+    "notice-20190501-1": {
+        "en": "01/05/2019: Add huanglong spear skill2. Fix Eahta's support ability and Belltower Skill.",
+        "ja": "2019/05/01: 黄龍槍メイン装備時スキル追加。最終オクトーサポアビ修正。ベルタワースキル修正。",
+        "zh": "2019/05/01: Add huanglong spear skill2. Fix Eahta's support ability and Belltower Skill.",
+    },
+    "notice-20190511-1": {
+        "en": "11/05/2019: Add characters and weapons and chara's default ougi ratio.",
+        "ja": "2019/05/11: キャラ・武器追加。キャラのデフォルト奥義倍率追加。",
+        "zh": "2019/05/11: Add characters and weapons and chara's default ougi ratio.",
+    },
+    "notice-20190514-1": {
+        "en": "14/05/2019: Added sort key: C.A.+Chain damage(need to change chain number to 4). Added support for rounding down the decimal point of multi attack.",
+        "ja": "2019/05/14: 優先項目(ソートキー)に「奥義+チェンバダメージ」追加(より細かい設定から4チェインにする必要有)。連撃率の小数点以下切り捨て対応。",
+        "zh": "2019/05/14: Added sort key: C.A.+Chain damage(need to change chain number to 4). Added support for rounding down the decimal point of multi attack.",
+    },
+    "notice-20190517-1": {
+        "en": "17/05/2019: Added C.A. damage bonus buff to Indiv Buff. Set to default value of ATK and HP of summon. Changed default arua valus to 140.",
+        "ja": "2019/05/17: 個別バフに奥義バフ入力欄追加。召喚石の攻撃力HPデフォルト値追加。召喚石のデフォルト加護値を140に。",
+        "zh": "2019/05/17: Added C.A. damage bonus buff to Indiv Buff. Set to default value of ATK and HP of summon. Changed default arua valus to 140.",
+    },
+    "notice-20190518-1": {
+        "en": "18/05/2019: Added rankiShikku skill, and support skills of Percival and Scathacha, and level list of SR weapon.",
+        "ja": "2019/05/18: 青竜髭刃のスキル「乱気の疾駆・壱」追加。パーシヴァル、スカーサハのサポアビ追加。SR武器のレベル区域追加。",
+        "zh": "2019/05/18: Added rankiShikku skill, and support skills of Percival and Scathacha, and level list of SR weapon.",
+    },
+    "notice-20190528-1": {
+        "en": "28/05/2019: Added new weapons and characters, and new normal critical calculation, and Over Masterys, and Soldier.",
+        "ja": "2019/05/28: 武器とキャラ追加。通常技巧の計算方法を方陣技巧と共通化。EXLB(指輪)入力欄追加。ソルジャー追加。",
+        "zh": "2019/05/28: Added new weapons and characters, and new normal critical calculation, and Over Masterys. and Soldier.",
+    },
+    "notice-20190606-1": {
+        "en": "06/06/2019: Added new weapons and characters, Character Balance Patch.",
+        "ja": "2019/06/06: 武器とキャラ追加。キャラバランスパッチ。",
+        "zh": "2019/06/06: Added new weapons and characters, Character Balance Patch.",
     },
 };
 
@@ -3296,6 +3917,6 @@ module.exports.translate = function (key, locale) {
 
         return multiLangData[key][locale];
     } catch (e) {
-        console.error("Error! Key " + key + "for language " + locale + " not found")
+        console.error("Error! Key " + key + " for language " + locale + " not found")
     }
 };

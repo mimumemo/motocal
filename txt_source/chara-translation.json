@@ -1,4 +1,9 @@
 {
+    "バイヴカハ": "Morrigna",
+    "ファスティバ(SSR)": "Ladiva (SSR)",
+    "キャル": "Karyl",
+    "バアル": "Baal",
+    "メドゥーサ(ガチャver)": "Medusa",
     "マキュラ・マリウス": "Macula Marius",
     "グリームニル": "Grimnir",
     "ヴィーラ(風属性ver)": "Vira (Wind)",
@@ -212,7 +217,7 @@
     "イシュミール(水着ver)": "Izmir (Summer)",
     "コルワ(水着ver)": "Korwa (Summer)",
     "ユグドラシル": "Yggdrasil",
-    "メドゥーサ": "Medusa",
+    "メドゥーサ": "Medusa (Promo)",
     "バウタオーダ(SSR)": "Baotorda (SSR)",
     "スカーサハ": "Scathacha",
     "ヴェイン(SSR)": "Vane (SSR)",
@@ -264,7 +269,7 @@
     "渋谷凛": "Rin Shibuya",
     "アンジェ(ハロウィンver)": "Ange (Halloween)",
     "ミムルメモル": "Mimlemel",
-    "アステール": "Aster",
+    "アステール": "Aster (Event)",
     "マライア": "Mariah",
     "カレン": "Carren",
     "ヴェイン": "Vane (Event)",
@@ -475,5 +480,9 @@
     "カシウス": "Cassius",
     "スカル(闇属性ver)": "Skull",
     "キャサリン(SR)": "Catherine (SR)",
-    "ミリン(光属性ver)": "Mirin (Light)"
+    "ミリン(光属性ver)": "Mirin (Light)",
+    "コルワ(SR)": "Korwa (SR)",
+    "リチャード": "Richard",
+    "アステール(火属性ver)": "Aster",
+    "ノーブルナイツ ブリジール＆コーデリア": "Bridgette and Cordelia"
 }

@@ -79,7 +79,30 @@ module.exports._ua = (function (u) {
     }
 })(window.navigator.userAgent.toLowerCase());
 
-var zenith = {
+const UNLIMIT_VALUE = 99999;
+module.exports.LIMIT = {
+    normalDA: 50,
+    magnaDA: 50,
+    exDA: UNLIMIT_VALUE,
+    bahaDA: 50,
+    cosmosDA: 50,
+    otherDA: UNLIMIT_VALUE,
+    normalTA: 50,
+    magnaTA: 50,
+    bahaTA: 50,
+    otherTA: UNLIMIT_VALUE,
+};
+module.exports.hollowskyNames = [
+    "虚空の",
+    "Hollowsky"
+];
+var opusNames = [
+    "of Repudiation",
+    "絶対否定の",
+    "of Renunciation",
+    "永遠拒絶の"
+];
+var zenith = {　//得意武器
     "無し": 0,
     "★1": 0.01,
     "★2": 0.03,
@@ -94,9 +117,74 @@ var zenith = {
     "★11": 0.18,
     "★12": 0.20
 };
+
 var zenithAttackBonus = [3000, 1500, 500, 0];
 var zenithHPBonus = [1000, 600, 300, 0];
 var zenithPartyHPBonus = [3000, 2600, 2300, 2000, 1600, 1300, 1000, 600, 300, 0];
+var zenithDABonus = {
+    "無し": 0,
+    "★1": 0.01,
+    "★2": 0.03,
+    "★3": 0.05,
+    "★4": 0.06,
+    "★5": 0.08,
+    "★6": 0.10
+};
+var zenithTABonus = {
+    "無し": 0,
+    "★1": 0.01,
+    "★2": 0.03,
+    "★3": 0.05
+};
+
+//var zenithCriticalBonus = [0, 1, 3, 5, 6, 8, 10];
+var zenithOugiDamageBonus = {
+    "無し": 0, 
+    "★1": 0.01, 
+    "★2": 0.03, 
+    "★3": 0.05, 
+    "★4": 0.06, 
+    "★5": 0.08, 
+    "★6": 0.10, 
+    "★7": 0.11, 
+    "★8": 0.13,
+    "★9": 0.15
+};
+var zenithChainDamageBonus = {
+    "無し": 0, 
+    "★1": 0.01, 
+    "★2": 0.03, 
+    "★3": 0.05,
+    "★4": 0.06, 
+    "★5": 0.08, 
+    "★6": 0.10
+};
+var zenithChainDamageLimitBonus = {
+    "無し": 0, 
+    "★1":  0.01, 
+    "★2": 0.03, 
+    "★3": 0.05
+};
+var zenithElementBonus = {
+    "無し": 0, 
+    "★1": 0.01, 
+    "★2": 0.03, 
+    "★3": 0.05, 
+    "★4": 0.06, 
+    "★5": 0.08, 
+    "★6": 0.10
+};
+var zenithDamageLimitBonus = {
+    "無し": 0, 
+    "★1": 0.03, 
+    "★2": 0.06, 
+    "★3": 0.10, 
+    "★4": 0.11, 
+    "★5": 0.13, 
+    "★6": 0.15
+};
+
+
 var skilllevels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
 var considerNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 var buffLevelList = [
@@ -105,7 +193,8 @@ var buffLevelList = [
     200, 205, 210, 215, 220, 225, 230, 235, 240, 245, 250, 255, 260, 265, 270, 275, 280, 285, 290, 295, 300,
     -5, -10, -15, -20, -25, -30, -35, -40, -45, -50, -55, -60, -65, -70, -75, -80, -85, -90, -95, -100
 ];
-var ougiRatioList = [0.0, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 9.5, 10.0];
+var ougiGageUpOugiBuffLevelList = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95,];
+var ougiRatioList = [0.0, 1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 6.0, 6.5, 7.0, 7.5, 8.0, 9.5, 10.0, 10.5, 11.0, 11.5, 12.0, 12.5, 13.0, 13.5, 14.0, 14.5, 15.0];
 var masterATKList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 var masterHPList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 var masterDAList = [0, 1, 2, 3, 4];
@@ -221,6 +310,312 @@ var plusNumList = {
     "+99": 99
 };
 
+var charaPlusNumList = {
+    "+0": 0,
+    "+300(max)": 300,
+    "+1": 1,
+    "+2": 2,
+    "+3": 3,
+    "+4": 4,
+    "+5": 5,
+    "+6": 6,
+    "+7": 7,
+    "+8": 8,
+    "+9": 9,
+    "+10": 10,
+    "+11": 11,
+    "+12": 12,
+    "+13": 13,
+    "+14": 14,
+    "+15": 15,
+    "+16": 16,
+    "+17": 17,
+    "+18": 18,
+    "+19": 19,
+    "+20": 20,
+    "+21": 21,
+    "+22": 22,
+    "+23": 23,
+    "+24": 24,
+    "+25": 25,
+    "+26": 26,
+    "+27": 27,
+    "+28": 28,
+    "+29": 29,
+    "+30": 30,
+    "+31": 31,
+    "+32": 32,
+    "+33": 33,
+    "+34": 34,
+    "+35": 35,
+    "+36": 36,
+    "+37": 37,
+    "+38": 38,
+    "+39": 39,
+    "+40": 40,
+    "+41": 41,
+    "+42": 42,
+    "+43": 43,
+    "+44": 44,
+    "+45": 45,
+    "+46": 46,
+    "+47": 47,
+    "+48": 48,
+    "+49": 49,
+    "+50": 50,
+    "+51": 51,
+    "+52": 52,
+    "+53": 53,
+    "+54": 54,
+    "+55": 55,
+    "+56": 56,
+    "+57": 57,
+    "+58": 58,
+    "+59": 59,
+    "+60": 60,
+    "+61": 61,
+    "+62": 62,
+    "+63": 63,
+    "+64": 64,
+    "+65": 65,
+    "+66": 66,
+    "+67": 67,
+    "+68": 68,
+    "+69": 69,
+    "+70": 70,
+    "+71": 71,
+    "+72": 72,
+    "+73": 73,
+    "+74": 74,
+    "+75": 75,
+    "+76": 76,
+    "+77": 77,
+    "+78": 78,
+    "+79": 79,
+    "+80": 80,
+    "+81": 81,
+    "+82": 82,
+    "+83": 83,
+    "+84": 84,
+    "+85": 85,
+    "+86": 86,
+    "+87": 87,
+    "+88": 88,
+    "+89": 89,
+    "+90": 90,
+    "+91": 91,
+    "+92": 92,
+    "+93": 93,
+    "+94": 94,
+    "+95": 95,
+    "+96": 96,
+    "+97": 97,
+    "+98": 98,
+    "+99": 99,
+    "+100": 100,
+    "+101": 101,
+    "+102": 102,
+    "+103": 103,
+    "+104": 104,
+    "+105": 105,
+    "+106": 106,
+    "+107": 107,
+    "+108": 108,
+    "+109": 109,
+    "+110": 110,
+    "+111": 111,
+    "+112": 112,
+    "+113": 113,
+    "+114": 114,
+    "+115": 115,
+    "+116": 116,
+    "+117": 117,
+    "+118": 118,
+    "+119": 119,
+    "+120": 120,
+    "+121": 121,
+    "+122": 122,
+    "+123": 123,
+    "+124": 124,
+    "+125": 125,
+    "+126": 126,
+    "+127": 127,
+    "+128": 128,
+    "+129": 129,
+    "+130": 130,
+    "+131": 131,
+    "+132": 132,
+    "+133": 133,
+    "+134": 134,
+    "+135": 135,
+    "+136": 136,
+    "+137": 137,
+    "+138": 138,
+    "+139": 139,
+    "+140": 140,
+    "+141": 141,
+    "+142": 142,
+    "+143": 143,
+    "+144": 144,
+    "+145": 145,
+    "+146": 146,
+    "+147": 147,
+    "+148": 148,
+    "+149": 149,
+    "+150": 150,
+    "+151": 151,
+    "+152": 152,
+    "+153": 153,
+    "+154": 154,
+    "+155": 155,
+    "+156": 156,
+    "+157": 157,
+    "+158": 158,
+    "+159": 159,
+    "+160": 160,
+    "+161": 161,
+    "+162": 162,
+    "+163": 163,
+    "+164": 164,
+    "+165": 165,
+    "+166": 166,
+    "+167": 167,
+    "+168": 168,
+    "+169": 169,
+    "+170": 170,
+    "+171": 171,
+    "+172": 172,
+    "+173": 173,
+    "+174": 174,
+    "+175": 175,
+    "+176": 176,
+    "+177": 177,
+    "+178": 178,
+    "+179": 179,
+    "+180": 180,
+    "+181": 181,
+    "+182": 182,
+    "+183": 183,
+    "+184": 184,
+    "+185": 185,
+    "+186": 186,
+    "+187": 187,
+    "+188": 188,
+    "+189": 189,
+    "+190": 190,
+    "+191": 191,
+    "+192": 192,
+    "+193": 193,
+    "+194": 194,
+    "+195": 195,
+    "+196": 196,
+    "+197": 197,
+    "+198": 198,
+    "+199": 199,
+    "+200": 200,
+    "+201": 201,
+    "+202": 202,
+    "+203": 203,
+    "+204": 204,
+    "+205": 205,
+    "+206": 206,
+    "+207": 207,
+    "+208": 208,
+    "+209": 209,
+    "+210": 210,
+    "+211": 211,
+    "+212": 212,
+    "+213": 213,
+    "+214": 214,
+    "+215": 215,
+    "+216": 216,
+    "+217": 217,
+    "+218": 218,
+    "+219": 219,
+    "+220": 220,
+    "+221": 221,
+    "+222": 222,
+    "+223": 223,
+    "+224": 224,
+    "+225": 225,
+    "+226": 226,
+    "+227": 227,
+    "+228": 228,
+    "+229": 229,
+    "+230": 230,
+    "+231": 231,
+    "+232": 232,
+    "+233": 233,
+    "+234": 234,
+    "+235": 235,
+    "+236": 236,
+    "+237": 237,
+    "+238": 238,
+    "+239": 239,
+    "+240": 240,
+    "+241": 241,
+    "+242": 242,
+    "+243": 243,
+    "+244": 244,
+    "+245": 245,
+    "+246": 246,
+    "+247": 247,
+    "+248": 248,
+    "+249": 249,
+    "+250": 250,
+    "+251": 251,
+    "+252": 252,
+    "+253": 253,
+    "+254": 254,
+    "+255": 255,
+    "+256": 256,
+    "+257": 257,
+    "+258": 258,
+    "+259": 259,
+    "+260": 260,
+    "+261": 261,
+    "+262": 262,
+    "+263": 263,
+    "+264": 264,
+    "+265": 265,
+    "+266": 266,
+    "+267": 267,
+    "+268": 268,
+    "+269": 269,
+    "+270": 270,
+    "+271": 271,
+    "+272": 272,
+    "+273": 273,
+    "+274": 274,
+    "+275": 275,
+    "+276": 276,
+    "+277": 277,
+    "+278": 278,
+    "+279": 279,
+    "+280": 280,
+    "+281": 281,
+    "+282": 282,
+    "+283": 283,
+    "+284": 284,
+    "+285": 285,
+    "+286": 286,
+    "+287": 287,
+    "+288": 288,
+    "+289": 289,
+    "+290": 290,
+    "+291": 291,
+    "+292": 292,
+    "+293": 293,
+    "+294": 294,
+    "+295": 295,
+    "+296": 296,
+    "+297": 297,
+    "+298": 298,
+    "+299": 299,
+    "+300": 300
+};
+
+
 // Levels Lists
 var levelListFactory = function (base_list, max_level) {
     for (var i = 2; i <= max_level; ++i) {
@@ -254,6 +649,24 @@ var levelList200Limit = levelListFactory({
     "5凸 (Lv. 200)": 200
 }, 200);
 
+//SR
+var SRLevelList75Limit = levelListFactory({
+    "Lv. 1": 1,
+    "0凸 (Lv. 30)": 30,
+    "1凸 (Lv. 45)": 45,
+    "2凸 (Lv. 60)": 60,
+    "3凸 (Lv. 75)": 75,
+}, 75);
+
+var SRLevelList120Limit = levelListFactory({
+    "Lv. 1": 1,
+    "0凸 (Lv. 30)": 30,
+    "1凸 (Lv. 45)": 45,
+    "2凸 (Lv. 60)": 60,
+    "3凸 (Lv. 75)": 75,
+    "4凸 (Lv. 120)": 120,
+}, 120);
+
 // Skill Level Lists
 var skillLevelListFactory = function (max_level) {
     var base_list = {};
@@ -267,18 +680,18 @@ var skillLevelList10Limit = skillLevelListFactory(10);
 var skillLevelList15Limit = skillLevelListFactory(15);
 var skillLevelList20Limit = skillLevelListFactory(20);
 
-var summonAmountList = [0, 10, 20, 25, 30, 40, 50, 60, 66, 70, 75, 80, 85, 90, 95, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200];
+var summonAmountList = [0, 10, 20, 25, 30, 40, 50, 60, 66, 70, 75, 80, 85, 90, 95, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 210, 220, 230, 240, 250, 260, 270, 280, 290, 300];
 var chainNumberList = [1, 2, 3, 4];
 
-// limitBonus
+// Chara limitBonus
 var limitBonusAttackList = [0, 500, 800, 1000, 1300, 1500, 1600, 1800, 2000, 2300, 2500, 2600, 2800, 3000];
 var limitBonusHPList = [0, 250, 500, 750, 1000, 1250, 1500, 1750, 2000, 2250, 2500, 2750, 3000];
-var limitBonusDAList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
-var limitBonusTAList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
-var limitBonusElementList = [0, 5, 8, 10, 13, 15, 16, 18, 20, 21, 24, 25, 28, 30, 32, 33, 35, 36, 38, 40];
+var limitBonusDAList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
+var limitBonusTAList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+var limitBonusElementList = [0, 5, 8, 10, 13, 15, 16, 18, 20, 21, 23, 24, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40];
 var limitBonusCriticalList = {
     "none": {
-        "name": "無",
+        "name": "無し",
         "value": 0.0,
         "attackRatio": 0.0,
     },
@@ -298,6 +711,27 @@ var limitBonusCriticalList = {
         "attackRatio": 0.25,
     },
 };
+var limitBonusOugiDamageList = [0, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80];
+var limitBonusOugiDamageLimitList = [0, 5, 8, 10, 13, 15, 16, 18, 20, 21, 23, 24, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40];
+var limitBonusOugiGageBuffList = [0, 5, 8, 10, 13, 15, 16, 18, 20, 21, 23, 24, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 38, 40];
+
+/*var limitBonusHaisuiList = {
+    "none": "無し",
+    "small": "小",
+    "medium": "中",
+    "large": "大",
+    };*/
+
+// Chara EX limitBonus
+var EXlimitBonusAttackList = [0, 300, 600, 900, 1200, 1500, 1800, 2100, 2400, 2700, 3000];
+var EXlimitBonusHPList = [0, 150, 300, 450, 600, 750, 900, 1050, 1200, 1350, 1500];
+var EXlimitBonusOugiDamageList = [0, 10, 12, 14, 16, 18, 20, 22, 24, 27, 30];
+var EXlimitBonusOugiDamageLimitList = [0, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+var EXlimitBonusCriticalList = [0, 10, 12, 14, 16, 18, 20, 22, 24, 27, 30];
+var EXlimitBonusHaisuiList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var EXlimitBonusKonshinList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+var EXlimitBonusDAList = [0, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+var EXlimitBonusTAList = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 var enemyDefenseType = {
     10.0: { "name": "敵防御10.0" },
@@ -321,6 +755,7 @@ var keyTypes = {
     "damageWithMultiple": "単攻撃ダメージ(連撃有)",
     "damage": "単攻撃ダメージ(技巧連撃有)",
     "ougiDamage": "奥義ダメージ",
+    "ougiDamageWithChainDamage": "奥義+チェンバダメージ",
     "totalExpected": "総合攻撃*期待回数*技巧期待値(ジータさんのみ)",
     "averageTotalExpected": "総回技のパーティ平均値",
     "expectedCycleDamagePerTurn": "予想ターン毎ダメージ(ジータさんのみ)",
@@ -370,6 +805,7 @@ var skilltypes = {
     "normalHaisuiS": {name: "通常背水(小)", type: "normalHaisui", amount: "S"},
     "normalHaisuiM": {name: "通常背水(中)", type: "normalHaisui", amount: "M"},
     "normalHaisuiL": {name: "通常背水(大)", type: "normalHaisui", amount: "L"},
+    "normalKonshinS": {name: "通常渾身(小)", type: "normalKonshin", amount: "S"},
     "normalKonshinM": {name: "通常渾身(中)", type: "normalKonshin", amount: "M"},
     "normalKonshinL": {name: "通常渾身(大)", type: "normalKonshin", amount: "L"},
     "normalOtherKonshinL": {name: "通常渾身(大)(神石加護無効)", type: "normalOtherKonshin", amount: "L"},
@@ -403,6 +839,7 @@ var skilltypes = {
     "normalEiketsuL": {name: "通常英傑(大)", type: "normalEiketsu", amount: "L"},
     "normalOntyouM": {name: "通常恩寵(中)", type: "normalOntyou", amount: "M"},
     "normalSeisyouM": {name: "通常本質(中)", type: "normalSeisyou", amount: "M"},
+    "normalHigoS": {name: "通常庇護(小)", type: "normalHigo", amount: "S"},
     "magnaM": {name: "マグナ攻刃", type: "magna", amount: "M"},
     "magnaL": {name: "マグナ攻刃II", type: "magna", amount: "L"},
     "magnaSoka": {name: "マグナ楚歌", type: "magnaSoka", amount: "M"},
@@ -446,6 +883,9 @@ var skilltypes = {
     "normalDamageLimit7": {name: "通常上限UP(7.0%)", type: "normalDamageLimit", amount: "M"},
     "normalDamageLimit10": {name: "通常上限UP(10%)", type: "normalDamageLimit", amount: "L"},
     "ougiDamageLimit10": {name: "奥義上限UP(10%)", type: "ougiDamageLimit", amount: "L"}, //現在未使用
+    "huanglongHissatsu": {name: "黄龍槍 (メイン装備時)", type: "huanglongHissatsu", amount: "non"},
+    "cherubimKonshin": {name: "ケルヴィム (メイン装備時)", type: "cherubimKonshin", amount: "non"},
+    "sunbladeKonshin": {name: "真・道天浄土 (メイン装備時)", type: "sunbladeKonshin", amount: "non"},
     "ougiDamageLimitExceedM": {name: "奥義上限UP(イクシード)", type: "ougiDamageLimitExceed", amount: "M"},
     "chainForce": {name: "チェインフォース", type: "chainForce", amount: "M"},
     "normalHPS": {name: "通常守護(小)", type: "normalHP", amount: "S"},
@@ -460,7 +900,9 @@ var skilltypes = {
     "unknownHPL": {name: "アンノウン・VIT II(大)", type: "unknownHP", amount: "L"},
     "unknownOtherBoukunL": {name: "ミフネ流・極意", type: "exBoukun", amount: "L"},
     "unknownOtherNiteS": {name: "ミフネ流・双星", type: "exNite", amount: "S"},
+    "rankiShikku": {name: "乱気の疾駆・壱", type: "rankiShikku", amount: "L"},
     "gurenJuin": {name: "紅蓮の呪印・弐", type: "gurenJuin", amount: "L"},
+    "chiretsuSenwaku": {name: "地裂の煽惑・参", type: "chiretsuSenwaku", amount: "L"},
     "muhyoTuiga": {name: "霧氷の追牙・肆", type: "muhyoTuiga", amount: "L"},
     "tsuranukiKiba": {name: "貫きの牙", type: "tsuranukiKiba", amount: "M"},
     "tsuranukiKibaMain": {name: "貫きの牙(メイン装備時)", type: "tsuranukiKiba", amount: "M"},
@@ -519,10 +961,17 @@ var skilltypes = {
     "akasha-bow": {name: "アーカーシャ-弓", type: "akasha", amount: "gun"},
     "akasha-wand": {name: "アーカーシャ-杖", type: "akasha", amount: "music"},
     "akasha-spear": {name: "アーカーシャ-槍", type: "akasha", amount: "katana"},
+    "impervious-covenant": {name: "不壊の誓約", type: "covenant", amount:"impervious"},
+    "victorious-covenant": {name: "凱歌の誓約", type: "covenant", amount:"victorious"},
+    "contentious-covenant": {name: "修羅の誓約", type: "covenant", amount:"contentious"},
+    "deleterious-covenant": {name: "致命の誓約", type: "covenant", amount:"deleterious"},
+    "calamitous-covenant": {name: "災禍の誓約", type: "covenant", amount:"calamitous"},
     "opus-alpha": {name: "ペンデュラム[α]", type: "opusKey", amount: "L"},
     //"opus-beta": {name: "ペンデュラム[β]", type: "opusKey", amount: "L"},
     "opus-gamma": {name: "ペンデュラム[γ]", type: "opusKey", amount: "L"},
     "opus-delta": {name: "ペンデュラム[Δ]", type: "opusKey", amount: "L"},
+    "opus-normalElement": {name: "通常進境(大)(最大時)", type: "opusnormalElement", amount: "L"},
+    "opus-magnaElement": {name: "マグナ進境(大)(最大時)", type: "opusmagnaElement", amount: "L"},
     "tenshiShukufuku": {name: "天司の祝福", type: "tenshiShukufuku", amount: "M"},
     "tenshiShukufukuII": {name: "天司の祝福II", type: "tenshiShukufuku", amount: "L"},
     "tenshiShukufukuIII": {name: "天司の祝福III", type: "tenshiShukufuku", amount: "LL"},
@@ -543,6 +992,30 @@ var cosmosSkills = {
 };
 
 // additional selection when template is selected
+module.exports.skillDetails = {
+    'victorious-covenant': 'victorious_calamitous_covenant',
+    'calamitous-covenant': 'victorious_calamitous_covenant'
+};
+
+var skillDetailsDescription = {
+    'victorious-covenant': 'ジータバフの数',
+    'calamitous-covenant': '敵の弱体効果'  
+};
+
+var victorious_calamitous_covenant = {
+    "0": 0,
+    "1": 1,
+    "2": 2,
+    "3": 3,
+    "4": 4,
+    "5": 5,
+    "6": 6,
+    "7": 7,
+    "8": 8,
+    "9": 9,
+    "10": 10
+};
+
 var sishoSeiryu = {
     "non": {name: "無し", type: "non", amount: "non"},
     "normalCriticalM": {name: "王道: 竜巻の技巧"},
@@ -593,6 +1066,7 @@ var opusNormalWeaponSkill2 = {
     "normalKonshinL": {name: "通常渾身(大)"},
     "normalHaisuiL": {name: "通常背水(大)"},
     "normalSanteM": {name: "通常三手(中)"},
+    "opus-normalElement": {name: "通常進境(大)(最大時)"},
 };
 
 var opusMagnaWeaponSkill2 = {
@@ -600,6 +1074,7 @@ var opusMagnaWeaponSkill2 = {
     "magnaKonshinL": {name: "マグナ渾身(大)"},
     "magnaHaisuiL": {name: "マグナ背水(大)"},
     "magnaSanteM": {name: "マグナ三手(中)"},
+    "opus-magnaElement": {name: "マグナ進境(大)(最大時)"},
 };
 
 var armTypes = {
@@ -869,7 +1344,7 @@ module.exports.Jobs = {
         "favArm2": "katana",
         "type": "attack",
         "atBonus": 2000.0,
-        "kouzinBonus": 0.0,
+        "kouzinBonus": 20.0,
         "hpBonus": 600.0,
         "shugoBonus": 0.0,
         "DaBonus": 57.0,
@@ -922,6 +1397,18 @@ module.exports.Jobs = {
         "shugoBonus": 0.0,
         "DaBonus": 10.0,
         "TaBonus": 5.0
+    },
+    "rambo": {
+        "name": "ソルジャー",
+        "favArm1": "gun",
+        "favArm2": "gun",
+        "type": "pecu",
+        "atBonus": 2000.0,
+        "kouzinBonus": 0.0,
+        "hpBonus": 0.0,
+        "shugoBonus": 0.0,
+        "DaBonus": 10.0,
+        "TaBonus": 15.0
     },
     "neko": {
         "name": "黒猫道士",
@@ -1300,7 +1787,7 @@ var skillAmounts = {
     },
     "critical": {
         "S": [1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0, 2.2, 2.4, 2.6, 2.8, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0],
-        "M": [3.2, 3.4, 3.6, 3.8, 4.0, 4.2, 4.4, 4.6, 4.8, 5.0, 5.2, 5.4, 5.6, 5.8, 6.0, 6.0, 6.0, 6.0, 6.0, 6.0],
+        "M": [3.2, 3.4, 3.6, 3.8, 4.0, 4.2, 4.4, 4.6, 4.8, 5.0, 5.3, 5.6, 5.9, 6.2, 6.5, 6.5, 6.5, 6.5, 6.5, 6.5],
         "L": [4.4, 4.8, 5.2, 5.6, 6.0, 6.4, 6.8, 7.2, 7.6, 8.0, 8.4, 8.8, 9.2, 9.6, 10.0, 10.0, 10.0, 10.0, 10.0, 10.0],
         "ratio": 0.5,
     },
@@ -1390,7 +1877,10 @@ var skillAmounts = {
     },
     // Debuff Resistance Grace (Unconfirmed Placeholder)
     "normalOntyou": {
-        "M": [20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0, 20.0]
+        "M": [3.2, 3.4, 3.6, 3.8, 4.0, 4.2, 4.4, 4.6, 4.8, 5.0, 5.2, 5.4, 5.6, 5.8, 6.0, 6.0, 6.0, 6.0, 6.0, 6.0]
+    },
+    "normalHigo": {
+        "S": [0.5, 0.8, 1.1, 1.4, 1.7, 2.0, 2.3, 2.6, 2.7, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0, 3.0]
     }
 };
 
@@ -1404,13 +1894,14 @@ var supportAbilities = {
     },
     "da_up_all_10": {
         "name": "全体DA率10%UP(ランスロット)",
-        "type": "DABuff",
+        "type": "DASupport",
         "range": "all",
         "value": 0.10
     },
+    // TODO: Nezahualpilli support skill update when confirmed
     "ta_up_all_3": {
         "name": "全体TA率3%UP(ネツァ)",
-        "type": "TABuff",
+        "type": "TASupport",
         "range": "all",
         "value": 0.03
     },
@@ -1439,13 +1930,13 @@ var supportAbilities = {
         "value": 0.15
     },
     "hp_up_own_20": {
-        "name": "HP20%UP(ソリッズ)",
+        "name": "HP20%UP(ソリッズ, ファスティバ(SSR))",
         "type": "HPBuff",
         "range": "own",
         "value": 0.20
     },
     "atk_up_own_5": {
-        "name": "攻撃5%UP(ネツァ,レディグレイ,ハロシャル)",
+        "name": "攻撃5%UP(レディグレイ)",
         "type": "normalBuff",
         "range": "own",
         "value": 0.05
@@ -1473,6 +1964,18 @@ var supportAbilities = {
         "type": "normalBuff_depends_races",
         "range": "own",
         "value": 0.10
+    },
+    "element_buff_boost_own_30": {
+        "name": "属性バフ付与時に属性攻撃30%UP(パーシヴァル)",
+        "type": "element_buff_boost",
+        "range": "own",
+        "value": 0.30
+    },
+    "eternal_wisdom": {
+        "name": "属性バフ付与時にステータスUP(スカーサハ)",
+        "type": "eternal_wisdom",
+        "range": "own",
+        "value": 0.00
     },
     "ougi_gage_up_own_10": {
         "name": "奥義ゲージ上昇量10%UP(アルタイル)",
@@ -1522,6 +2025,12 @@ var supportAbilities = {
         "range": "own",
         "value": 0.00
     },
+    "ideal_vassals": {
+        "name": "バトルメンバーの数が多い程自分のステータスUP(パーシヴァル)",
+        "type": "ideal_vassals",
+        "range": "own",
+        "value": 0.00
+    },
     "dance_of_nataraja": {
         "name": "奥義ゲージ上昇量35%DOWN&与ダメージ上昇15%UP(シヴァ)",
         "type": "dance_of_nataraja",
@@ -1535,7 +2044,7 @@ var supportAbilities = {
         "value": 0.00
     },
     "critical_up_own_10_30": {
-        "name": "クリティカル確率UP(発動率10%, 倍率30%)(ヴァンピィ, ハロカリ)",
+        "name": "クリティカル確率UP(発動率10%, 倍率30%)(ヴァンピィ, ジャンヌダルク)",
         "type": "criticalBuff",
         "range": "own",
         "value": 0.10,
@@ -1547,6 +2056,13 @@ var supportAbilities = {
         "range": "own",
         "value": 0.20,
         "attackRatio": 0.20
+    },
+    "critical_up_own_40_50": {
+        "name": "クリティカル確率UP(発動率40%, 倍率50%)(キャル)",
+        "type": "criticalBuff",
+        "range": "own",
+        "value": 0.40,
+        "attackRatio": 0.50
     },
     "critical_up_all_5_30": {
         "name": "全体クリティカル確率UP(発動率5%, 倍率30%)(フェリ)",
@@ -1598,16 +2114,50 @@ var supportAbilities = {
         "range": "own",
         "value": 0.25
     },
+    "ougiCapUP_100": {
+        "name": "奥義ダメージ上限100%UP(シャリオス17世)",
+        "type": "ougiDamageLimitBuff",
+        "range": "own",
+        "value": 1.0
+    },
     "wildcard": {
         "name": "武器スキルの得意武器/タイプ/種族の発動条件を全て満たす(カイム)",
         "type": "wildcard",
         "range": "own",
         "value": 0.0
     },
+    "stamina_all_L": {
+        "name": "通常攻撃を行わないが木之本桜の残りHPが多いほど味方全体の攻撃が大きくUP",
+        "type": "normalSupportKonshin",
+        "range": "all",
+        "value": "L"
+    },
+    "stamina_all_L_hp_down_own_15": {
+        "name": "最大HPが15%減少 防御力が低いがイシュミールの残りHPが多いほど味方全体の攻撃が大きくUP",
+        "type": "normalSupportKonshin_hpDebuff",
+        "range": "all",
+        "value": "L",
+        "hpDebuff": 0.15
+    },
+    "supplemental_third_hit_50k": { //like contentious-covenant
+        "name": "トリプルアタック発動時に3回目の攻撃の5万与ダメージ上昇(ハレゼナ)",
+        "type": "supplemental_third_hit",
+        "range": "own",
+        "value": 50000
+    },
 };
 
 // exports
+module.exports.opusNames = opusNames;
 module.exports.zenith = zenith;
+module.exports.zenithDA = zenithDABonus;
+module.exports.zenithTA = zenithTABonus;
+//module.exports.zenithCritical = zenithCritical;
+module.exports.zenithOugiDamage = zenithOugiDamageBonus;
+module.exports.zenithChainDamage = zenithChainDamageBonus;
+module.exports.zenithChainDamageLimit = zenithChainDamageLimitBonus;
+module.exports.zenithElement = zenithElementBonus;
+module.exports.zenithDamageLimit = zenithDamageLimitBonus;
 module.exports.raceTypes = raceTypes;
 module.exports.sexTypes = sexTypes;
 module.exports.skillAmounts = skillAmounts;
@@ -1626,150 +2176,214 @@ module.exports.supportedSimulationChartSortkeys = supportedSimulationChartSortke
 module.exports.enemyDefenseType = enemyDefenseType;
 module.exports.supportAbilities = supportAbilities;
 module.exports.limitBonusCriticalList = limitBonusCriticalList;
+module.exports.skillDetailsDescription = skillDetailsDescription;
 
 module.exports.additionalSelectList = {
     "・属性変更": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["elements"],
         selectors: ["elements"],
         defaultKeys: ["light"],
     },
     "・覚醒": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["elements"],
         selectors: ["elements"],
         defaultKeys: ["light"],
     },
     "コスモス": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2"],
         selectors: ["cosmosSkills"],
         defaultKeys: ["cosmosAT"],
     },
     "絶覇": {
+        selectKeysNotation: "",
+        notationText: "",
+        selectKeys: ["main_weapon_change"],
+        selectors: ["mainWeapon"],
+        defaultKeys: [0],
+    },
+    "[4凸]ブリューナク": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["main_weapon_change"],
         selectors: ["mainWeapon"],
         defaultKeys: [0],
     },
     "スナップブレード": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["main_weapon_switch"],
         selectors: ["mainWeapon"],
         defaultKeys: [0],
     },
     "青竜牙矛": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2"],
         selectors: ["sishoSeiryu"],
         defaultKeys: ["non"],
     },
     "朱雀光剣": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2"],
         selectors: ["sishoSuzaku"],
         defaultKeys: ["non"],
     },
     "白虎咆拳": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2"],
         selectors: ["sishoByakko"],
         defaultKeys: ["non"],
     },
     "玄武甲槌": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2"],
         selectors: ["sishoGenbu"],
         defaultKeys: ["non"],
     },
+    "黄龍槍": {
+        selectKeysNotation: "",
+        notationText: "",
+        selectKeys: ["main_weapon_switch"],
+        selectors: ["mainWeapon"],
+        defaultKeys: [0],
+    },
     "無垢なる": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill1", "elements"],
         selectors: ["omegaWeaponSkill1", "elements"],
         defaultKeys: ["omega-raw", "light"],
     },
     "オメガ": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill1", "skill2", "elements"],
         selectors: ["omegaWeaponSkill1", "omegaWeaponSkill2", "elements"],
         defaultKeys: ["omega-raw", "non", "light"],
     },
-    "ミカエル": {notationText: "天司武器注記", selectKeys: [], selectors: [],},
-    "ウリエル": {notationText: "天司武器注記", selectKeys: [], selectors: [],},
-    "ガブリエル": {notationText: "天司武器注記", selectKeys: [], selectors: [],},
-    "ラファエル": {notationText: "天司武器注記", selectKeys: [], selectors: [],},
+    "ミカエル": {selectKeysNotation: "", notationText: "天司武器注記", selectKeys: [], selectors: [],},
+    "ウリエル": {selectKeysNotation: "", notationText: "天司武器注記", selectKeys: [], selectors: [],},
+    "ガブリエル": {selectKeysNotation: "", notationText: "天司武器注記", selectKeys: [], selectors: [],},
+    "ラファエル": {selectKeysNotation: "", notationText: "天司武器注記", selectKeys: [], selectors: [],},
     "絶対否定の剣": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusNormalWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "永遠拒絶の剣": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusMagnaWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "絶対否定の槍": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusNormalWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "永遠拒絶の槍": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusMagnaWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "絶対否定の大鎌": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusNormalWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "永遠拒絶の大鎌": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusMagnaWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "絶対否定の杖": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusNormalWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "永遠拒絶の杖": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusMagnaWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "絶対否定の竪琴": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusNormalWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "永遠拒絶の竪琴": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusMagnaWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "絶対否定の太刀": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusNormalWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
     "永遠拒絶の太刀": {
+        selectKeysNotation: "",
         notationText: "",
         selectKeys: ["skill2", "skill3"],
         selectors: ["opusWeaponSkill1", "opusMagnaWeaponSkill2"],
         defaultKeys: ["non", "non"],
     },
+    "ランス・オブ・ケルヴィム": {
+        notationText: "",
+        selectKeys: ["main_weapon_switch"],
+        selectors: ["mainWeapon"],
+        defaultKeys: [0]
+    },
+    "真・道天浄土": {
+        notationText: "",
+        selectKeys: ["main_weapon_switch"],
+        selectors: ["mainWeapon"],
+        defaultKeys: [0]
+    },
+    "[4凸]虚空の裂剣": {
+        selectKeysNotation: skillDetailsDescription['calamitous-covenant'],
+        notationText: "",
+        selectKeys: ["skill2Detail"],
+        selectors: ["victorious_calamitous_covenant"],
+        defaultKeys: ["0"],
+    },
+    "[4凸]虚空の拝腕": {
+        selectKeysNotation: skillDetailsDescription['victorious-covenant'],
+        notationText: "",
+        selectKeys: ["skill2Detail"],
+        selectors: ["victorious_calamitous_covenant"],
+        defaultKeys: ["0"],
+    }
 };
 
 
@@ -1902,6 +2516,17 @@ module.exports.selector.zh.sishoGenbu = Object.keys(sishoGenbu).map(function (ke
     return <option value={key} key={key}>{intl.translate(sishoGenbu[key].name, "zh")}</option>;
 });
 
+
+module.exports.selector.ja.victorious_calamitous_covenant = Object.keys(victorious_calamitous_covenant).map(function (key) {
+    return <option value={key} key={key}>{key}</option>;
+});
+module.exports.selector.en.victorious_calamitous_covenant = Object.keys(victorious_calamitous_covenant).map(function (key) {
+    return <option value={key} key={key}>{key}</option>;
+});
+module.exports.selector.zh.victorious_calamitous_covenant = Object.keys(victorious_calamitous_covenant).map(function (key) {
+    return <option value={key} key={key}>{key}</option>;
+});
+
 // オメガウェポンテンプレート用セレクタ
 module.exports.selector.ja.omegaWeaponSkill1 = Object.keys(omegaWeaponSkill1).map(function (key) {
     return <option value={key} key={key}>{intl.translate(omegaWeaponSkill1[key].name, "ja")}</option>;
@@ -1986,6 +2611,7 @@ module.exports.selector.zh.summonElements = Object.keys(summonElementTypes).map(
 module.exports.selector.summonAmounts = summonAmountList.map(function (opt) {
     return <option value={opt} key={opt}>{opt}</option>;
 });
+
 module.exports.selector.zenithAttack = zenithAttackBonus.map(function (opt) {
     return <option value={opt} key={opt}>{opt}</option>;
 });
@@ -1995,6 +2621,12 @@ module.exports.selector.zenithHP = zenithHPBonus.map(function (opt) {
 module.exports.selector.zenithPartyHP = zenithPartyHPBonus.map(function (opt) {
     return <option value={opt} key={opt}>{opt}</option>;
 });
+
+//module.exports.selector.zenithCriticalBonus = zenithCriticalBonus.map(function (opt) {
+//    return <option value={opt} key={opt}>{opt}</option>;
+//});
+
+
 module.exports.selector.slv = skilllevels.map(function (opt) {
     return <option value={opt} key={opt}>{opt}</option>;
 });
@@ -2002,6 +2634,9 @@ module.exports.selector.consider = considerNum.map(function (opt) {
     return <option value={opt} key={opt}>{opt}</option>;
 });
 module.exports.selector.buffLevel = buffLevelList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.ougiGageUpOugiBuffLevel = ougiGageUpOugiBuffLevelList.map(function (opt) {
     return <option value={opt} key={opt}>{opt}</option>;
 });
 module.exports.selector.ougiRatio = ougiRatioList.map(function (opt) {
@@ -2042,6 +2677,9 @@ module.exports.selector.zh.ktypes = Object.keys(keyTypes).map(function (opt) {
 module.exports.selector.plusnum = Object.keys(plusNumList).map(function (opt) {
     return <option value={plusNumList[opt]} key={opt}>{opt}</option>
 });
+module.exports.selector.charaPlusNumList = Object.keys(charaPlusNumList).map(function (opt) {
+    return <option value={charaPlusNumList[opt]} key={opt}>{opt}</option>
+});
 
 module.exports.selector.level100Limit = Object.keys(levelList100Limit).map(function (opt) {
     return <option value={levelList100Limit[opt]} key={opt}>{opt}</option>
@@ -2051,6 +2689,12 @@ module.exports.selector.level150Limit = Object.keys(levelList150Limit).map(funct
 });
 module.exports.selector.level200Limit = Object.keys(levelList200Limit).map(function (opt) {
     return <option value={levelList200Limit[opt]} key={opt}>{opt}</option>
+});
+module.exports.selector.SRLevel75Limit = Object.keys(SRLevelList75Limit).map(function (opt) {
+    return <option value={SRLevelList75Limit[opt]} key={opt}>{opt}</option>
+});
+module.exports.selector.SRLevel120Limit = Object.keys(SRLevelList120Limit).map(function (opt) {
+    return <option value={SRLevelList120Limit[opt]} key={opt}>{opt}</option>
 });
 
 module.exports.selector.skilllevel10Limit = Object.keys(skillLevelList10Limit).map(function (opt) {
@@ -2063,7 +2707,7 @@ module.exports.selector.skilllevel20Limit = Object.keys(skillLevelList20Limit).m
     return <option value={skillLevelList20Limit[opt]} key={opt}>{opt}</option>
 });
 
-// Limit Bonus Selectors
+// Chara Limit Bonus Selectors
 module.exports.selector.limitBonusAttackList = limitBonusAttackList.map(function (opt) {
     return <option value={opt} key={opt}>{opt}</option>;
 });
@@ -2071,17 +2715,62 @@ module.exports.selector.limitBonusHPList = limitBonusHPList.map(function (opt) {
     return <option value={opt} key={opt}>{opt}</option>;
 });
 module.exports.selector.limitBonusDAList = limitBonusDAList.map(function (opt) {
-    return <option value={opt} key={opt}>{opt}%</option>;
+    return <option value={opt} key={opt}>{opt}</option>;
 });
 module.exports.selector.limitBonusTAList = limitBonusTAList.map(function (opt) {
-    return <option value={opt} key={opt}>{opt}%</option>;
+    return <option value={opt} key={opt}>{opt}</option>;
 });
 module.exports.selector.limitBonusElementList = limitBonusElementList.map(function (opt) {
-    return <option value={opt} key={opt}>{opt}%</option>;
+    return <option value={opt} key={opt}>{opt}</option>;
 });
-module.exports.selector.limitBonusCriticalList = Object.keys(limitBonusCriticalList).map(function (opt) {
-    return <option value={opt} key={opt}>{limitBonusCriticalList[opt].name}</option>
+module.exports.selector.ja.limitBonusCriticalList = Object.keys(limitBonusCriticalList).map(function (opt) {
+    return <option value={opt} key={opt}>{limitBonusCriticalList[opt].name}</option>;
 });
+module.exports.selector.en.limitBonusCriticalList = Object.keys(limitBonusCriticalList).map(function (opt) {
+    return <option value={opt} key={opt}>{intl.translate(limitBonusCriticalList[opt].name, "en")}</option>;
+});
+module.exports.selector.zh.limitBonusCriticalList = Object.keys(limitBonusCriticalList).map(function (opt) {
+    return <option value={opt} key={opt}>{intl.translate(limitBonusCriticalList[opt].name, "zh")}</option>;
+});
+module.exports.selector.limitBonusOugiDamageList = limitBonusOugiDamageList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.limitBonusOugiDamageLimitList = limitBonusOugiDamageLimitList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.limitBonusOugiGageBuffList = limitBonusOugiGageBuffList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+
+// Chara EX Limit Bonus Selectors
+module.exports.selector.EXlimitBonusAttackList = EXlimitBonusAttackList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.EXlimitBonusHPList = EXlimitBonusHPList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.EXlimitBonusOugiDamageList = EXlimitBonusOugiDamageList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.EXlimitBonusOugiDamageLimitList = EXlimitBonusOugiDamageLimitList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.EXlimitBonusCriticalList = EXlimitBonusCriticalList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.EXlimitBonusHaisuiList = EXlimitBonusHaisuiList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.EXlimitBonusKonshinList = EXlimitBonusKonshinList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.EXlimitBonusDAList = EXlimitBonusDAList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+module.exports.selector.EXlimitBonusTAList = EXlimitBonusTAList.map(function (opt) {
+    return <option value={opt} key={opt}>{opt}</option>;
+});
+
 
 module.exports.selector.ja.supported_chartsortkeys = Object.keys(supportedChartSortkeys).map(function (opt) {
     return <option value={opt} key={opt}>{supportedChartSortkeys[opt]}</option>
@@ -2116,6 +2805,12 @@ module.exports.selector.zh.enemydeftypes = Object.keys(enemyDefenseType).map(fun
     return <option value={opt} key={opt}>{intl.translate(enemyDefenseType[opt].name, "zh")}</option>;
 });
 
-module.exports.selector.supportAbilities = Object.keys(supportAbilities).map(function (opt) {
-    return <option value={opt} key={opt}>{supportAbilities[opt].name}</option>;
+module.exports.selector.ja.supportAbilities = Object.keys(supportAbilities).map(function (opt) {
+    return <option value={opt} key={opt}>{intl.translate(supportAbilities[opt].name, "ja")}</option>;
+});
+module.exports.selector.en.supportAbilities = Object.keys(supportAbilities).map(function (opt) {
+    return <option value={opt} key={opt}>{intl.translate(supportAbilities[opt].name, "en")}</option>;
+});
+module.exports.selector.zh.supportAbilities = Object.keys(supportAbilities).map(function (opt) {
+    return <option value={opt} key={opt}>{intl.translate(supportAbilities[opt].name, "zh")}</option>;
 });
