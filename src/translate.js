@@ -56,6 +56,11 @@ var multiLangData = {
         "ja": "武器",
         "zh": "武器",
     },
+    "編成名": {
+        "en": "Set Name",
+        "ja": "編成名",
+        "zh": "編成名",
+    },
     "保存": {
         "en": "Save",
         "ja": "保存",
@@ -200,6 +205,26 @@ var multiLangData = {
         "en": "Earth/Light",
         "ja": "土/光",
         "zh": "土/光",
+    },
+    "全性別": {
+        "en": "All sexes",
+        "ja": "全性別",
+        "zh": "All sexes",
+    },
+    "全タイプ": {
+        "en": "All types",
+        "ja": "全タイプ",
+        "zh": "All types",
+    },
+    "全種族": {
+        "en": "All races",
+        "ja": "全種族",
+        "zh": "All races",
+    },
+    "全得意武器": {
+        "en": "All arm type",
+        "ja": "全得意武器",
+        "zh": "All arm type",
     },
     "全属性": {
         "en": "All",
@@ -1754,7 +1779,7 @@ var multiLangData = {
         "zh": "加入图表",
     },
     "本": {
-        "en": "",
+        "en": "x",
         "ja": "本",
         "zh": "把",
     },
@@ -1829,9 +1854,9 @@ var multiLangData = {
         "zh": "DA加护",
     },
     "DA加護説明": {
-        "en": "Halluel and Malluel(5~10%)etc.",
+        "en": "Halluel and Malluel(5~10%) etc.",
         "ja": "ハールート・マールート(5~10%)など",
-        "zh": "Halluel and Malluel(5~10%)etc.",
+        "zh": "Halluel and Malluel(5~10%) etc.",
     },
     "TA加護": {
         "en": "TA Aura",
@@ -1884,9 +1909,9 @@ var multiLangData = {
         "zh": "Shiva Buff",
     },
     "シヴァバフ説明": {
-        "en": "All Allies gain 100% other buff, and DMG cap +500000.",
-        "ja": "パーティ全体に別枠100%を付与し、ダメージ上限を500000加算します。",
-        "zh": "All Allies gain 100% other buff, and DMG cap +500000.",
+        "en": "All Allies gain 100% other buff, and raise DMG cap.",
+        "ja": "パーティ全体に別枠100%を付与し、ダメージ上限を増加します。",
+        "zh": "All Allies gain 100% other buff, and raise DMG cap.",
     },
     "内容を消去": {
         "en": "Delete",
@@ -2349,20 +2374,30 @@ var multiLangData = {
         "ja": "与ダメージ上昇20%UP(色々)",
         "zh": "与ダメージ上昇20%UP(色々)",
     },
-    "与ダメージ上昇20%UP&奥義ダメージ上限20%UP(最終十天衆)": {
+    "与ダメージ上昇20%UP&奥義ダメージ上限UP(最終十天衆)": {
         "en": "20% Boost to Damage and C.A. DMG Cap. (5★ Eternals)",
-        "ja": "与ダメージ上昇20%UP&奥義ダメージ上限20%UP(最終十天衆)",
-        "zh": "与ダメージ上昇20%UP&奥義ダメージ上限20%UP(最終十天衆)",
+        "ja": "与ダメージ上昇20%UP&奥義ダメージ上限UP(最終十天衆)",
+        "zh": "与ダメージ上昇20%UP&奥義ダメージ上限UP(最終十天衆)",
     },
-    "奥義ダメージ上限20%UP(最終十天衆)": {
-        "en": "20% Boost to C.A. DMG Cap. (5★ Eternals)",
-        "ja": "奥義ダメージ上限20%UP(最終十天衆)",
-        "zh": "奥義ダメージ上限20%UP(最終十天衆)",
+    "奥義ダメージ上限UP(最終十天衆)": {
+        "en": "Boost to C.A. DMG Cap. (5★ Eternals)",
+        "ja": "奥義ダメージ上限UP(最終十天衆)",
+        "zh": "奥義ダメージ上限UP(最終十天衆)",
     },
-    "奥義ダメージ上限25%UP(ルリア,SSRロボミ)": {
-        "en": "25% Boost to C.A. DMG Cap. (Robomi (SSR), Lyria)",
-        "ja": "奥義ダメージ上限25%UP(ルリア,SSRロボミ)",
-        "zh": "奥義ダメージ上限25%UP(ルリア,SSRロボミ)",
+    "奥義ダメージ上限UP(ルリア,SSRロボミ)": {
+        "en": "Boost to C.A. DMG Cap. (Robomi (SSR), Lyria)",
+        "ja": "奥義ダメージ上限UP(ルリア,SSRロボミ)",
+        "zh": "奥義ダメージ上限UP(ルリア,SSRロボミ)",
+    },
+    "奥義ダメージ上限UP&奥義倍率12.5(サーヴァンツ200%奥義時)": {
+        "en": "Boost to C.A. DMG Cap, Change C.A. Multiplier to 12.5. (Dorothy and Claudia 200% C.A.)",
+        "ja": "奥義ダメージ上限UP&奥義倍率12.5(サーヴァンツ200%奥義時)",
+        "zh": "奥義ダメージ上限UP&奥義倍率12.5(サーヴァンツ200%奥義時)",
+    },
+    "奥義ダメージ上限UP&奥義倍率7.0(ミリン200%奥義時)": {
+        "en": "Boost to C.A. DMG Cap, Change C.A. Multiplier to 7.0. (Mirin 200% C.A.)",
+        "ja": "奥義ダメージ上限UP&奥義倍率7.0(ミリン200%奥義時)",
+        "zh": "奥義ダメージ上限UP&奥義倍率7.0(ミリン200%奥義時)",
     },
     "奥義ダメージ上限100%UP(シャリオス17世)": {
         "en": "100% Boost to C.A. DMG Cap. (Charioce XVII)",
@@ -2871,10 +2906,10 @@ var multiLangData = {
         "ja": "通常恩寵(中)",
         "zh": "通常恩寵(中)",
     },
-    "通常本質(中)": {
+    "通常星晶(中)": {
         "en": "Normal Essence (M)",
-        "ja": "通常本質(中)",
-        "zh": "通常本質(中)",
+        "ja": "通常星晶(中)",
+        "zh": "通常星晶(中)",
     },
     "通常庇護(小)": {
         "en": "Normal Refuge (S)",
@@ -3021,10 +3056,10 @@ var multiLangData = {
         "ja": "マグナ杖術(大)",
         "zh": "方阵杖術(大)",
     },
-    "マグナ本質(中)": {
+    "マグナ星晶(中)": {
         "en": "Magna Essence (M)",
         "ja": "マグナ星晶(中)",
-        "zh": "方阵本質(中)",
+        "zh": "方阵星晶(中)",
     },
     "アンノウンATK・I": {
         "en": "Unknown ATK I",
@@ -3540,6 +3575,21 @@ var multiLangData = {
         "en": "Pendulum Key Δ (CB Cap 50%)",
         "ja": "ペンデュラム[Δ](CB上限50%UP)",
         "zh": "ペンデュラム[Δ](CB上限50%UP)",
+    },
+    "・覇": {
+        "en": " Pontus",
+        "ja": "・覇",
+        "zh": "・覇",
+    },
+    "・王": {
+        "en": " Regus",
+        "ja": "・王",
+        "zh": "・王",
+    },
+    "・邪": {
+        "en": " Malus",
+        "ja": "・邪",
+        "zh": "・邪",
     },
     "天司の祝福": {
         "en": "Angel's Blessing",

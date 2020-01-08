@@ -853,7 +853,7 @@ var skilltypes = {
     "normalHissatsuL": {name: "通常必殺(大)", type: "normalHissatsu", amount: "L"},
     "normalEiketsuL": {name: "通常英傑(大)", type: "normalEiketsu", amount: "L"},
     "normalOntyouM": {name: "通常恩寵(中)", type: "normalOntyou", amount: "M"},
-    "normalSeisyouM": {name: "通常本質(中)", type: "normalSeisyou", amount: "M"},
+    "normalSeisyouM": {name: "通常星晶(中)", type: "normalSeisyou", amount: "M"},
     "normalHigoS": {name: "通常庇護(小)", type: "normalHigo", amount: "S"},
     "magnaM": {name: "マグナ攻刃", type: "magna", amount: "M"},
     "magnaL": {name: "マグナ攻刃II", type: "magna", amount: "L"},
@@ -886,7 +886,7 @@ var skilltypes = {
     "magnaHissatsuM": {name: "マグナ必殺(中)", type: "magnaHissatsu", amount: "M"},
     "magnaKenbuL": {name: "マグナ拳武(大)", type: "magnaKenbu", amount: "L"},
     "magnaJojutsuL": {name: "マグナ杖術(大)", type: "magnaJojutsu", amount: "L"},
-    "magnaSeisyouM": {name: "マグナ本質(中)", type: "magnaSeisyou", amount: "M"},
+    "magnaSeisyouM": {name: "マグナ星晶(中)", type: "magnaSeisyou", amount: "M"},
     "unknownM": {name: "アンノウンATK・I", type: "unknown", amount: "M"},
     "unknownL": {name: "アンノウンATK・II", type: "unknown", amount: "L"},
     "strengthHaisuiM": {name: "EX背水(中)", type: "exHaisui", amount: "M"},
@@ -1075,6 +1075,14 @@ var sishoGenbu = {
     "normalNiteS": {name: "王道: 水の二手"},
     "normalDamageLimit7": {name: "邪道: 通常上限UP(7.0%)"},
 };
+var sishoSufix = {
+    "non": {name: ""},
+    "normalCriticalM": {name: "・王"},
+    "normalHPS": {name: "・王"},
+    "normalCriticalM": {name: "・王"},
+    "normalNiteS": {name: "・王"},
+    "normalDamageLimit7": {name: "・邪"},
+};
 
 var omegaWeaponSkill1 = {
     "omega-raw": {name: "オメガ-未強化"},
@@ -1157,7 +1165,7 @@ var raceTypes = {
 var sexTypes = {
     "female": "女",
     "male": "男",
-    "other": "不詳",
+    "other": "不明",
     "male/female": "男/女",
 };
 
@@ -1203,6 +1211,12 @@ var filterElementTypes = {
     "light": "光",
     "dark": "闇",
 };
+
+const filterRaces = Object.assign({"all": "全種族"}, raceTypes);
+const filterSexes = Object.assign({"all": "全性別"}, sexTypes);
+const filterFavs = Object.assign({"all": "全得意武器"}, armTypes);
+const filterTypes = Object.assign({"all": "全タイプ"}, jobTypes);
+
 
 // strong and weak elements for each element
 module.exports.elementRelation = {
@@ -2246,22 +2260,48 @@ var supportAbilities = {
         "value": 0.20
     },
     "damageUP_OugiCapUP_20": {
-        "name": "与ダメージ上昇20%UP&奥義ダメージ上限20%UP(最終十天衆)",
-        "type": "charaDamageUP_OugiCap",
+        "name": "与ダメージ上昇20%UP&奥義ダメージ上限UP(最終十天衆)",
+        "type": "composite",
         "range": "own",
-        "value": 0.20
+        "value": [
+            {type: "charaDamageUP", range: "own", assign: "add", value: 0.20},
+            {type: "ougiLimitValues", range: "own", assign: "set",
+             value: [[3000000, 0.01], [2200000, 0.05], [2000000, 0.30], [1800000, 0.60]]}
+        ]
     },
     "ougiCapUP_20": {
-        "name": "奥義ダメージ上限20%UP(最終十天衆)",
-        "type": "ougiDamageLimitBuff",
+        "name": "奥義ダメージ上限UP(最終十天衆)",
+        "type": "ougiLimitValues",
         "range": "own",
-        "value": 0.20
+        "assign": "set",
+        "value": [[3000000, 0.01], [2200000, 0.05], [2000000, 0.30], [1800000, 0.60]]
     },
     "ougiCapUP_25": {
-        "name": "奥義ダメージ上限25%UP(ルリア,SSRロボミ)",
-        "type": "ougiDamageLimitBuff",
+        "name": "奥義ダメージ上限UP(ルリア,SSRロボミ)",
+        "type": "ougiLimitValues",
         "range": "own",
-        "value": 0.25
+        "assign": "set",
+        "value": [[2800000, 0.01], [2200000, 0.10], [2000000, 0.70], [1500000, 0.90]]
+    },
+    "ougiLimitValues_dorothyAndClaudia": {
+        "name": "奥義ダメージ上限UP&奥義倍率12.5(サーヴァンツ200%奥義時)",
+        "type": "composite",
+        "range": "own",
+        "value": [
+            {type: "ougiRatio", range: "own", assign: "max", value: 12.5},
+            {type: "ougiLimitValues", range: "own", assign: "set",
+             value: [[4000000, 0.01], [3000000, 0.10], [2800000, 0.40], [2400000, 0.80]]}
+        ]
+    },
+    "ougiLimitValues_mirin": {
+        "name": "奥義ダメージ上限UP&奥義倍率7.0(ミリン200%奥義時)",
+        "type": "composite",
+        "range": "own",
+        "value": [
+            {type: "ougiRatio", range: "own", assign: "max", value: 7.0},
+            {type: "ougiLimitValues", range: "own", assign: "set",
+             value: [[5000000, 0.01], [3600000, 0.05], [3400000, 0.30], [3000000, 0.60]]}
+        ]
     },
     "ougiCapUP_100": {
         "name": "奥義ダメージ上限100%UP(シャリオス17世)",
@@ -2481,6 +2521,12 @@ module.exports.enemyDefenseType = enemyDefenseType;
 module.exports.supportAbilities = supportAbilities;
 module.exports.limitBonusCriticalList = limitBonusCriticalList;
 module.exports.skillDetailsDescription = skillDetailsDescription;
+module.exports.opusNormalWeaponSkill2 = opusNormalWeaponSkill2;
+module.exports.opusMagnaWeaponSkill2 = opusMagnaWeaponSkill2;
+module.exports.opusWeaponSkill1 = opusWeaponSkill1;
+module.exports.sishoSufix = sishoSufix;
+
+
 
 module.exports.additionalSelectList = {
     "・属性変更": {
@@ -2528,28 +2574,28 @@ module.exports.additionalSelectList = {
     "青竜牙矛": {
         selectKeysNotation: "",
         notationText: "",
-        selectKeys: ["skill2"],
+        selectKeys: ["sishoskill2"],
         selectors: ["sishoSeiryu"],
         defaultKeys: ["non"],
     },
     "朱雀光剣": {
         selectKeysNotation: "",
         notationText: "",
-        selectKeys: ["skill2"],
+        selectKeys: ["sishoskill2"],
         selectors: ["sishoSuzaku"],
         defaultKeys: ["non"],
     },
     "白虎咆拳": {
         selectKeysNotation: "",
         notationText: "",
-        selectKeys: ["skill2"],
+        selectKeys: ["sishoskill2"],
         selectors: ["sishoByakko"],
         defaultKeys: ["non"],
     },
     "玄武甲槌": {
         selectKeysNotation: "",
         notationText: "",
-        selectKeys: ["skill2"],
+        selectKeys: ["sishoskill2"],
         selectors: ["sishoGenbu"],
         defaultKeys: ["non"],
     },
@@ -2769,15 +2815,23 @@ module.exports.selector.zh.enemyElements = Object.keys(enemyElementTypes).map(fu
     return <option value={opt} key={opt}>{intl.translate(enemyElementTypes[opt], "zh")}</option>;
 });
 
-module.exports.selector.ja.filterelements = Object.keys(filterElementTypes).map(function (opt) {
-    return <option value={opt} key={opt}>{filterElementTypes[opt]}</option>;
-});
-module.exports.selector.en.filterelements = Object.keys(filterElementTypes).map(function (opt) {
-    return <option value={opt} key={opt}>{intl.translate(filterElementTypes[opt], "en")}</option>;
-});
-module.exports.selector.zh.filterelements = Object.keys(filterElementTypes).map(function (opt) {
-    return <option value={opt} key={opt}>{intl.translate(filterElementTypes[opt], "zh")}</option>;
-});
+function _generateFilterOptions(locale, types) {
+    return Object.keys(types).map((opt) =>
+        <option value={opt} key={opt}>{intl.translate(types[opt], locale)}</option>);
+}
+
+function _setupFilterOptions(selector, key, types, locales=["ja", "en", "zh"]) {
+    for (const locale of locales) {
+        selector[locale][key] = _generateFilterOptions(locale, types);
+    }
+}
+
+_setupFilterOptions(module.exports.selector, "filterSexes", filterSexes);
+_setupFilterOptions(module.exports.selector, "filterRaces", filterRaces);
+_setupFilterOptions(module.exports.selector, "filterFavs", filterFavs);
+_setupFilterOptions(module.exports.selector, "filterTypes", filterTypes);
+_setupFilterOptions(module.exports.selector, "filterElements", filterElementTypes);
+
 
 module.exports.selector.ja.summons = Object.keys(summonTypes).map(function (opt) {
     return <option value={opt} key={opt}>{summonTypes[opt]}</option>;
