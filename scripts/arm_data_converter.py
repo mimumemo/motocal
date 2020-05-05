@@ -60,6 +60,15 @@ skillnamelist["normalHPL"] = {
     u"奈落の守護": "dark"
 }
 
+skillnamelist["normalCriticalLL"] = {
+    u"紅蓮の技巧II": "fire",
+    u"霧氷の技巧II": "water",
+    u"地裂の技巧II": "earth",
+    u"乱気の技巧II": "wind",
+    u"天光の技巧II": "light",
+    u"奈落の技巧II": "dark"
+}
+
 skillnamelist["normalCriticalL"] = {
     u"紅蓮の技巧": "fire",
     u"霧氷の技巧": "water",
@@ -68,6 +77,7 @@ skillnamelist["normalCriticalL"] = {
     u"天光の技巧": "light",
     u"奈落の技巧": "dark"
 }
+
 
 skillnamelist["normalHaisuiL"] = {
     u"紅蓮の背水": "fire",
@@ -257,8 +267,30 @@ skillnamelist["normalKatsumiM"] = {
 }
 
 skillnamelist["normalElementM"] = {
+    u"業火の進境": "fire",
     u"渦潮の進境": "water",
-    u"雷電の進境": "light"
+    u"大地の進境": "earth",
+    u"竜巻の進境": "wind",
+    u"雷電の進境": "light",
+    u"憎悪の進境": "dark"
+}
+
+skillnamelist["normalElementL"] = {
+    u"紅蓮の進境": "fire",
+    u"霧氷の進境": "water",
+    u"地裂の進境": "earth",
+    u"乱気の進境": "wind",
+    u"天光の進境": "light",
+    u"奈落の進境": "dark"
+}
+
+skillnamelist["dracoATK"] = {
+    u"ウィルナスの炎威": "fire",
+    u"ワムデュスの水禍": "water",
+    u"ガレヲンの巌迫": "earth",
+    u"イーウィヤの劫風": "wind",
+    u"ル・オーの威光": "light",
+    u"フェディエルの呪蝕": "dark"
 }
 
 skillnamelist["kaijinnoyogen"] = {
@@ -384,6 +416,24 @@ skillnamelist["normalSetsunaS"] = {
     u"闇の刹那": "dark"
 }
 
+skillnamelist["normalSetsunaLL"] = {
+    u"紅蓮の刹那II": "fire",
+    u"霧氷の刹那II": "water",
+    u"地裂の刹那II": "earth",
+    u"竜巻の刹那II": "wind",
+    u"天光の刹那II": "light",
+    u"奈落の刹那II": "dark"
+}
+
+skillnamelist["normalSetsunaL"] = {
+    u"紅蓮の刹那": "fire",
+    u"霧氷の刹那": "water",
+    u"地裂の刹那": "earth",
+    u"竜巻の刹那": "wind",
+    u"天光の刹那": "light",
+    u"奈落の刹那": "dark"
+}
+
 skillnamelist["normalRanbuS"] = {
     u"火の乱舞": "fire",
     u"水の乱舞": "water",
@@ -448,6 +498,15 @@ skillnamelist["normalEiketsuL"] = {
 }
 
 # Grace
+skillnamelist["normalOntyouS"] = {
+    u"火の恩寵": "fire",
+    u"水の恩寵": "water",
+    u"土の恩寵": "earth",
+    u"風の恩寵": "wind",
+    u"光の恩寵": "light",
+    u"闇の恩寵": "dark"
+}
+
 skillnamelist["normalOntyouM"] = {
     u"業火の恩寵": "fire",
     u"渦潮の恩寵": "water",
@@ -841,6 +900,12 @@ skillnamelist["strengthL"] = {
     u"殺戮の女神": "wind",
     u"シャドウオブアームズ": "dark",
     u"残る霞火、あへなし": "light",
+    u"暴風の残滓": "wind",
+    u"ガチャピンの攻刃": "wind",
+    u"あふれだす旨味の攻刃": "earth",
+    u"グラウンドオブアームズ": "earth",
+    u"資材切断の攻刃": "dark",
+    u"六波羅蜜の攻刃": "dark",
 }
 
 skillnamelist["exATKandHPM"] = {
@@ -861,6 +926,15 @@ skillnamelist["strengthLL"] = {
     u"氷逆の覇道": "water",
     u"幻魔の覇道": "dark",
     u"妃光の覇道": "light"
+}
+
+skillnamelist["strengthLLL"] = {
+    u"紅炎の支配者": "fire",
+    u"氷霜の支配者": "water",
+    u"花樹の支配者": "earth",
+    u"嵐翠の支配者": "wind",
+    u"白輝の支配者": "light",
+    u"禍滅の支配者": "dark"
 }
 
 skillnamelist["normalSoka"] = {
@@ -933,10 +1007,16 @@ skillnamelist["deleterious-covenant"] = {u"致命の誓約": "light"}
 skillnamelist["calamitous-covenant"] = {u"災禍の誓約": "dark"}
 
 # Cosmos
-skillnamelist["cosmosAT"] = {u"アタック・スタンス": "light"}
-skillnamelist["cosmosBL"] = {u"バランス・スタンス": "light"}
-skillnamelist["cosmosDF"] = {u"ディフェンド・スタンス": "light"}
-skillnamelist["cosmosPC"] = {u"ペキューリア・スタンス": "light"}
+skillnamelist["cosmos-swordII"] = {u"ソード・オブ・コスモスII": "light"}
+skillnamelist["cosmos-daggerII"] = {u"ダガー・オブ・コスモスII": "light"}
+skillnamelist["cosmos-spearII"] = {u"ランス・オブ・コスモスII": "light"}
+skillnamelist["cosmos-axeII"] = {u"サイス・オブ・コスモスII": "light"}
+skillnamelist["cosmos-wandII"] = {u"ロッド・オブ・コスモスII": "light"}
+skillnamelist["cosmos-gunII"] = {u"ガン・オブ・コスモスII": "light"}
+skillnamelist["cosmos-fistII"] = {u"ガントレット・オブ・コスモスII": "light"}
+skillnamelist["cosmos-bowII"] = {u"アロー・オブ・コスモスII": "light"}
+skillnamelist["cosmos-musicII"] = {u"ハープ・オブ・コスモスII": "light"}
+skillnamelist["cosmos-katanaII"] = {u"ブレイド・オブ・コスモスII": "light"}
 skillnamelist["cosmos-sword"] = {u"ソード・オブ・コスモス": "light"}
 skillnamelist["cosmos-dagger"] = {u"ダガー・オブ・コスモス": "light"}
 skillnamelist["cosmos-spear"] = {u"ランス・オブ・コスモス": "light"}
@@ -945,8 +1025,18 @@ skillnamelist["cosmos-wand"] = {u"ロッド・オブ・コスモス": "light"}
 skillnamelist["cosmos-gun"] = {u"ガン・オブ・コスモス": "light"}
 skillnamelist["cosmos-fist"] = {u"ガントレット・オブ・コスモス": "light"}
 skillnamelist["cosmos-bow"] = {u"アロー・オブ・コスモス": "light"}
-skillnamelist["cosmos-katana"] = {u"ブレイド": "light"}
 skillnamelist["cosmos-music"] = {u"ハープ・オブ・コスモス": "light"}
+skillnamelist["cosmos-katana"] = {u"ブレイド・オブ・コスモス": "light"}
+skillnamelist["cosmos-sword-limit"] = {u"秩序の蒼剣": "light"}
+skillnamelist["cosmos-dagger-limit"] = {u"秩序の蒼刃": "light"}
+skillnamelist["cosmos-spear-limit"] = {u"秩序の蒼槍": "light"}
+skillnamelist["cosmos-axe-limit"] = {u"秩序の蒼鎌": "light"}
+skillnamelist["cosmos-wand-limit"] = {u"秩序の蒼杖": "light"}
+skillnamelist["cosmos-gun-limit"] = {u"秩序の蒼銃": "light"}
+skillnamelist["cosmos-fist-limit"] = {u"秩序の蒼拳": "light"}
+skillnamelist["cosmos-bow-limit"] = {u"秩序の蒼弓": "light"}
+skillnamelist["cosmos-music-limit"] = {u"秩序の蒼琴": "light"}
+skillnamelist["cosmos-katana-limit"] = {u"秩序の蒼刀": "light"}
 
 # Tenshi
 skillnamelist["tenshiShukufukuIII"] = {
@@ -976,9 +1066,10 @@ skillnamelist["tenshiShukufuku"] = {
     u"堕落のすゝめ": "dark"
 }
 
-#huanglong katana
+# Huanglong katana, Dawn Rising
 skillnamelist["shinTenNoInori"] = {
     u"震天の祈り": "light",
+    u"サンライト・ブースト": "earth",
 }
 
 # Damage cap up
@@ -1008,16 +1099,16 @@ skillnamelist["chainForce"] = {
 
 # New epic weapons
 skillnamelist["epic-grandEpic"] = {
-    u"エピックブランド・ゲイン": "all",
+    u"エピックブランド・ゲイン": "none",
 }
 skillnamelist["epic-staffResonance"] = {
-    u"レゾナンス・スタッフ": "all",
+    u"レゾナンス・スタッフ": "water",
 }
 skillnamelist["epic-heroicTale"] = {
-    u"ヒロイック・テイル": "all",
+    u"ヒロイック・テイル": "earth",
 }
 skillnamelist["epic-absoluteEquality"] = {
-    u"ソール・イコーリティ": "all",
+    u"ソール・イコーリティ": "dark",
 }
 
 
@@ -1037,10 +1128,25 @@ skillnamelist["normalL"][u"英雄たる証明"] = "wind"
 skillnamelist["normalL"][u"禁忌の悲恋"] = "dark"
 skillnamelist["normalL"][u"狙撃の極意"] = "water"
 
+# Superlative skills
+# Attribute as a temporary all
+skillnamelist["rightway_pathfinderII"] = {u"王道を征く者II": "all"}
+skillnamelist["rightway_pathfinder"] = {u"王道を征く者": "all"}
+skillnamelist["victorys_promise"] = {u"必勝の誓い": "all"}
+skillnamelist["one_sting_one_killII"] = {u"一刺一殺II": "all"}
+skillnamelist["one_sting_one_kill"] = {u"一刺一殺": "all"}
+skillnamelist["god_of_warII"] = {u"戦神の打擲II": "all"}
+skillnamelist["god_of_war"] = {u"戦神の打擲": "all"}
+skillnamelist["apocalyptic_powerII"] = {u"万物を砕く剛技II": "all"}
+skillnamelist["apocalyptic_power"] = {u"万物を砕く剛技": "all"}
+skillnamelist["slaysnakes_mythII"] = {u"戮蛇の神刀II": "all"}
+skillnamelist["slaysnakes_myth"] = {u"戮蛇の神刀": "all"}
+
 # Other weapons that require adjustment
 skillnamelist["extendedDjeetaNormalDATA30"] = {u"立体機動戦術": "wind"}
 skillnamelist["one_night_party"] = {u"ワンナイ・パーリー": "none"}
 skillnamelist["downfall_of_ignorance"] = {u"無明衰滅": "none"}
+skillnamelist["succession_of_knighthood"] = {u"騎士の血脈": "none"}
 
 
 armtypelist = OrderedDict()
@@ -1227,7 +1333,7 @@ def processCSVdata(csv_file_name, json_data, image_wiki_url_list, image_game_url
         if name in translation:
             newdict["en"] = translation[name]
         else:
-            print(name)
+            print("missing translate", name)
             newdict["en"] = name
 
         json_data[name] = newdict

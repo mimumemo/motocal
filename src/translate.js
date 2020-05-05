@@ -1123,6 +1123,16 @@ var multiLangData = {
         "ja": "クリュサオル(二刀)",
         "zh": "Chrysaor(Dual)",
     },
+    "ランバージャック": {
+        "en": "Lumberjack",
+        "ja": "ランバージャック",
+        "zh": "ランバージャック",
+    },
+    "キャバルリー": {
+        "en": "Cavalier",
+        "ja": "キャバルリー",
+        "zh": "キャバルリー",
+    },
     "ザ・グローリー": {
         "en": "Glorybringer",
         "ja": "ザ・グローリー",
@@ -1157,6 +1167,11 @@ var multiLangData = {
         "en": "Tormentor",
         "ja": "トーメンター",
         "zh": "トーメンター",
+    },
+    "ライジングフォース": {
+        "en": "Rising Force",
+        "ja": "ライジングフォース",
+        "zh": "ライジングフォース",
     },
     "アルケミスト": {
         "en": "Alchemist",
@@ -1629,7 +1644,7 @@ var multiLangData = {
         "zh": "HP增加",
     },
     "通常攻刃": {
-        "en": "Normal Might",
+        "en": "Normal",
         "ja": "通常攻刃",
         "zh": "通常攻刃",
     },
@@ -1668,6 +1683,16 @@ var multiLangData = {
         "ja": "通常進境(中)(最大時)",
         "zh": "通常属性攻击力(中)",
     },
+    "通常進境(大)(最大時)": {
+        "en": "Normal Element ATK L",
+        "ja": "通常進境(大)(最大時)",
+        "zh": "通常属性攻击力(大)",
+    },
+    "竜進境(最大時)": {
+        "en": "Dragon ATK",
+        "ja": "竜進境(最大時)",
+        "zh": "竜進境(最大時)",
+    },
     "アンノウン": {
         "en": "Unknown",
         "ja": "アンノウン",
@@ -1687,6 +1712,11 @@ var multiLangData = {
         "en": "ATK Debuff (Special)",
         "ja": "攻撃力減少(特殊)",
         "zh": "攻击力減少(特殊)",
+    },
+    "攻撃命中率減少(特殊)": {
+        "en": "Accuracy Debuff (Special)",
+        "ja": "攻撃命中率減少(特殊)",
+        "zh": "攻击命中率減少(特殊)",
     },
     "DA上昇(通常)": {
         "en": "DA Up (Normal)",
@@ -1824,7 +1854,7 @@ var multiLangData = {
         "zh": "好友的召唤石",
     },
     "合計攻撃力": {
-        "en": "Total ATK",
+        "en": "Summons Total ATK",
         "ja": "合計攻撃力",
         "zh": "合计攻击力",
     },
@@ -1834,7 +1864,7 @@ var multiLangData = {
         "zh": "合计攻击力",
     },
     "合計HP": {
-        "en": "Total HP",
+        "en": "Summons Total HP",
         "ja": "合計HP",
         "zh": "合计HP",
     },
@@ -2125,7 +2155,6 @@ var multiLangData = {
         "ja": "種族不明",
         "zh": "种族不明",
     },
-
     "男": {
         "en": "Male",
         "ja": "男",
@@ -2294,15 +2323,20 @@ var multiLangData = {
         "ja": "風属性奥義ダメージ50%UP&奥義上限10%UP(最終シエテ)",
         "zh": "風属性奥義ダメージ50%UP&奥義上限10%UP(最終シエテ)",
     },
-    "全体背水効果(ザルハメリナ)": {
-        "en": "Increases ATK for all allies based on how low (me)'s HP is. (Zahlhamelina)",
-        "ja": "全体背水効果(ザルハメリナ)",
-        "zh": "全体背水効果(ザルハメリナ)",
+    "全体背水効果(ザルハメリナ, 火ユイシス)": {
+        "en": "Increases ATK for all allies based on how low (me)'s HP is. (Zahlhamelina, Fire Yuisis)",
+        "ja": "全体背水効果(ザルハメリナ, 火ユイシス)",
+        "zh": "全体背水効果(ザルハメリナ, 火ユイシス)",
     },
-    "背水効果(闇ジャンヌダルク, 黒騎士)": {
-        "en": "Boost to ATK based on how low HP is. (Jeanne D'Ark (Dark), Black Knight)",
-        "ja": "背水効果(闇ジャンヌダルク, 黒騎士)",
-        "zh": "背水効果(闇ジャンヌダルク, 黒騎士)",
+    "背水効果(ジャンヌダルク(闇), サラ(SSR))": {
+        "en": "Boost to ATK based on how low HP is. (Jeanne D'Ark (Dark), Sara (Earth))",
+        "ja": "背水効果(ジャンヌダルク(闇), サラ(SSR))",
+        "zh": "背水効果(ジャンヌダルク(闇), サラ(SSR))",
+    },
+    "背水効果(黒騎士(リミテッドver), ダヌア(光属性ver))": {
+        "en": "Boost to ATK based on how low HP is. (Black Knight, Danua (Light))",
+        "ja": "背水効果(黒騎士(リミテッドver), ダヌア(光属性ver))",
+        "zh": "背水効果(黒騎士(リミテッドver), ダヌア(光属性ver))",
     },
     "バトルメンバーの属性の数に応じて自分のステータスUP(水着ゾーイ)": {
         "en": "Boost to stats based on number of different elements among allies. (Zooey (Promo), Zooey (Grand))",
@@ -2328,6 +2362,16 @@ var multiLangData = {
         "en": "15% boost to max HP, 10% boost to DEF and Charge bar fills up 25% slower. (Lelouch Lamperouge, Suzaku Kururugi, Kallen Kouzuki)",
         "ja": "HP15%UP&DEF10%UP&奥義ゲージ上昇量25%DOWN(ルルーシュ・ランペルージ, 枢木スザク, 紅月カレン)",
         "zh": "HP15%UP&DEF10%UP&奥義ゲージ上昇量25%DOWN(ルルーシュ・ランペルージ, 枢木スザク, 紅月カレン)",
+    },
+    "自分が瀕死状態の場合、必ずトリプルアタック/火属性追撃効果/奥義・アビリティに追加効果付与(ユイシス(火属性ver))": {
+        "en": "When below 25% HP: Guaranteed triple attacks. 20% Bonus Fire DMG effect. Additional effects to skills and charge attacks. (Yuisis (Fire))",
+        "ja": "自分が瀕死状態の場合、必ずトリプルアタック/火属性追撃効果/奥義・アビリティに追加効果付与(ユイシス(火属性ver))",
+        "zh": "自分が瀕死状態の場合、必ずトリプルアタック/火属性追撃効果/奥義・アビリティに追加効果付与(ユイシス(火属性ver))",
+    },
+    "クリティカル発動時にダメージ上限UP/トリプルアタック発動時に火属性追撃効果(ゼタ)": {
+        "en": "10% boost to damage cap on critical hits/20% Bonus Fire DMG effect to triple attacks (Zeta)",
+        "ja": "クリティカル発動時にダメージ上限UP/トリプルアタック発動時に火属性追撃効果(ゼタ)",
+        "zh": "クリティカル発動時にダメージ上限UP/トリプルアタック発動時に火属性追撃効果(ゼタ)",
     },
     "クリティカル確率UP(発動率10%, 倍率30%)(ヴァンピィ, ジャンヌダルク)": {
         "en": "Boost to critical hit rate (10% chance, 30% damage). (Vania, Jeanne D'Ark)",
@@ -2409,10 +2453,26 @@ var multiLangData = {
         "ja": "武器スキルの得意武器/タイプ/種族の発動条件を全て満たす(カイム)",
         "zh": "武器スキルの得意武器/タイプ/種族の発動条件を全て満たす(カイム)",
     },
+    "サブメンバー時効果:装備している武器が全て異なる時、土属性キャラの攻撃UP/防御UP/ダメージ上限UP(カイム)": {
+        "en": "When Sub Ally: When all equipped weapons are different, 20% boost to Earth allies' ATK, 50% boost to DEF, and 10% boost to damage cap. (Caim)",
+        "ja": "サブメンバー時効果:装備している武器が全て異なる時、土属性キャラの攻撃UP/防御UP/ダメージ上限UP(カイム)",
+        "zh": "サブメンバー時効果:装備している武器が全て異なる時、土属性キャラの攻撃UP/防御UP/ダメージ上限UP(カイム)",
+    },
     "スキル「守護」と「神威」の効果による自分のHP上昇量UP。(白竜の双騎士 ランスロット＆ヴェイン)": {
         "en": "Increase Aegis-type and Majesty-type weapon skills' 'Boost to max HP' effect by 30%. (Lancelot and Vane)",
         "ja": "スキル「守護」と「神威」の効果による自分のHP上昇量UP。(白竜の双騎士 ランスロット＆ヴェイン)",
         "zh": "Increase Aegis-type and Majesty-type weapon skills' 'Boost to max HP' effect by 30%. (Lancelot and Vane)",
+    },
+
+    "通常攻撃の与ダメージ大幅UP/奥義性能UP/回避率UP/通常攻撃後に敵全体に風属性ダメージを与え自分の奥義ゲージUP(10%)(ミュオン(クリスマスver))": {
+        "en": "Amplify Meteon's one-foe attack damage by 50%. 110% boost to C.A. damage, 30% boost to C.A. damage cap, and 30% boost to dodge rate.Upon one-foe attack: Gain Charge Bar +10%. 500% Bonus Wind damage to all foes.(Meteon (Holiday))",
+        "ja": "通常攻撃の与ダメージ大幅UP/奥義性能UP/回避率UP/通常攻撃後に敵全体に風属性ダメージを与え自分の奥義ゲージUP(10%)(ミュオン(クリスマスver))",
+        "zh": "通常攻撃の与ダメージ大幅UP/奥義性能UP/回避率UP/通常攻撃後に敵全体に風属性ダメージを与え自分の奥義ゲージUP(10%)(ミュオン(クリスマスver))",
+    },
+    "連続攻撃が発生しない(ミュオン(クリスマスver))": {
+        "en": "Doesn't deal multiattacks.(Meteon (Holiday))",
+        "ja": "連続攻撃が発生しない(ミュオン(クリスマスver))",
+        "zh": "連続攻撃が発生しない(ミュオン(クリスマスver))",
     },
     "味方全体の強化効果「火属性攻撃UP」の効果30%UP。(シヴァ)": {
         "en": "Fire Allies gain an additional 30% boost to Element ATK when affected by Element ATK Buff. (Shiva)",
@@ -2901,6 +2961,11 @@ var multiLangData = {
         "ja": "通常英傑(大)",
         "zh": "通常英傑(大)",
     },
+    "通常恩寵(小)": {
+        "en": "Normal Grace (S)",
+        "ja": "通常恩寵(小)",
+        "zh": "通常恩寵(小)",
+    },
     "通常恩寵(中)": {
         "en": "Normal Grace (M)",
         "ja": "通常恩寵(中)",
@@ -3096,6 +3161,16 @@ var multiLangData = {
         "ja": "EX攻刃(特大)",
         "zh": "EX攻刃(特大)",
     },
+    "EX攻刃(極大)": {
+        "en": "EX Might (LLL)",
+        "ja": "EX攻刃(極大)",
+        "zh": "EX攻刃(極大)",
+    },
+    "通常攻刃III": {
+        "en": "Normal Might (LLL)",
+        "ja": "通常攻刃III",
+        "zh": "通常攻刃III",
+    },
     "EX攻刃+守護(中)": {
         "en": "EX Might and Aegis (M)",
         "ja": "EX攻刃+守護(中)",
@@ -3221,6 +3296,11 @@ var multiLangData = {
         "ja": "斧キャラの攻撃力とTA上昇(小)",
         "zh": "斧キャラの攻撃力とTA上昇(小)",
     },
+    "剣キャラの攻撃力とTA上昇(小)": {
+        "en": "Sword chara ATK and TA up (S)",
+        "ja": "剣キャラの攻撃力とTA上昇(小)",
+        "zh": "剣キャラの攻撃力とTA上昇(小)",
+    },
     "弓キャラの攻撃力とHP上昇(中)": {
         "en": "Bow chara ATK and HP up (M)",
         "ja": "弓キャラの攻撃力とHP上昇(中)",
@@ -3240,6 +3320,11 @@ var multiLangData = {
         "en": "Normal Verity (L)",
         "ja": "通常技巧(大)",
         "zh": "通常技巧(大)",
+    },
+    "通常技巧II": {
+        "en": "Normal Verity II",
+        "ja": "通常技巧II",
+        "zh": "通常技巧II",
     },
     "マグナ技巧(小)": {
         "en": "Magna Verity (S)",
@@ -3266,6 +3351,16 @@ var multiLangData = {
         "ja": "通常刹那(中)",
         "zh": "通常刹那(中)",
     },
+    "通常刹那(大)": {
+        "en": "Normal Celere (L)",
+        "ja": "通常刹那(大)",
+        "zh": "通常刹那(大)",
+    },
+    "通常刹那II": {
+        "en": "Normal Celere II",
+        "ja": "通常刹那II",
+        "zh": "通常刹那II",
+    },
     "マグナ刹那(小)": {
         "en": "Magna Celere (S)",
         "ja": "マグナ刹那(小)",
@@ -3277,74 +3372,174 @@ var multiLangData = {
         "zh": "マグナ刹那(中)",
     },
     "コスモス剣": {
-        "en": "Cosmos Sword",
+        "en": "Cosmic Sword",
         "ja": "コスモス-剣",
         "zh": "Cosmos剑",
     },
+    "コスモス剣II": {
+        "en": "Cosmic Sword II",
+        "ja": "コスモス-剣II",
+        "zh": "Cosmos剑II",
+    },
+    "秩序の蒼剣": {
+        "en": "Azure Sword's Discipline",
+        "ja": "秩序の蒼剣",
+        "zh": "秩序の蒼剣",
+    },
     "コスモス短剣": {
-        "en": "Cosmos Dagger",
+        "en": "Cosmic Dagger",
         "ja": "コスモス-短剣",
         "zh": "Cosmos短剑",
     },
+    "コスモス短剣II": {
+        "en": "Cosmic Dagger II",
+        "ja": "コスモス-短剣II",
+        "zh": "Cosmos短剑II",
+    },
+    "秩序の蒼刃": {
+        "en": "Azure Dagger's Discipline",
+        "ja": "秩序の蒼刃",
+        "zh": "秩序の蒼刃",
+    },
     "コスモス槍": {
-        "en": "Cosmos Spear",
+        "en": "Cosmic Spear",
         "ja": "コスモス-槍",
         "zh": "Cosmos枪",
     },
+    "コスモス槍II": {
+        "en": "Cosmic Spear II",
+        "ja": "コスモス-槍II",
+        "zh": "Cosmos枪II",
+    },
+    "秩序の蒼槍": {
+        "en": "Azure Lance's Discipline",
+        "ja": "秩序の蒼槍",
+        "zh": "秩序の蒼槍",
+    },
     "コスモス斧": {
-        "en": "Cosmos Axe",
+        "en": "Cosmic Scythe",
         "ja": "コスモス-斧",
         "zh": "Cosmos斧",
     },
+    "コスモス斧II": {
+        "en": "Cosmic Scythe II",
+        "ja": "コスモス-斧II",
+        "zh": "Cosmos斧II",
+    },
+    "秩序の蒼鎌": {
+        "en": "Azure Scythe's Discipline",
+        "ja": "秩序の蒼鎌",
+        "zh": "秩序の蒼鎌",
+    },
     "コスモス杖": {
-        "en": "Cosmos Staff",
+        "en": "Cosmic Staff",
         "ja": "コスモス-杖",
         "zh": "Cosmos杖",
     },
+    "コスモス杖II": {
+        "en": "Cosmic Staff II",
+        "ja": "コスモス-杖II",
+        "zh": "Cosmos杖II",
+    },
+    "秩序の蒼杖": {
+        "en": "Azure Rod's Discipline",
+        "ja": "秩序の蒼杖",
+        "zh": "秩序の蒼杖",
+    },
     "コスモス銃": {
-        "en": "Cosmos Gun",
+        "en": "Cosmic Rifle",
         "ja": "コスモス-銃",
         "zh": "Cosmos铳",
     },
+    "コスモス銃II": {
+        "en": "Cosmic Rifle II",
+        "ja": "コスモス-銃II",
+        "zh": "Cosmos铳II",
+    },
+    "秩序の蒼銃": {
+        "en": "Azure Rifle's Discipline",
+        "ja": "秩序の蒼銃",
+        "zh": "秩序の蒼銃",
+    },
     "コスモス拳": {
-        "en": "Cosmos Fist",
+        "en": "Cosmic Fist",
         "ja": "コスモス-拳",
         "zh": "Cosmos拳",
     },
+    "コスモス拳II": {
+        "en": "Cosmic Fist II",
+        "ja": "コスモス-拳II",
+        "zh": "Cosmos拳II",
+    },
+    "秩序の蒼拳": {
+        "en": "Azure Gauntlet's Discipline",
+        "ja": "秩序の蒼拳",
+        "zh": "秩序の蒼拳",
+    },
     "コスモス弓": {
-        "en": "Cosmos Bow",
+        "en": "Cosmic Bow",
         "ja": "コスモス-弓",
         "zh": "Cosmos弓",
     },
-    "コスモス刀": {
-        "en": "Cosmos Katana",
-        "ja": "コスモス-刀",
-        "zh": "Cosmos刀",
+    "コスモス弓II": {
+        "en": "Cosmic Bow II",
+        "ja": "コスモス-弓II",
+        "zh": "Cosmos弓II",
+    },
+    "秩序の蒼弓": {
+        "en": "Azure Bow's Discipline",
+        "ja": "秩序の蒼弓",
+        "zh": "秩序の蒼弓",
     },
     "コスモス楽器": {
-        "en": "Cosmos Harp",
+        "en": "Cosmic Harp",
         "ja": "コスモス-楽器",
         "zh": "Cosmos乐器",
     },
+    "コスモス楽器II": {
+        "en": "Cosmic Harp II",
+        "ja": "コスモス-楽器II",
+        "zh": "Cosmos乐器II",
+    },
+    "秩序の蒼琴": {
+        "en": "Azure Harp's Discipline",
+        "ja": "秩序の蒼琴",
+        "zh": "秩序の蒼琴",
+    },
+    "コスモス刀": {
+        "en": "Cosmic Blade",
+        "ja": "コスモス-刀",
+        "zh": "Cosmos刀",
+    },
+    "コスモス刀II": {
+        "en": "Cosmic Blade II",
+        "ja": "コスモス-刀II",
+        "zh": "Cosmos刀II",
+    },
+    "秩序の蒼刀": {
+        "en": "Azure Blade's Discipline",
+        "ja": "秩序の蒼刀",
+        "zh": "秩序の蒼刀",
+    },
     "コスモスAT": {
-        "en": "Cosmos ATK",
-        "ja": "コスモス-AT",
-        "zh": "Cosmos AT",
+        "en": "Cosmic ATK (Deprecated)",
+        "ja": "コスモス-AT(非推奨)",
+        "zh": "Cosmos AT(不推荐使用)",
     },
     "コスモスDF": {
-        "en": "Cosmos DF",
-        "ja": "コスモス-DF",
-        "zh": "Cosmos DF",
+        "en": "Cosmos DF (Deprecated)",
+        "ja": "コスモス-DF(非推奨)",
+        "zh": "Cosmos DF(不推荐使用)",
     },
     "コスモスBL": {
-        "en": "Cosmos BL",
-        "ja": "コスモス-BL",
-        "zh": "Cosmos BL",
+        "en": "Cosmos BL (Deprecated)",
+        "ja": "コスモス-BL(非推奨)",
+        "zh": "Cosmos BL(不推荐使用)",
     },
     "コスモスPC": {
-        "en": "Cosmos PC",
-        "ja": "コスモス-PC",
-        "zh": "Cosmos PC",
+        "en": "Cosmos PC (Deprecated)",
+        "ja": "コスモス-PC(非推奨)",
+        "zh": "Cosmos PC(不推荐使用)",
     },
     "バハ攻-短剣": {
         "en": "Bahamut Dagger",
@@ -3606,6 +3801,61 @@ var multiLangData = {
         "ja": "天司の祝福III",
         "zh": "天司的祝福III",
     },
+    "王道を征く者": {
+        "en": "Rightway Pathfinder",
+        "ja": "王道を征く者",
+        "zh": "王道を征く者",
+    },
+    "王道を征く者II": {
+        "en": "Rightway Pathfinder II",
+        "ja": "王道を征く者II",
+        "zh": "王道を征く者II",
+    },
+    "必勝の誓い": {
+        "en": "Victory's Promise (Maximum time)",
+        "ja": "必勝の誓い(最大時)",
+        "zh": "必勝の誓い(最大時)",
+    },
+    "一刺一殺": {
+        "en": "One Sting, One Kill",
+        "ja": "一刺一殺",
+        "zh": "一刺一殺",
+    },
+    "一刺一殺II": {
+        "en": "One Sting, One Kill II",
+        "ja": "一刺一殺II",
+        "zh": "一刺一殺II",
+    },
+    "戦神の打擲": {
+        "en": "God of War",
+        "ja": "戦神の打擲",
+        "zh": "戦神の打擲",
+    },
+    "戦神の打擲II": {
+        "en": "God of War II",
+        "ja": "戦神の打擲II",
+        "zh": "戦神の打擲II",
+    },
+    "万物を砕く剛技": {
+        "en": "Apocalyptic Power",
+        "ja": "万物を砕く剛技",
+        "zh": "万物を砕く剛技",
+    },
+    "万物を砕く剛技II": {
+        "en": "Apocalyptic Power II",
+        "ja": "万物を砕く剛技II",
+        "zh": "万物を砕く剛技II",
+    },
+    "戮蛇の神刀": {
+        "en": "Slaysnake's Myth",
+        "ja": "戮蛇の神刀",
+        "zh": "戮蛇の神刀",
+    },
+    "戮蛇の神刀II": {
+        "en": "Slaysnake's Myth II",
+        "ja": "戮蛇の神刀II",
+        "zh": "戮蛇の神刀II",
+    },
     "エピックブランド・ゲイン": {
         "en": "Grand Epic",
         "ja": "エピックブランド・ゲイン",
@@ -3764,9 +4014,9 @@ var multiLangData = {
         "zh": "11.0 (GW Nightmare/Ul Baha HL/Proto Baha N)",
     },
     "敵防御12.0": {
-        "en": "12.0 (Omega II(Light&Dark)/Omega HL/Huanglong&Qilin HL)",
-        "ja": "12.0 (マグナⅡ光闇/マグナHL/黄龍・黒麒麟HL)",
-        "zh": "12.0 (Omega II(Light&Dark)/Omega HL/Huanglong&Qilin HL)",
+        "en": "12.0 (Omega II(Light&Dark)/Omega HL/Huanglong&Qilin HL/Grand Order HL)",
+        "ja": "12.0 (マグナⅡ光闇/マグナHL/黄龍・黒麒麟HL/ジ・オーダー・グランデHL)",
+        "zh": "12.0 (Omega II(Light&Dark)/Omega HL/Huanglong&Qilin HL/Grand Order HL)",
     },
     "敵防御13.0": {
         "en": "13.0 (Omega II(4 Elements))",
